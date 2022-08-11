@@ -1,8 +1,13 @@
 package constant
 
 const (
-	SourceSelf      = iota // 大城小屋平台
-	SoucrceLeYoujia        // 乐有家
-	SourceLianJia          // 链家
-	SourceBeike            // 贝壳
+	SourceBCSH      = "sourceBCSH"     // 大城小屋平台
+	SoucrceLeYoujia = "sourceLeYouJia" // 乐有家
+	SourceBeike     = "sourceBeike"    // 贝壳
+)
+
+const (
+	HouseTypeSingleRoom       = "singleRoom"
+	HouseTypeOneRoomOneLiving = "oneRoomOneLiving"
+	HouseTypeTwoRoomOneLiving = "twoRoomOneLiving"
 )
