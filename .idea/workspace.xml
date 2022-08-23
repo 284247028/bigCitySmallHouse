@@ -5,17 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="927a93ea-b893-480a-bd46-e2ab44220172" name="Changes" comment="[model] house.go&#10;[constant] house.go">
-      <change afterPath="$PROJECT_DIR$/component/crawler/crawler_base/crawler_base.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/component/crawler/crawler_house/crawler_house_service/crawler_single.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/component/crawler/crawler_house/main.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/component/crawler/crawler_interface.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/constant/crawler.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/go.sum" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/structure/param/crawler.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/component/crawler/crawler.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/constant/house.go" beforeDir="false" afterPath="$PROJECT_DIR$/constant/house.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/go.mod" beforeDir="false" afterPath="$PROJECT_DIR$/go.mod" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/house.go" beforeDir="false" afterPath="$PROJECT_DIR$/model/house.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/component/crawler/crawler_base/crawler_base.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/component/crawler/crawler_house/crawler_house_service/crawler_single.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/component/crawler/crawler_house/main.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/component/crawler/crawler_interface.go" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -53,7 +48,7 @@
     &quot;RunOnceActivity.go.watchers.conflict.with.on.save.actions.check.performed&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
     &quot;go.import.settings.migrated&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/小可爱&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/qiu&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -63,8 +58,54 @@
 }</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\code\bigCitySmallHouse" />
       <recent name="D:\code\bigCitySmallHouse\component\crawler" />
     </key>
+  </component>
+  <component name="RunManager" selected="Go Test.TestCrawler in bigCitySmallHouse/tests (2)">
+    <configuration name="TestCrawler in bigCitySmallHouse/tests (1)" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
+      <module name="bigCitySmallHouse" />
+      <working_directory value="$PROJECT_DIR$/tests" />
+      <root_directory value="$PROJECT_DIR$" />
+      <kind value="PACKAGE" />
+      <package value="bigCitySmallHouse/tests" />
+      <directory value="$PROJECT_DIR$" />
+      <filePath value="$PROJECT_DIR$" />
+      <framework value="gotest" />
+      <pattern value="^\QTestCrawler\E$" />
+      <method v="2" />
+    </configuration>
+    <configuration name="TestCrawler in bigCitySmallHouse/tests (2)" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
+      <module name="bigCitySmallHouse" />
+      <working_directory value="$PROJECT_DIR$/tests" />
+      <root_directory value="$PROJECT_DIR$" />
+      <kind value="PACKAGE" />
+      <package value="bigCitySmallHouse/tests" />
+      <directory value="$PROJECT_DIR$" />
+      <filePath value="$PROJECT_DIR$" />
+      <framework value="gotest" />
+      <pattern value="^\QTestCrawler\E$" />
+      <method v="2" />
+    </configuration>
+    <configuration name="TestCrawler in bigCitySmallHouse/tests" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
+      <module name="bigCitySmallHouse" />
+      <working_directory value="$PROJECT_DIR$/tests" />
+      <root_directory value="$PROJECT_DIR$" />
+      <kind value="PACKAGE" />
+      <package value="bigCitySmallHouse/tests" />
+      <directory value="$PROJECT_DIR$" />
+      <filePath value="$PROJECT_DIR$" />
+      <framework value="gotest" />
+      <pattern value="^\QTestCrawler\E$" />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Go Test.TestCrawler in bigCitySmallHouse/tests (2)" />
+        <item itemvalue="Go Test.TestCrawler in bigCitySmallHouse/tests (1)" />
+        <item itemvalue="Go Test.TestCrawler in bigCitySmallHouse/tests" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TypeScriptGeneratedFilesManager">
@@ -88,5 +129,21 @@
   </component>
   <component name="VgoProject">
     <settings-migrated>true</settings-migrated>
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
+          <url>file://$PROJECT_DIR$/tests/crawler_test.go</url>
+          <line>16</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
+          <url>file://$PROJECT_DIR$/tests/crawler_test.go</url>
+          <line>92</line>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
