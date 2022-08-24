@@ -7,8 +7,9 @@ type Parser interface {
 }
 
 type Crawler struct {
+	Page int
 }
 
-func DefaultCrawler() *Crawler {
+func NewCrawler() *Crawler {
 	return &Crawler{}
 }
