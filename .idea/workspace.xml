@@ -5,10 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="927a93ea-b893-480a-bd46-e2ab44220172" name="Changes" comment="[model] house.go&#10;[constant] house.go">
+      <change afterPath="$PROJECT_DIR$/component/crawler/leyoujia/info.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/model/location.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/component/crawler/crawler.go" beforeDir="false" afterPath="$PROJECT_DIR$/component/crawler/crawler.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/component/crawler/http.go" beforeDir="false" afterPath="$PROJECT_DIR$/component/crawler/http.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/component/crawler/leyoujia/crawler.go" beforeDir="false" afterPath="$PROJECT_DIR$/component/crawler/leyoujia/crawler.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/house.go" beforeDir="false" afterPath="$PROJECT_DIR$/model/house.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -60,7 +60,7 @@
       <recent name="D:\code\bigCitySmallHouse\component\crawler" />
     </key>
   </component>
-  <component name="RunManager" selected="Go Test.TestFetch in bigCitySmallHouse/component/crawler/leyoujia">
+  <component name="RunManager" selected="Go Test.TestFetch in bigCitySmallHouse/component/crawler/leyoujia (1)">
     <configuration name="TestCrawler in bigCitySmallHouse/tests (1)" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
       <module name="bigCitySmallHouse" />
       <working_directory value="$PROJECT_DIR$/tests" />
@@ -97,6 +97,18 @@
       <pattern value="^\QTestCrawler\E$" />
       <method v="2" />
     </configuration>
+    <configuration name="TestFetch in bigCitySmallHouse/component/crawler/leyoujia (1)" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
+      <module name="bigCitySmallHouse" />
+      <working_directory value="$PROJECT_DIR$/component/crawler/leyoujia" />
+      <root_directory value="$PROJECT_DIR$" />
+      <kind value="PACKAGE" />
+      <package value="bigCitySmallHouse/component/crawler/leyoujia" />
+      <directory value="$PROJECT_DIR$" />
+      <filePath value="$PROJECT_DIR$" />
+      <framework value="gotest" />
+      <pattern value="^\QTestFetch\E$" />
+      <method v="2" />
+    </configuration>
     <configuration name="TestFetch in bigCitySmallHouse/component/crawler/leyoujia" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
       <module name="bigCitySmallHouse" />
       <working_directory value="$PROJECT_DIR$/component/crawler/leyoujia" />
@@ -111,6 +123,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Go Test.TestFetch in bigCitySmallHouse/component/crawler/leyoujia (1)" />
         <item itemvalue="Go Test.TestFetch in bigCitySmallHouse/component/crawler/leyoujia" />
         <item itemvalue="Go Test.TestCrawler in bigCitySmallHouse/tests (2)" />
         <item itemvalue="Go Test.TestCrawler in bigCitySmallHouse/tests (1)" />
