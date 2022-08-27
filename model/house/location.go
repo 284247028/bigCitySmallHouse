@@ -1,4 +1,4 @@
-package model
+package house
 
 // todo 定义新类型
 type Location struct {

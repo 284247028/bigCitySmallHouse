@@ -9,6 +9,7 @@ import (
 	"log"
 	"net/http"
 	"net/url"
+	"strings"
 	"testing"
 )
 
@@ -176,3 +177,69 @@ User-Agent: okhttp/3.9.1
 
 starHouseQuery=1&uuid=0000000063560a9f2070e2f300000000&pageSize=30&tgLocationKey=app_zf_list&includeFrontImage=1&pageNo=2&cityCode=001187
 */
+
+//   single
+
+func TestSingle(t *testing.T) {
+
+	url := "https://steward.leyoujia.com/stewardnew/zf/queryZfDetailV2"
+	method := "POST"
+
+	payload := strings.NewReader("houseId=60472951")
+
+	client := &http.Client{}
+	req, err := http.NewRequest(method, url, payload)
+
+	if err != nil {
+		fmt.Println(err)
+		return
+	}
+
+	str := "aa2f03e4-798e-4b3d-8d8e-6d7d286c7f66/stewardnew/zf/queryZfDetailV21661523334649houseid60472951"
+
+	sign := leyoujiaSign(str)
+	log.Println(sign)
+
+	req.Header.Add("ssid", "0000000063560a9f2070e2f300000000")
+	req.Header.Add("androidid", "8874965091b33125")
+	req.Header.Add("longitude", "114.05288999999999")
+	req.Header.Add("uuid", "aa2f03e4-798e-4b3d-8d8e-6d7d286c7f66")
+	req.Header.Add("mac", "08:00:27:6B:9E:8C")
+	req.Header.Add("timestamp", "1661523334649")
+	req.Header.Add("clientSign", "168a56dfb97e88b62f6a66fa3ac58d94")
+	req.Header.Add("oaid", "0000000063560a9f2070e2f300000000")
+	req.Header.Add("network", "WIFI")
+	req.Header.Add("clientId", "aa2f03e4-798e-4b3d-8d8e-6d7d286c7f66")
+	req.Header.Add("cit", "001187")
+	req.Header.Add("sid", "cb2a1a0050e8bcab2656662965d8ca05")
+	req.Header.Add("phoneOS", "android")
+	req.Header.Add("imei", "862641055496861")
+	req.Header.Add("tgType", "0")
+	req.Header.Add("version", "8.1.8")
+	req.Header.Add("d", "0")
+	req.Header.Add("latitude", "22.54551666666667")
+	req.Header.Add("phoneModel", "MuMu")
+	req.Header.Add("aid", "APP001")
+	req.Header.Add("channel", "online_32")
+	req.Header.Add("imsi", "")
+	req.Header.Add("carries", "0")
+	req.Header.Add("Content-Type", "application/x-www-form-urlencoded")
+	req.Header.Add("Host", "steward.leyoujia.com")
+	req.Header.Add("Connection", "Keep-Alive")
+	req.Header.Add("User-Agent", "okhttp/3.9.1")
+
+	res, err := client.Do(req)
+	if err != nil {
+		fmt.Println(err)
+		return
+	}
+	defer res.Body.Close()
+
+	body, err := ioutil.ReadAll(res.Body)
+	if err != nil {
+		fmt.Println(err)
+		return
+	}
+	fmt.Println(string(body))
+
+}

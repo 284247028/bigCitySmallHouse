@@ -1,14 +1,14 @@
-package model
+package house
 
 import "time"
 
 type House struct {
 	UId            string    // 唯一id
 	Id             string    // 来源的房子id
-	Source         string    // 来源 todo 定义新类型
+	Source         Source    // 来源
+	Type           Type      // 房子类型， 公寓/住宅
 	Name           string    // 小区名字/公寓名字/...
 	ImgUrls        []string  // 图片
-	HouseType      string    // 户型
 	Area           float64   // 面积 单位/m²
 	price          float64   // 价格
 	Floor          int       // 楼层

@@ -4,11 +4,18 @@
     <option name="autoReloadType" value="ALL" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="927a93ea-b893-480a-bd46-e2ab44220172" name="Changes" comment="[model] house.go&#10;[constant] house.go">
-      <change afterPath="$PROJECT_DIR$/component/crawler/leyoujia/info.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/model/location.go" afterDir="false" />
+    <list default="true" id="927a93ea-b893-480a-bd46-e2ab44220172" name="Changes" comment="[house] rich filed&#10;[leyoujia] info">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/house.go" beforeDir="false" afterPath="$PROJECT_DIR$/model/house.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/component/crawler/crawler.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/component/crawler/factory.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/component/crawler/html.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/component/crawler/http.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/component/crawler/leyoujia/crawler.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/component/crawler/leyoujia/crawler_test.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/component/crawler/leyoujia/info.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/house.go" beforeDir="false" afterPath="$PROJECT_DIR$/model/house/house.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/location.go" beforeDir="false" afterPath="$PROJECT_DIR$/model/house/location.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/crawler_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/tests/crawler_test.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -56,36 +63,14 @@
 }</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="D:\code\bigCitySmallHouse" />
+      <recent name="D:\code\bigCitySmallHouse\model\house" />
+      <recent name="D:\code\bigCitySmallHouse\component\crawler\factory" />
       <recent name="D:\code\bigCitySmallHouse\component\crawler" />
+      <recent name="D:\code\bigCitySmallHouse" />
     </key>
   </component>
-  <component name="RunManager" selected="Go Test.TestFetch in bigCitySmallHouse/component/crawler/leyoujia (1)">
-    <configuration name="TestCrawler in bigCitySmallHouse/tests (1)" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
-      <module name="bigCitySmallHouse" />
-      <working_directory value="$PROJECT_DIR$/tests" />
-      <root_directory value="$PROJECT_DIR$" />
-      <kind value="PACKAGE" />
-      <package value="bigCitySmallHouse/tests" />
-      <directory value="$PROJECT_DIR$" />
-      <filePath value="$PROJECT_DIR$" />
-      <framework value="gotest" />
-      <pattern value="^\QTestCrawler\E$" />
-      <method v="2" />
-    </configuration>
+  <component name="RunManager" selected="Go Test.TestLeyoujiaList in bigCitySmallHouse/component/crawler/tests">
     <configuration name="TestCrawler in bigCitySmallHouse/tests (2)" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
-      <module name="bigCitySmallHouse" />
-      <working_directory value="$PROJECT_DIR$/tests" />
-      <root_directory value="$PROJECT_DIR$" />
-      <kind value="PACKAGE" />
-      <package value="bigCitySmallHouse/tests" />
-      <directory value="$PROJECT_DIR$" />
-      <filePath value="$PROJECT_DIR$" />
-      <framework value="gotest" />
-      <pattern value="^\QTestCrawler\E$" />
-      <method v="2" />
-    </configuration>
-    <configuration name="TestCrawler in bigCitySmallHouse/tests" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
       <module name="bigCitySmallHouse" />
       <working_directory value="$PROJECT_DIR$/tests" />
       <root_directory value="$PROJECT_DIR$" />
@@ -121,13 +106,37 @@
       <pattern value="^\QTestFetch\E$" />
       <method v="2" />
     </configuration>
+    <configuration name="TestLeyoujiaList in bigCitySmallHouse/component/crawler/tests" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
+      <module name="bigCitySmallHouse" />
+      <working_directory value="$PROJECT_DIR$/component/crawler/tests" />
+      <root_directory value="$PROJECT_DIR$" />
+      <kind value="PACKAGE" />
+      <package value="bigCitySmallHouse/component/crawler/tests" />
+      <directory value="$PROJECT_DIR$" />
+      <filePath value="$PROJECT_DIR$" />
+      <framework value="gotest" />
+      <pattern value="^\QTestLeyoujiaList\E$" />
+      <method v="2" />
+    </configuration>
+    <configuration name="TestSingle in bigCitySmallHouse/tests" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
+      <module name="bigCitySmallHouse" />
+      <working_directory value="$PROJECT_DIR$/tests" />
+      <root_directory value="$PROJECT_DIR$" />
+      <kind value="PACKAGE" />
+      <package value="bigCitySmallHouse/tests" />
+      <directory value="$PROJECT_DIR$" />
+      <filePath value="$PROJECT_DIR$" />
+      <framework value="gotest" />
+      <pattern value="^\QTestSingle\E$" />
+      <method v="2" />
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Go Test.TestLeyoujiaList in bigCitySmallHouse/component/crawler/tests" />
+        <item itemvalue="Go Test.TestSingle in bigCitySmallHouse/tests" />
         <item itemvalue="Go Test.TestFetch in bigCitySmallHouse/component/crawler/leyoujia (1)" />
         <item itemvalue="Go Test.TestFetch in bigCitySmallHouse/component/crawler/leyoujia" />
         <item itemvalue="Go Test.TestCrawler in bigCitySmallHouse/tests (2)" />
-        <item itemvalue="Go Test.TestCrawler in bigCitySmallHouse/tests (1)" />
-        <item itemvalue="Go Test.TestCrawler in bigCitySmallHouse/tests" />
       </list>
     </recent_temporary>
   </component>
@@ -149,7 +158,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="I hope this is the beginning and not the end" />
     <MESSAGE value="[model] house.go&#10;[constant] house.go" />
-    <option name="LAST_COMMIT_MESSAGE" value="[model] house.go&#10;[constant] house.go" />
+    <MESSAGE value="[house] rich filed&#10;[leyoujia] info" />
+    <option name="LAST_COMMIT_MESSAGE" value="[house] rich filed&#10;[leyoujia] info" />
   </component>
   <component name="VgoProject">
     <settings-migrated>true</settings-migrated>
@@ -159,18 +169,28 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="DlvLineBreakpoint">
           <url>file://$PROJECT_DIR$/tests/crawler_test.go</url>
-          <line>16</line>
+          <line>17</line>
           <option name="timeStamp" value="1" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DlvLineBreakpoint">
           <url>file://$PROJECT_DIR$/tests/crawler_test.go</url>
-          <line>92</line>
+          <line>93</line>
           <option name="timeStamp" value="2" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DlvLineBreakpoint">
-          <url>file://$PROJECT_DIR$/component/crawler/leyoujia/crawler_test.go</url>
-          <line>17</line>
+          <url>file://$PROJECT_DIR$/crawler_dddd/leyoujia/crawler_test.go</url>
+          <line>16</line>
           <option name="timeStamp" value="3" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
+          <url>file://$PROJECT_DIR$/tests/crawler_test.go</url>
+          <line>242</line>
+          <option name="timeStamp" value="4" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
+          <url>file://$PROJECT_DIR$/tests/crawler_test.go</url>
+          <line>200</line>
+          <option name="timeStamp" value="5" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
