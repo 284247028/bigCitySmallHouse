@@ -30,7 +30,7 @@ func TestSingle(t *testing.T) {
 	if err != nil {
 		t.Fatal(err)
 	}
-	param := &crawler.SingleParam{Id: "10350749"}
+	param := &crawler.SingleParam{Id: "9038709"}
 	parser := fact.CreateSingleParser(param)
 	single, err := parser.Parse()
 	if err != nil {

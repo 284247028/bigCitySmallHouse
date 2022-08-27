@@ -6,15 +6,14 @@ import (
 	"bytes"
 	"crypto/md5"
 	"encoding/json"
-	"errors"
 	"fmt"
 	"net/http"
 	"net/url"
 	"strconv"
 )
 
-const Host = "https://steward.leyoujia.com"
-const Path = "/stewardnew/zf/queryZfList"
+const HostList = "https://steward.leyoujia.com"
+const PathList = "/stewardnew/zf/queryZfList"
 
 type ListParser struct {
 	*crawler.ListParser
@@ -80,7 +79,7 @@ func (receiver *ListParser) init() error {
 	}
 
 	if !list.Success {
-		return errors.New("init")
+		return crawler.InitErr
 	}
 
 	receiver.List = &list
@@ -88,7 +87,7 @@ func (receiver *ListParser) init() error {
 }
 
 func (receiver ListParser) newRequest() (*http.Request, error) {
-	uri := Host + Path
+	uri := HostList + PathList
 	body := receiver.buildBody()
 	reader := bytes.NewBufferString(body)
 	request, err := http.NewRequest(http.MethodPost, uri, reader)
@@ -128,7 +127,7 @@ func (receiver *ListParser) setHeader(req *http.Request) {
 	tgKey := "tglocationkeyapp_zf_list"
 	uuid := "uuid0000000063560a9f2070e2f300000000"
 
-	str := clientId + Path + timestamp + cityCode
+	str := clientId + PathList + timestamp + cityCode
 	if page == 1 {
 		str += firstQuery
 	}

@@ -243,3 +243,8 @@ func TestSingle(t *testing.T) {
 	fmt.Println(string(body))
 
 }
+
+func TestUrls(t *testing.T) {
+	// aa2f03e4-798e-4b3d-8d8e-6d7d286c7f66/stewardnew/house/queryHouseImage1661610412251comid36072houseid7407559housetype1
+
+}
