@@ -4,22 +4,7 @@
     <option name="autoReloadType" value="ALL" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="927a93ea-b893-480a-bd46-e2ab44220172" name="Changes" comment="[leyoujia] list parser">
-      <change afterPath="$PROJECT_DIR$/component/crawler/error.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/component/crawler/leyoujia/imgUrl.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/component/crawler/leyoujia/single.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/model/house/composition.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/model/house/traffic.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/component/crawler/factory/factory_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/component/crawler/factory/factory_test.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/component/crawler/info.go" beforeDir="false" afterPath="$PROJECT_DIR$/component/crawler/list_info.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/component/crawler/interface.go" beforeDir="false" afterPath="$PROJECT_DIR$/component/crawler/interface.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/component/crawler/leyoujia/list_parser.go" beforeDir="false" afterPath="$PROJECT_DIR$/component/crawler/leyoujia/list_parser.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/component/crawler/leyoujia/single_parser.go" beforeDir="false" afterPath="$PROJECT_DIR$/component/crawler/leyoujia/single_parser.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/house/house.go" beforeDir="false" afterPath="$PROJECT_DIR$/model/house/house.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/house/type.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/crawler_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/tests/crawler_test.go" afterDir="false" />
-    </list>
+    <list default="true" id="927a93ea-b893-480a-bd46-e2ab44220172" name="Changes" comment="[leyoujia] single parser" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -163,7 +148,8 @@
     <MESSAGE value="[model] house.go&#10;[constant] house.go" />
     <MESSAGE value="[house] rich filed&#10;[leyoujia] info" />
     <MESSAGE value="[leyoujia] list parser" />
-    <option name="LAST_COMMIT_MESSAGE" value="[leyoujia] list parser" />
+    <MESSAGE value="[leyoujia] single parser" />
+    <option name="LAST_COMMIT_MESSAGE" value="[leyoujia] single parser" />
   </component>
   <component name="VgoProject">
     <settings-migrated>true</settings-migrated>
