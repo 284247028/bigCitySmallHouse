@@ -243,7 +243,9 @@ func (receiver *SingleParser) setImgUrls() error {
 		receiver.House.ImgUrls = append(receiver.House.ImgUrls, item.ImagePath)
 	}
 
-	receiver.House.VideoUrls = append(receiver.House.VideoUrls, imgUrl.Data.HouseVideo.VideoUrl)
+	if imgUrl.Data.HouseVideo.VideoUrl != "" {
+		receiver.House.VideoUrls = append(receiver.House.VideoUrls, imgUrl.Data.HouseVideo.VideoUrl)
+	}
 
 	return nil
 }
