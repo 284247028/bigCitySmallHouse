@@ -16,11 +16,15 @@ func TestList(t *testing.T) {
 		Page: 1,
 	}
 	parser := fact.CreateListParser(param)
+	info, err := parser.Info()
+	if err != nil {
+		t.Fatal(err)
+	}
 	list, err := parser.Parse()
 	if err != nil {
 		t.Fatal(err)
 	}
-	log.Println(list)
+	log.Println(list, info)
 }
 
 // 10350749
@@ -30,7 +34,7 @@ func TestSingle(t *testing.T) {
 	if err != nil {
 		t.Fatal(err)
 	}
-	param := &crawler.SingleParam{Id: "9038709"}
+	param := &crawler.SingleParam{Id: "90920524"}
 	parser := fact.CreateSingleParser(param)
 	single, err := parser.Parse()
 	if err != nil {
@@ -61,7 +65,7 @@ func TestAll(t *testing.T) {
 		count++
 		log.Printf("single parsing %d/%d\n", count, total)
 		singleParam := crawler.NewSingleParam()
-		singleParam.Id = item.Id
+		singleParam.Id = item.SourceId
 		singleParser := fact.CreateSingleParser(singleParam)
 		h, err := singleParser.Parse()
 		if err != nil {
@@ -71,4 +75,21 @@ func TestAll(t *testing.T) {
 	}
 
 	log.Println(houses)
+}
+
+func TestArr(t *testing.T) {
+	var arr = []int{1, 2, 3}
+	Append(arr)
+	//log.Println(arr)
+}
+
+func Append(arr []int) {
+	for i := 4; i < 20; i++ {
+		arr = append(arr, i)
+	}
+	tMap := make(map[int]int)
+	for _, v := range arr {
+		tMap[v] = v
+	}
+	log.Println(tMap)
 }

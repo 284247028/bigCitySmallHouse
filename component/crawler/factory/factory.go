@@ -12,6 +12,6 @@ func NewFactory(source house.Source) (crawler.FactoryInterface, error) {
 	case house.SourceLeyoujia:
 		return leyoujia.NewFactory(), nil
 	default:
-		return nil, errors.New("new crawler factory")
+		return nil, errors.New("source error")
 	}
 }

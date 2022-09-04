@@ -1,7 +1,7 @@
 package house
 
 type Composition struct {
-	Parlor int
-	Room   int
-	Toilet int
+	Parlor int `bson:"parlor"`
+	Room   int `bson:"room"`
+	Toilet int `bson:"toilet"`
 }

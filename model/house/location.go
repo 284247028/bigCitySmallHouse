@@ -1,9 +1,8 @@
 package house
 
-// todo 定义新类型
 type Location struct {
-	Province string
-	City     string
-	Region   string
-	Extra    string
+	Province string `bson:"province"`
+	City     string `bson:"city"`
+	Region   string `bson:"region"`
+	Extra    string `bson:"extra"`
 }

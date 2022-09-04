@@ -144,7 +144,7 @@ func (receiver *SingleParser) Parse() (*house.House, error) {
 }
 
 func (receiver *SingleParser) setId() {
-	receiver.House.Id = strconv.Itoa(receiver.Single.Data.Zf.HouseId)
+	receiver.House.SourceId = strconv.Itoa(receiver.Single.Data.Zf.HouseId)
 }
 
 func (receiver *SingleParser) setSource() {
@@ -157,6 +157,8 @@ func (receiver *SingleParser) setType() {
 		receiver.House.Type = house.TypeApartment
 	case "普通住宅":
 		receiver.House.Type = house.TypeResidence
+	case "别墅":
+		receiver.House.Type = house.TypeVilla
 	}
 }
 

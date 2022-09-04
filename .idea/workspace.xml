@@ -4,10 +4,18 @@
     <option name="autoReloadType" value="ALL" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="927a93ea-b893-480a-bd46-e2ab44220172" name="Changes" comment="[删除无用目录]">
+    <list default="true" id="927a93ea-b893-480a-bd46-e2ab44220172" name="Changes" comment="[leyoujia] 优化空视频url">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/component/crawler/factory/factory.go" beforeDir="false" afterPath="$PROJECT_DIR$/component/crawler/factory/factory.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/component/crawler/factory/factory_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/component/crawler/factory/factory_test.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/component/crawler/leyoujia/list_parser.go" beforeDir="false" afterPath="$PROJECT_DIR$/component/crawler/leyoujia/list_parser.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/component/crawler/leyoujia/single_parser.go" beforeDir="false" afterPath="$PROJECT_DIR$/component/crawler/leyoujia/single_parser.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/go.mod" beforeDir="false" afterPath="$PROJECT_DIR$/go.mod" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/go.sum" beforeDir="false" afterPath="$PROJECT_DIR$/go.sum" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/house/composition.go" beforeDir="false" afterPath="$PROJECT_DIR$/model/house/composition.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/house/house.go" beforeDir="false" afterPath="$PROJECT_DIR$/model/house/house.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/house/location.go" beforeDir="false" afterPath="$PROJECT_DIR$/model/house/location.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/house/traffic.go" beforeDir="false" afterPath="$PROJECT_DIR$/model/house/traffic.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -17,6 +25,7 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="Go Application" />
         <option value="Go File" />
       </list>
     </option>
@@ -33,36 +42,56 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;DefaultGoTemplateProperty&quot;: &quot;Go File&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.go.format.on.save.advertiser.fired&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.go.formatter.settings.were.checked&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.go.migrated.go.modules.settings&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.go.modules.go.list.on.any.changes.was.set&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.go.watchers.conflict.with.on.save.actions.check.performed&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;go.import.settings.migrated&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/qiu&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;com.maddyhome.idea.vim.ui.VimEmulationConfigurable&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "DefaultGoTemplateProperty": "Go File",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.go.format.on.save.advertiser.fired": "true",
+    "RunOnceActivity.go.formatter.settings.were.checked": "true",
+    "RunOnceActivity.go.migrated.go.modules.settings": "true",
+    "RunOnceActivity.go.modules.go.list.on.any.changes.was.set": "true",
+    "RunOnceActivity.go.watchers.conflict.with.on.save.actions.check.performed": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "go.import.settings.migrated": "true",
+    "last_opened_file_path": "C:/Users/qiu",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "settings.editor.selected.configurable": "com.maddyhome.idea.vim.ui.VimEmulationConfigurable"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\code\bigCitySmallHouse\component\crawler\leyoujia" />
+      <recent name="D:\code\bigCitySmallHouse\mongodb\collection" />
+      <recent name="D:\code\bigCitySmallHouse" />
       <recent name="D:\code\bigCitySmallHouse\model\house" />
       <recent name="D:\code\bigCitySmallHouse\component\crawler\factory" />
-      <recent name="D:\code\bigCitySmallHouse\component\crawler" />
-      <recent name="D:\code\bigCitySmallHouse" />
     </key>
   </component>
-  <component name="RunManager" selected="Go Test.TestAll in bigCitySmallHouse/component/crawler/factory">
-    <configuration name="TestAll in bigCitySmallHouse/component/crawler/factory" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="Go Test.TestArr in bigCitySmallHouse/component/crawler/factory">
+    <configuration name="go build bigCitySmallHouse/component/crawler/leyoujia/script/crawler_houses" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
+      <module name="bigCitySmallHouse" />
+      <working_directory value="$PROJECT_DIR$" />
+      <parameters value="-source=leyoujia" />
+      <kind value="PACKAGE" />
+      <package value="bigCitySmallHouse/component/crawler/leyoujia/script/crawler_houses" />
+      <directory value="$PROJECT_DIR$" />
+      <filePath value="$PROJECT_DIR$/component/crawler/leyoujia/script/crawler_houses/crawler_houses.go" />
+      <method v="2" />
+    </configuration>
+    <configuration name="go build bigCitySmallHouse/component/crawler/leyoujia/script/fill_houses" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
+      <module name="bigCitySmallHouse" />
+      <working_directory value="$PROJECT_DIR$" />
+      <kind value="PACKAGE" />
+      <package value="bigCitySmallHouse/component/crawler/leyoujia/script/fill_houses" />
+      <directory value="$PROJECT_DIR$" />
+      <filePath value="$PROJECT_DIR$/component/crawler/leyoujia/script/fill_houses/fill_house.go" />
+      <method v="2" />
+    </configuration>
+    <configuration name="TestArr in bigCitySmallHouse/component/crawler/factory" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
       <module name="bigCitySmallHouse" />
       <working_directory value="$PROJECT_DIR$/component/crawler/factory" />
       <root_directory value="$PROJECT_DIR$" />
@@ -71,22 +100,10 @@
       <directory value="$PROJECT_DIR$" />
       <filePath value="$PROJECT_DIR$" />
       <framework value="gotest" />
-      <pattern value="^\QTestAll\E$" />
+      <pattern value="^\QTestArr\E$" />
       <method v="2" />
     </configuration>
-    <configuration name="TestLeyoujiaList in bigCitySmallHouse/component/crawler/tests" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
-      <module name="bigCitySmallHouse" />
-      <working_directory value="$PROJECT_DIR$/component/crawler/tests" />
-      <root_directory value="$PROJECT_DIR$" />
-      <kind value="PACKAGE" />
-      <package value="bigCitySmallHouse/component/crawler/tests" />
-      <directory value="$PROJECT_DIR$" />
-      <filePath value="$PROJECT_DIR$" />
-      <framework value="gotest" />
-      <pattern value="^\QTestLeyoujiaList\E$" />
-      <method v="2" />
-    </configuration>
-    <configuration name="TestSingle in bigCitySmallHouse/component/crawler/factory (1)" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
+    <configuration name="TestList in bigCitySmallHouse/component/crawler/factory" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
       <module name="bigCitySmallHouse" />
       <working_directory value="$PROJECT_DIR$/component/crawler/factory" />
       <root_directory value="$PROJECT_DIR$" />
@@ -95,7 +112,7 @@
       <directory value="$PROJECT_DIR$" />
       <filePath value="$PROJECT_DIR$" />
       <framework value="gotest" />
-      <pattern value="^\QTestSingle\E$" />
+      <pattern value="^\QTestList\E$" />
       <method v="2" />
     </configuration>
     <configuration name="TestSingle in bigCitySmallHouse/component/crawler/factory" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
@@ -110,25 +127,13 @@
       <pattern value="^\QTestSingle\E$" />
       <method v="2" />
     </configuration>
-    <configuration name="TestSingle in bigCitySmallHouse/tests" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
-      <module name="bigCitySmallHouse" />
-      <working_directory value="$PROJECT_DIR$/tests" />
-      <root_directory value="$PROJECT_DIR$" />
-      <kind value="PACKAGE" />
-      <package value="bigCitySmallHouse/tests" />
-      <directory value="$PROJECT_DIR$" />
-      <filePath value="$PROJECT_DIR$" />
-      <framework value="gotest" />
-      <pattern value="^\QTestSingle\E$" />
-      <method v="2" />
-    </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Go Test.TestAll in bigCitySmallHouse/component/crawler/factory" />
-        <item itemvalue="Go Test.TestSingle in bigCitySmallHouse/component/crawler/factory (1)" />
+        <item itemvalue="Go Test.TestArr in bigCitySmallHouse/component/crawler/factory" />
+        <item itemvalue="Go Build.go build bigCitySmallHouse/component/crawler/leyoujia/script/fill_houses" />
+        <item itemvalue="Go Build.go build bigCitySmallHouse/component/crawler/leyoujia/script/crawler_houses" />
+        <item itemvalue="Go Test.TestList in bigCitySmallHouse/component/crawler/factory" />
         <item itemvalue="Go Test.TestSingle in bigCitySmallHouse/component/crawler/factory" />
-        <item itemvalue="Go Test.TestLeyoujiaList in bigCitySmallHouse/component/crawler/tests" />
-        <item itemvalue="Go Test.TestSingle in bigCitySmallHouse/tests" />
       </list>
     </recent_temporary>
   </component>
@@ -154,7 +159,8 @@
     <MESSAGE value="[leyoujia] list parser" />
     <MESSAGE value="[leyoujia] single parser" />
     <MESSAGE value="[删除无用目录]" />
-    <option name="LAST_COMMIT_MESSAGE" value="[删除无用目录]" />
+    <MESSAGE value="[leyoujia] 优化空视频url" />
+    <option name="LAST_COMMIT_MESSAGE" value="[leyoujia] 优化空视频url" />
   </component>
   <component name="VgoProject">
     <settings-migrated>true</settings-migrated>
@@ -189,8 +195,13 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DlvLineBreakpoint">
           <url>file://$PROJECT_DIR$/component/crawler/factory/factory_test.go</url>
-          <line>72</line>
+          <line>76</line>
           <option name="timeStamp" value="20" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
+          <url>file://$PROJECT_DIR$/component/crawler/factory/factory_test.go</url>
+          <line>19</line>
+          <option name="timeStamp" value="35" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

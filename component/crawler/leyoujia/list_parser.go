@@ -35,7 +35,7 @@ func (receiver ListParser) Parse() ([]houseModel.House, error) {
 	houses := make([]houseModel.House, 0, len(items))
 	for _, item := range items {
 		house := houseModel.House{}
-		house.Id = strconv.Itoa(item.HouseId)
+		house.SourceId = strconv.Itoa(item.HouseId)
 		//house.Source = houseModel.SourceLeyoujia
 		//switch item.PropertyType {
 		//case "公寓":
