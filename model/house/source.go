@@ -2,6 +2,7 @@ package house
 
 const (
 	SourceLeyoujia = "leyoujia"
+	SourceAnjuke   = "anjuke"
 )
 
 type Source string

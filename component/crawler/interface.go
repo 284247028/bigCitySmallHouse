@@ -14,8 +14,7 @@ type ParserInterface interface {
 
 type ListParserInterface interface {
 	ParserInterface
-	Parse() ([]house.House, error)
-	Info() (*ListInfo, error)
+	Parse() ([]house.House, *ListInfo, error)
 }
 
 type SingleParserInterface interface {

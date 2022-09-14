@@ -36,30 +36,26 @@ func main() {
 
 func fetchAll() ([]house.House, error) {
 	log.Println("fetchAll...")
-	param := crawler.ListParam{
-		Page: 1,
-	}
-	houseFactory, err := factory.NewFactory(house.Source(_source))
-	if err != nil {
-		return nil, err
-	}
-	parser := houseFactory.CreateListParser(&param)
-	info, err := parser.Info()
-	if err != nil {
-		return nil, err
-	}
 
 	houseMap := make(map[string]house.House) // 这里用map是为了去除重复数据，乐有家爬取到的数据有一小部分重复
+	var allHouses []house.House
 
-	for i := 1; i <= info.TotalPage; i++ {
-		log.Printf("fetchPage %d/%d\n", i, info.TotalPage)
-		tHouses, err := fetchPage(i)
+	page := 0
+	for {
+		page++
+		tHouses, info, err := fetchPage(page)
 		if err != nil {
 			return nil, err
 		}
+		log.Printf("fetchPage %d/%d\n", page, info.TotalPage)
+		allHouses = append(allHouses, tHouses...)
 		houses2map(houseMap, tHouses)
+		if page >= info.TotalPage || info.IsLastPage {
+			break
+		}
 	}
 
+	log.Println("总抓取数据长度（可能包含重复）", len(allHouses))
 	houses := houseMap2Arr(houseMap)
 
 	return houses, nil
@@ -79,10 +75,10 @@ func houseMap2Arr(houseMap map[string]house.House) []house.House {
 	return houses
 }
 
-func fetchPage(page int) ([]house.House, error) {
+func fetchPage(page int) ([]house.House, *crawler.ListInfo, error) {
 	houseFactory, err := factory.NewFactory(house.Source(_source))
 	if err != nil {
-		return nil, err
+		return nil, nil, err
 	}
 	param := crawler.ListParam{
 		Page: page,

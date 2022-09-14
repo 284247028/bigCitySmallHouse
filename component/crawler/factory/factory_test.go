@@ -8,19 +8,17 @@ import (
 )
 
 func TestList(t *testing.T) {
-	fact, err := NewFactory(house.SourceLeyoujia)
+	//fact, err := NewFactory(house.SourceLeyoujia)
+	fact, err := NewFactory(house.SourceAnjuke)
 	if err != nil {
 		t.Fatal(err)
 	}
 	param := &crawler.ListParam{
-		Page: 1,
+		Page: 2,
 	}
 	parser := fact.CreateListParser(param)
-	info, err := parser.Info()
-	if err != nil {
-		t.Fatal(err)
-	}
-	list, err := parser.Parse()
+
+	list, info, err := parser.Parse()
 	if err != nil {
 		t.Fatal(err)
 	}
@@ -30,11 +28,12 @@ func TestList(t *testing.T) {
 // 10350749
 
 func TestSingle(t *testing.T) {
-	fact, err := NewFactory(house.SourceLeyoujia)
+	//fact, err := NewFactory(house.SourceLeyoujia)
+	fact, err := NewFactory(house.SourceAnjuke)
 	if err != nil {
 		t.Fatal(err)
 	}
-	param := &crawler.SingleParam{Id: "90920524"}
+	param := &crawler.SingleParam{Id: "2671816932039689"}
 	parser := fact.CreateSingleParser(param)
 	single, err := parser.Parse()
 	if err != nil {
@@ -53,7 +52,7 @@ func TestAll(t *testing.T) {
 	listParam.Page = 4
 	listParser := fact.CreateListParser(listParam)
 
-	list, err := listParser.Parse()
+	list, _, err := listParser.Parse()
 	if err != nil {
 		t.Fatal(err)
 	}

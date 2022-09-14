@@ -25,10 +25,10 @@ func NewListParser(param *crawler.ListParam) *ListParser {
 	return &ListParser{ListParser: listParser}
 }
 
-func (receiver ListParser) Parse() ([]houseModel.House, error) {
+func (receiver ListParser) Parse() ([]houseModel.House, *crawler.ListInfo, error) {
 	err := receiver.init()
 	if err != nil {
-		return nil, err
+		return nil, nil, err
 	}
 
 	items := receiver.List.Data.ZfList.Data
@@ -45,22 +45,14 @@ func (receiver ListParser) Parse() ([]houseModel.House, error) {
 		houses = append(houses, house)
 	}
 
-	return houses, nil
-}
-
-func (receiver ListParser) Info() (*crawler.ListInfo, error) {
-	err := receiver.init()
-	if err != nil {
-		return nil, err
-	}
-
 	data := receiver.List.Data.ZfList
 	info := &crawler.ListInfo{
 		PageSize:   data.PageSize,
 		TotalPage:  data.TotalPage,
 		TotalCount: data.TotalRecord,
 	}
-	return info, nil
+
+	return houses, info, nil
 }
 
 func (receiver *ListParser) init() error {
