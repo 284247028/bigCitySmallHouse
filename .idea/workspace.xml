@@ -6,14 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="927a93ea-b893-480a-bd46-e2ab44220172" name="Changes" comment="[leyoujia] 爬取基本完成，除了有重复数据">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/component/crawler/factory/factory.go" beforeDir="false" afterPath="$PROJECT_DIR$/component/crawler/factory/factory.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/component/crawler/factory/factory_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/component/crawler/factory/factory_test.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/component/crawler/interface.go" beforeDir="false" afterPath="$PROJECT_DIR$/component/crawler/interface.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/component/crawler/leyoujia/list_parser.go" beforeDir="false" afterPath="$PROJECT_DIR$/component/crawler/leyoujia/list_parser.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/component/crawler/list_info.go" beforeDir="false" afterPath="$PROJECT_DIR$/component/crawler/list_info.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/component/crawler/parser.go" beforeDir="false" afterPath="$PROJECT_DIR$/component/crawler/parser.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/component/crawler/script/crawler_houses/crawler_houses.go" beforeDir="false" afterPath="$PROJECT_DIR$/component/crawler/script/crawler_houses/crawler_houses.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/house/source.go" beforeDir="false" afterPath="$PROJECT_DIR$/model/house/source.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo/mongodb/crud.go" beforeDir="false" afterPath="$PROJECT_DIR$/demo/mongodb/crud.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/house/house.go" beforeDir="false" afterPath="$PROJECT_DIR$/model/house/house.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -62,76 +56,81 @@
 }</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\code\bigCitySmallHouse\mongodb\tests" />
       <recent name="D:\code\bigCitySmallHouse\component\crawler" />
       <recent name="D:\code\bigCitySmallHouse\component\crawler\leyoujia" />
       <recent name="D:\code\bigCitySmallHouse\mongodb\collection" />
       <recent name="D:\code\bigCitySmallHouse" />
-      <recent name="D:\code\bigCitySmallHouse\model\house" />
     </key>
   </component>
-  <component name="RunManager" selected="Go Build.go build bigCitySmallHouse/component/crawler/script/crawler_houses">
-    <configuration name="go build bigCitySmallHouse/component/crawler/leyoujia/script/fill_houses" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="Go Test.TestUpdateMany in bigCitySmallHouse/demo/mongodb">
+    <configuration name="TestName in bigCitySmallHouse/demo/mongodb" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
       <module name="bigCitySmallHouse" />
-      <working_directory value="$PROJECT_DIR$" />
-      <kind value="PACKAGE" />
-      <package value="bigCitySmallHouse/component/crawler/leyoujia/script/fill_houses" />
-      <directory value="$PROJECT_DIR$" />
-      <filePath value="$PROJECT_DIR$/component/crawler/leyoujia/script/fill_houses/fill_house.go" />
-      <method v="2" />
-    </configuration>
-    <configuration name="go build bigCitySmallHouse/component/crawler/script/crawler_houses" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
-      <module name="bigCitySmallHouse" />
-      <working_directory value="$PROJECT_DIR$" />
-      <parameters value="-source=anjuke" />
-      <kind value="PACKAGE" />
-      <package value="bigCitySmallHouse/component/crawler/script/crawler_houses" />
-      <directory value="$PROJECT_DIR$" />
-      <filePath value="$PROJECT_DIR$/component/crawler/script/crawler_houses/crawler_houses.go" />
-      <method v="2" />
-    </configuration>
-    <configuration name="TestArr in bigCitySmallHouse/component/crawler/factory" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
-      <module name="bigCitySmallHouse" />
-      <working_directory value="$PROJECT_DIR$/component/crawler/factory" />
+      <working_directory value="$PROJECT_DIR$/demo/mongodb" />
       <root_directory value="$PROJECT_DIR$" />
       <kind value="PACKAGE" />
-      <package value="bigCitySmallHouse/component/crawler/factory" />
+      <package value="bigCitySmallHouse/demo/mongodb" />
       <directory value="$PROJECT_DIR$" />
       <filePath value="$PROJECT_DIR$" />
       <framework value="gotest" />
-      <pattern value="^\QTestArr\E$" />
+      <pattern value="^\QTestName\E$" />
       <method v="2" />
     </configuration>
-    <configuration name="TestList in bigCitySmallHouse/component/crawler/factory (1)" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
+    <configuration name="TestUpdateById in bigCitySmallHouse/demo/mongodb" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
       <module name="bigCitySmallHouse" />
-      <working_directory value="$PROJECT_DIR$/component/crawler/factory" />
+      <working_directory value="$PROJECT_DIR$/demo/mongodb" />
       <root_directory value="$PROJECT_DIR$" />
       <kind value="PACKAGE" />
-      <package value="bigCitySmallHouse/component/crawler/factory" />
+      <package value="bigCitySmallHouse/demo/mongodb" />
       <directory value="$PROJECT_DIR$" />
       <filePath value="$PROJECT_DIR$" />
       <framework value="gotest" />
-      <pattern value="^\QTestList\E$" />
+      <pattern value="^\QTestUpdateById\E$" />
       <method v="2" />
     </configuration>
-    <configuration name="TestSingle in bigCitySmallHouse/component/crawler/factory" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
+    <configuration name="TestUpdateMany in bigCitySmallHouse/demo/mongodb" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
       <module name="bigCitySmallHouse" />
-      <working_directory value="$PROJECT_DIR$/component/crawler/factory" />
+      <working_directory value="$PROJECT_DIR$/demo/mongodb" />
       <root_directory value="$PROJECT_DIR$" />
       <kind value="PACKAGE" />
-      <package value="bigCitySmallHouse/component/crawler/factory" />
+      <package value="bigCitySmallHouse/demo/mongodb" />
       <directory value="$PROJECT_DIR$" />
       <filePath value="$PROJECT_DIR$" />
       <framework value="gotest" />
-      <pattern value="^\QTestSingle\E$" />
+      <pattern value="^\QTestUpdateMany\E$" />
+      <method v="2" />
+    </configuration>
+    <configuration name="TestUpsertById in bigCitySmallHouse/demo/mongodb" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
+      <module name="bigCitySmallHouse" />
+      <working_directory value="$PROJECT_DIR$/demo/mongodb" />
+      <root_directory value="$PROJECT_DIR$" />
+      <kind value="PACKAGE" />
+      <package value="bigCitySmallHouse/demo/mongodb" />
+      <directory value="$PROJECT_DIR$" />
+      <filePath value="$PROJECT_DIR$" />
+      <framework value="gotest" />
+      <pattern value="^\QTestUpsertById\E$" />
+      <method v="2" />
+    </configuration>
+    <configuration name="TestUpsertOne in bigCitySmallHouse/demo/mongodb" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
+      <module name="bigCitySmallHouse" />
+      <working_directory value="$PROJECT_DIR$/demo/mongodb" />
+      <root_directory value="$PROJECT_DIR$" />
+      <kind value="PACKAGE" />
+      <package value="bigCitySmallHouse/demo/mongodb" />
+      <directory value="$PROJECT_DIR$" />
+      <filePath value="$PROJECT_DIR$" />
+      <framework value="gotest" />
+      <pattern value="^\QTestUpsertOne\E$" />
       <method v="2" />
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Go Build.go build bigCitySmallHouse/component/crawler/script/crawler_houses" />
-        <item itemvalue="Go Test.TestList in bigCitySmallHouse/component/crawler/factory (1)" />
-        <item itemvalue="Go Test.TestSingle in bigCitySmallHouse/component/crawler/factory" />
-        <item itemvalue="Go Test.TestArr in bigCitySmallHouse/component/crawler/factory" />
-        <item itemvalue="Go Build.go build bigCitySmallHouse/component/crawler/leyoujia/script/fill_houses" />
+        <item itemvalue="Go Test.TestUpdateMany in bigCitySmallHouse/demo/mongodb" />
+        <item itemvalue="Go Test.TestUpsertById in bigCitySmallHouse/demo/mongodb" />
+        <item itemvalue="Go Test.TestUpdateById in bigCitySmallHouse/demo/mongodb" />
+        <item itemvalue="Go Test.TestUpsertOne in bigCitySmallHouse/demo/mongodb" />
+        <item itemvalue="Go Test.TestName in bigCitySmallHouse/demo/mongodb" />
       </list>
     </recent_temporary>
   </component>
@@ -201,6 +200,11 @@
           <url>file://$PROJECT_DIR$/component/crawler/anjuke/single_parser.go</url>
           <line>31</line>
           <option name="timeStamp" value="46" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
+          <url>file://$PROJECT_DIR$/demo/mongodb/crud_test.go</url>
+          <line>134</line>
+          <option name="timeStamp" value="47" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
