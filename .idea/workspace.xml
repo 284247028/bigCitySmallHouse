@@ -4,10 +4,9 @@
     <option name="autoReloadType" value="ALL" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="927a93ea-b893-480a-bd46-e2ab44220172" name="Changes" comment="[leyoujia] 爬取基本完成，除了有重复数据">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/demo/mongodb/crud.go" beforeDir="false" afterPath="$PROJECT_DIR$/demo/mongodb/crud.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/house/house.go" beforeDir="false" afterPath="$PROJECT_DIR$/model/house/house.go" afterDir="false" />
+    <list default="true" id="927a93ea-b893-480a-bd46-e2ab44220172" name="Changes" comment="[mongodb] crud">
+      <change afterPath="$PROJECT_DIR$/mongodb/tests/mongodb_test.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mongodb/collection/collection.go" beforeDir="false" afterPath="$PROJECT_DIR$/mongodb/collection/collection.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -158,7 +157,8 @@
     <MESSAGE value="[删除无用目录]" />
     <MESSAGE value="[leyoujia] 优化空视频url" />
     <MESSAGE value="[leyoujia] 爬取基本完成，除了有重复数据" />
-    <option name="LAST_COMMIT_MESSAGE" value="[leyoujia] 爬取基本完成，除了有重复数据" />
+    <MESSAGE value="[mongodb] crud" />
+    <option name="LAST_COMMIT_MESSAGE" value="[mongodb] crud" />
   </component>
   <component name="VgoProject">
     <settings-migrated>true</settings-migrated>
