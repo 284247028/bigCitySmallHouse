@@ -3,10 +3,10 @@ package main
 import (
 	"bigCitySmallHouse/component/crawler"
 	"bigCitySmallHouse/component/crawler/factory"
-	"bigCitySmallHouse/component/crawler/script"
 	"bigCitySmallHouse/model/house"
 	"bigCitySmallHouse/mongodb"
 	"bigCitySmallHouse/mongodb/collection"
+	"bigCitySmallHouse/mongodb/collections"
 	"context"
 	"flag"
 	"go.mongodb.org/mongo-driver/bson"
@@ -35,7 +35,15 @@ func main() {
 	if err != nil {
 		log.Fatalln(err)
 	}
-	script.HouseUpdate(houses)
+	opts := &collection.Options{}
+	opts.DB = mongodb.DBCrawler
+	opts.Collection = house.CollectionName
+	houseCollection := collections.NewCollectionHouse(opts)
+	results, err := houseCollection.HouseUpsertMany(houses)
+	if err != nil {
+		log.Fatalln(err)
+	}
+	log.Println(results)
 }
 
 func fetch() ([]house.House, error) {

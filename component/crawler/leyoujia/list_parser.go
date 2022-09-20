@@ -34,15 +34,15 @@ func (receiver ListParser) Parse() ([]houseModel.House, *crawler.ListInfo, error
 	items := receiver.List.Data.ZfList.Data
 	houses := make([]houseModel.House, 0, len(items))
 	for _, item := range items {
-		house := houseModel.House{}
-		house.SourceId = strconv.Itoa(item.HouseId)
-		//house.Source = houseModel.SourceLeyoujia
+		tHouse := houseModel.House{}
+		tHouse.SourceId = strconv.Itoa(item.HouseId)
+		tHouse.Source = houseModel.SourceLeyoujia
 		//switch item.PropertyType {
 		//case "公寓":
 		//	house.Type = houseModel.TypeApartment
 		//}
 		//house.Name = item.ComAlias
-		houses = append(houses, house)
+		houses = append(houses, tHouse)
 	}
 
 	data := receiver.List.Data.ZfList

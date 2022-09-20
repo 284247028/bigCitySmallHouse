@@ -5,8 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="927a93ea-b893-480a-bd46-e2ab44220172" name="Changes" comment="[mongodb] crud">
-      <change afterPath="$PROJECT_DIR$/mongodb/tests/mongodb_test.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mongodb/collections/house.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/component/crawler/leyoujia/list_parser.go" beforeDir="false" afterPath="$PROJECT_DIR$/component/crawler/leyoujia/list_parser.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/component/crawler/script/crawler_houses/crawler_houses.go" beforeDir="false" afterPath="$PROJECT_DIR$/component/crawler/script/crawler_houses/crawler_houses.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/component/crawler/script/fill_houses/fill_house.go" beforeDir="false" afterPath="$PROJECT_DIR$/component/crawler/script/fill_houses/fill_house.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/house/house.go" beforeDir="false" afterPath="$PROJECT_DIR$/model/house/house.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/mongodb/collection/collection.go" beforeDir="false" afterPath="$PROJECT_DIR$/mongodb/collection/collection.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mongodb/mongodb.go" beforeDir="false" afterPath="$PROJECT_DIR$/mongodb/mongodb.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -55,24 +61,32 @@
 }</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\code\bigCitySmallHouse\mongodb" />
       <recent name="D:\code\bigCitySmallHouse\mongodb\tests" />
       <recent name="D:\code\bigCitySmallHouse\component\crawler" />
       <recent name="D:\code\bigCitySmallHouse\component\crawler\leyoujia" />
       <recent name="D:\code\bigCitySmallHouse\mongodb\collection" />
-      <recent name="D:\code\bigCitySmallHouse" />
     </key>
   </component>
-  <component name="RunManager" selected="Go Test.TestUpdateMany in bigCitySmallHouse/demo/mongodb">
-    <configuration name="TestName in bigCitySmallHouse/demo/mongodb" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="Go Build.go build bigCitySmallHouse/component/crawler/script/fill_houses">
+    <configuration name="go build bigCitySmallHouse/component/crawler/script/crawler_houses" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
       <module name="bigCitySmallHouse" />
-      <working_directory value="$PROJECT_DIR$/demo/mongodb" />
-      <root_directory value="$PROJECT_DIR$" />
+      <working_directory value="$PROJECT_DIR$" />
+      <parameters value="-source=leyoujia" />
       <kind value="PACKAGE" />
-      <package value="bigCitySmallHouse/demo/mongodb" />
+      <package value="bigCitySmallHouse/component/crawler/script/crawler_houses" />
       <directory value="$PROJECT_DIR$" />
-      <filePath value="$PROJECT_DIR$" />
-      <framework value="gotest" />
-      <pattern value="^\QTestName\E$" />
+      <filePath value="$PROJECT_DIR$/component/crawler/script/crawler_houses/crawler_houses.go" />
+      <method v="2" />
+    </configuration>
+    <configuration name="go build bigCitySmallHouse/component/crawler/script/fill_houses" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
+      <module name="bigCitySmallHouse" />
+      <working_directory value="$PROJECT_DIR$" />
+      <parameters value="-source=leyoujia" />
+      <kind value="PACKAGE" />
+      <package value="bigCitySmallHouse/component/crawler/script/fill_houses" />
+      <directory value="$PROJECT_DIR$" />
+      <filePath value="$PROJECT_DIR$/component/crawler/script/fill_houses/fill_house.go" />
       <method v="2" />
     </configuration>
     <configuration name="TestUpdateById in bigCitySmallHouse/demo/mongodb" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
@@ -111,25 +125,13 @@
       <pattern value="^\QTestUpsertById\E$" />
       <method v="2" />
     </configuration>
-    <configuration name="TestUpsertOne in bigCitySmallHouse/demo/mongodb" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
-      <module name="bigCitySmallHouse" />
-      <working_directory value="$PROJECT_DIR$/demo/mongodb" />
-      <root_directory value="$PROJECT_DIR$" />
-      <kind value="PACKAGE" />
-      <package value="bigCitySmallHouse/demo/mongodb" />
-      <directory value="$PROJECT_DIR$" />
-      <filePath value="$PROJECT_DIR$" />
-      <framework value="gotest" />
-      <pattern value="^\QTestUpsertOne\E$" />
-      <method v="2" />
-    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Go Build.go build bigCitySmallHouse/component/crawler/script/fill_houses" />
+        <item itemvalue="Go Build.go build bigCitySmallHouse/component/crawler/script/crawler_houses" />
         <item itemvalue="Go Test.TestUpdateMany in bigCitySmallHouse/demo/mongodb" />
         <item itemvalue="Go Test.TestUpsertById in bigCitySmallHouse/demo/mongodb" />
         <item itemvalue="Go Test.TestUpdateById in bigCitySmallHouse/demo/mongodb" />
-        <item itemvalue="Go Test.TestUpsertOne in bigCitySmallHouse/demo/mongodb" />
-        <item itemvalue="Go Test.TestName in bigCitySmallHouse/demo/mongodb" />
       </list>
     </recent_temporary>
   </component>

@@ -9,6 +9,7 @@ const CollectionName = "house"
 
 type House struct {
 	Id          primitive.ObjectID `bson:"_id,omitempty"` // mongo id
+	UId         string             `bson:"uid"`           // 怕不同房源source_id重复导致数据覆盖, source + _ + source_id
 	SourceId    string             `bson:"source_id"`     // 来源的房子id
 	Source      Source             `bson:"source"`        // 来源
 	Type        Type               `bson:"type"`          // 房子类型， 公寓/住宅

@@ -3,9 +3,10 @@ package main
 import (
 	"bigCitySmallHouse/component/crawler"
 	"bigCitySmallHouse/component/crawler/factory"
-	"bigCitySmallHouse/component/crawler/script"
 	"bigCitySmallHouse/model/house"
 	"bigCitySmallHouse/mongodb"
+	"bigCitySmallHouse/mongodb/collection"
+	"bigCitySmallHouse/mongodb/collections"
 	"flag"
 	"log"
 )
@@ -27,15 +28,19 @@ func main() {
 	if err != nil {
 		log.Fatalln(err)
 	}
-	res, err := script.HousesInsert(houses)
+	opts := &collection.Options{}
+	opts.DB = mongodb.DBCrawler
+	opts.Collection = house.CollectionName
+	houseCollection := collections.NewCollectionHouse(opts)
+	results, err := houseCollection.HouseUpsertMany(houses)
 	if err != nil {
 		log.Fatalln(err)
 	}
-	log.Println(res)
+	log.Println(results)
 }
 
 func fetchAll() ([]house.House, error) {
-	log.Println("fetchAll...")
+	log.Println("获取所有的房源数据...")
 
 	houseMap := make(map[string]house.House) // 这里用map是为了去除重复数据，乐有家爬取到的数据有一小部分重复
 	var allHouses []house.House
@@ -63,6 +68,11 @@ func fetchAll() ([]house.House, error) {
 
 func houses2map(houseMap map[string]house.House, houses []house.House) {
 	for _, h := range houses {
+		_, exist := houseMap[h.SourceId]
+		if exist {
+			log.Printf("存在重复source_id: %s\n", h.SourceId)
+			log.Printf("被覆盖的详细数据: %v\n", h)
+		}
 		houseMap[h.SourceId] = h
 	}
 }

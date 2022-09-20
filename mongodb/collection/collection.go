@@ -32,10 +32,10 @@ func (receiver *Collection) MCollection() *mongo.Collection {
 	return receiver.mCollection
 }
 
-func (receiver *Collection) UpsertMany(filter, object interface{}, opts *options.UpdateOptions) (*mongo.UpdateResult, error) {
+func (receiver *Collection) UpsertOne(filter, object interface{}, opts *options.UpdateOptions) (*mongo.UpdateResult, error) {
+	opts.SetUpsert(true)
 	update := bson.D{
 		{"$set", object},
 	}
-	opts.SetUpsert(true)
 	return receiver.mCollection.UpdateOne(context.TODO(), filter, update, opts)
 }

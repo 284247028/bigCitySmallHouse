@@ -17,6 +17,10 @@ const DBCrawler = "crawler"
 type DB struct {
 }
 
+func NewDB() *DB {
+	return &DB{}
+}
+
 type Options struct {
 	Uri string
 }
@@ -25,10 +29,6 @@ func NewOptions() *Options {
 	return &Options{
 		Uri: LocalUri,
 	}
-}
-
-func NewDB() *DB {
-	return &DB{}
 }
 
 func (receiver *DB) ConnectMongodb(opts *Options) error {
