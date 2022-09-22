@@ -9,7 +9,7 @@ const CollectionName = "house"
 
 type House struct {
 	Id          primitive.ObjectID `bson:"_id,omitempty"` // mongo id
-	UId         string             `bson:"uid"`           // 怕不同房源source_id重复导致数据覆盖, source + _ + source_id
+	UId         string             `bson:"uid"`           // 怕不同房源source_id重复导致数据覆盖, source + - + source_id
 	SourceId    string             `bson:"source_id"`     // 来源的房子id
 	Source      Source             `bson:"source"`        // 来源
 	Type        Type               `bson:"type"`          // 房子类型， 公寓/住宅
@@ -30,9 +30,10 @@ type House struct {
 }
 
 const (
-	TypeApartment = "apartment" // 公寓
-	TypeResidence = "residence" // 住宅
-	TypeVilla     = "villa"     // 别墅
+	TypeUnknown   Type = "unknown"   // 未知
+	TypeApartment Type = "apartment" // 公寓
+	TypeResidence Type = "residence" // 住宅
+	TypeVilla     Type = "villa"     // 别墅
 )
 
 type Type string
