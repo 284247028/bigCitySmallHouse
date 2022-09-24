@@ -35,28 +35,50 @@ func (receiver *SingleParser) Parse() (*house.House, error) {
 		return nil, fmt.Errorf("获取安居客单个房源数据失败，code： %s， message： %s", single.Code, single.Message)
 	}
 
-	tHouse := house.House{}
+	tHouse := &house.House{}
 	tHouse.UId = house.SourceAnjuke + "-" + single.Data.HouseInfo.Id
 	tHouse.SourceId = single.Data.HouseInfo.Id
 	tHouse.Source = house.SourceAnjuke
 	tHouse.Type = receiver.getType(single)
 	tHouse.Name = single.Data.HouseInfo.XiaoquName
+	tHouse.Description = single.Data.HouseDetail
 	tHouse.ImgUrls = single.Data.ImgUrls
 	tHouse.Area, err = receiver.getArea(single)
 	if err != nil {
 		return nil, err
 	}
-	tHouse.Price, err = strconv.ParseFloat(single.Data.HouseInfo.Price, 64)
+	price, err := receiver.getPrice(single)
 	if err != nil {
 		return nil, err
 	}
+	tHouse.Price = *price
 
 	tHouse.Floor, err = receiver.getFloor(single)
 	if err != nil {
 		return nil, err
 	}
 
-	return nil, nil
+	location := receiver.getLocation(single)
+	tHouse.Location = *location
+
+	tHouse.RentType, err = receiver.getRentType(single)
+	if err != nil {
+		return nil, err
+	}
+
+	tHouse.Facilities = receiver.getFacilities(single)
+	tHouse.Traffic, err = receiver.getTraffic(single)
+	if err != nil {
+		return nil, err
+	}
+
+	composition, err := receiver.getComposition(single)
+	if err != nil {
+		return nil, err
+	}
+	tHouse.Composition = *composition
+
+	return tHouse, nil
 }
 
 func (receiver *SingleParser) fetch() (*Single, error) {
@@ -119,12 +141,22 @@ func (receiver *SingleParser) getArea(single *Single) (float64, error) {
 	return strconv.ParseFloat(areaText, 64)
 }
 
+func (receiver *SingleParser) getPrice(single *Single) (*house.Price, error) {
+	rent, err := strconv.ParseFloat(single.Data.HouseInfo.Price, 64)
+	if err != nil {
+		return nil, fmt.Errorf("获取租金失败")
+	}
+	return &house.Price{
+		Rent: rent,
+	}, err
+}
+
 func (receiver *SingleParser) getFloor(single *Single) (int, error) {
 	infos := single.Data.HouseInfo.RoomInfo
 	if len(infos) < 4 {
 		return 0, fmt.Errorf("无法获取房源楼层信息")
 	}
-	floorText := infos[4]
+	floorText := infos[3]
 	reg := regexp.MustCompile(`(\d+)层`)
 	matches := reg.FindStringSubmatch(floorText)
 	if len(matches) < 2 {
@@ -132,4 +164,116 @@ func (receiver *SingleParser) getFloor(single *Single) (int, error) {
 	}
 
 	return strconv.Atoi(matches[1])
+}
+
+func (receiver *SingleParser) getLocation(single *Single) *house.Location {
+	region := single.Data.CollectionInfo.DataInfo.Region
+	extra := single.Data.HouseInfo.Address
+	location := &house.Location{
+		Region: region,
+		Extra:  extra,
+	}
+	if single.Data.ListName == "guangzhou" {
+		location.City = house.CityGuangZhou
+	}
+	return location
+}
+
+func (receiver SingleParser) getRentType(single *Single) (house.RentType, error) {
+	switch single.Data.CollectionInfo.DataInfo.RentType {
+	case "整租":
+		return house.RentTypeEntire, nil
+	default:
+		return "", fmt.Errorf("获取不到租住类型")
+	}
+}
+
+func (receiver *SingleParser) getFacilities(single *Single) []string {
+	var facilities []string
+	tags := single.Data.Appliance
+	for _, tag := range tags {
+		if tag.Title == "可做饭" || tag.Title == "阳台" || tag.Have != "1" {
+			continue
+		}
+		facilities = append(facilities, tag.Title)
+	}
+	return facilities
+}
+
+func (receiver *SingleParser) getTraffic(single *Single) ([]house.Traffic, error) {
+	var traffics []house.Traffic
+	distances := single.Data.HouseInfo.Distance
+	for _, distance := range distances {
+		reg := regexp.MustCompile(`\d+`)
+		matches := reg.FindAllString(distance, -1)
+		if len(matches) < 2 {
+			continue
+		}
+		lineStr := matches[0]
+		line, err := strconv.Atoi(lineStr)
+		if err != nil {
+			return nil, err
+		}
+		tDistanceStr := matches[1]
+		tDistance, err := strconv.Atoi(tDistanceStr)
+		if err != nil {
+			return nil, err
+		}
+		reg = regexp.MustCompile(`线(.+站)`)
+		matches2 := reg.FindAllStringSubmatch(distance, -1)
+		if len(matches2) < 1 || len(matches2[0]) < 2 {
+			return nil, fmt.Errorf("获取地铁站点信息出错")
+		}
+		traffic := house.Traffic{
+			Type:     house.TrafficTypeSubway,
+			Line:     line,
+			Distance: tDistance,
+			Station:  matches2[0][1],
+		}
+		traffics = append(traffics, traffic)
+	}
+
+	return traffics, nil
+}
+
+func (receiver *SingleParser) getComposition(single *Single) (*house.Composition, error) {
+	roomDesc := single.Data.HouseInfo.RoomDesc
+	reg := regexp.MustCompile(`.*(\d+)室.*(\d+)厅.*(\d)卫.*`)
+	matches := reg.FindAllStringSubmatch(roomDesc, -1)
+	if len(matches) < 1 || len(matches[0]) < 4 {
+		return nil, fmt.Errorf("获取房间组成失败")
+	}
+	room, err := strconv.Atoi(matches[0][1])
+	if err != nil {
+		return nil, err
+	}
+
+	parlor, err := strconv.Atoi(matches[0][2])
+	if err != nil {
+		return nil, err
+	}
+
+	toilet, err := strconv.Atoi(matches[0][3])
+	if err != nil {
+		return nil, err
+	}
+
+	kitchen := 0
+	balcony := 0
+	for _, app := range single.Data.Appliance {
+		if app.Title == "可做饭" {
+			kitchen = 1
+		}
+		if app.Title == "阳台" {
+			balcony = 1
+		}
+	}
+
+	return &house.Composition{
+		Room:    room,
+		Parlor:  parlor,
+		Toilet:  toilet,
+		Kitchen: kitchen,
+		Balcony: balcony,
+	}, nil
 }

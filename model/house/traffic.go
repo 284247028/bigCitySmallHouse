@@ -2,7 +2,7 @@ package house
 
 type Traffic struct {
 	Type     TrafficType `bson:"type"`
-	Line     string      `bson:"line"`
+	Line     int         `bson:"line"`
 	Station  string      `bson:"station"`
 	Distance int         `bson:"distance"`
 }

@@ -257,18 +257,18 @@ func (receiver *SingleParser) setArea() {
 }
 
 func (receiver *SingleParser) setPrice() {
-	receiver.House.Price = receiver.Single.Data.Zf.RentPrice
+	//receiver.House.Price = receiver.Single.Data.Zf.RentPrice
 }
 func (receiver *SingleParser) setFloor() {
 	receiver.House.Floor = receiver.Single.Data.Zf.Layer
 }
 
 func (receiver *SingleParser) setElevator() {
-	zf := receiver.Single.Data.Zf
-	receiver.House.Elevator = false
-	if strings.Contains(zf.BasicPackage, "电梯") || strings.Contains(zf.Tags, "电梯") {
-		receiver.House.Elevator = true
-	}
+	//zf := receiver.Single.Data.Zf
+	//receiver.House.Elevator = false
+	//if strings.Contains(zf.BasicPackage, "电梯") || strings.Contains(zf.Tags, "电梯") {
+	//	receiver.House.Elevator = true
+	//}
 }
 
 func (receiver *SingleParser) setLocation() {
@@ -284,13 +284,13 @@ func (receiver *SingleParser) setBuildDate() {
 }
 
 func (receiver *SingleParser) setFurniture() {
-	zf := receiver.Single.Data.Zf
-	receiver.House.Furniture = strings.Split(zf.Furniture, "@")
+	//zf := receiver.Single.Data.Zf
+	//receiver.House.Furniture = strings.Split(zf.Furniture, "@")
 }
 
 func (receiver *SingleParser) setFacility() {
-	zf := receiver.Single.Data.Zf
-	receiver.House.Facility = strings.Split(zf.BasicPackage, "@")
+	//zf := receiver.Single.Data.Zf
+	//receiver.House.Facility = strings.Split(zf.BasicPackage, "@")
 }
 
 func (receiver *SingleParser) setTraffic() {
@@ -301,7 +301,7 @@ func (receiver *SingleParser) setTraffic() {
 		case 1:
 			traffic.Type = house.TrafficTypeSubway
 		}
-		traffic.Line = Metro.LineName
+		//traffic.Line = Metro.LineName
 		traffic.Station = Metro.Name
 		traffic.Distance = int(Metro.Distance)
 		receiver.House.Traffic = append(receiver.House.Traffic, traffic)

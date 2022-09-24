@@ -14,16 +14,16 @@ type House struct {
 	Source      Source             `bson:"source"`        // 来源
 	Type        Type               `bson:"type"`          // 房子类型， 公寓/住宅
 	Name        string             `bson:"name"`          // 小区名字/公寓名字/...
+	Description string             `bson:"description"`   // 描述
 	ImgUrls     []string           `bson:"img_urls"`      // 图片
 	VideoUrls   []string           `bson:"video_urls"`    // 视频
 	Area        float64            `bson:"area"`          // 面积 单位/m²
-	Price       float64            `bson:"price"`         // 价格
+	Price       Price              `bson:"price"`         // 价格
 	Floor       int                `bson:"floor"`         // 楼层
-	Elevator    bool               `bson:"elevator"`      // 是否有电梯
 	Location    Location           `bson:"location"`      // 地点
+	RentType    RentType           `bson:"rentType"`      // 租住类型, 合租/整租
 	BuildTime   time.Time          `bson:"build_time"`    // 建造日期
-	Furniture   []string           `bson:"furniture"`     // 家具
-	Facility    []string           `bson:"facility"`      // 设施
+	Facilities  []string           `bson:"facility"`      // 设施   床、桌子、电梯、跑步机...
 	Traffic     []Traffic          `bson:"traffic"`       // 交通
 	Composition Composition        `bson:"composition"`   // n厅n房...组成
 	UpdateAt    time.Time          `bson:"update_at"`     // 数据更新时间
@@ -41,3 +41,10 @@ type Type string
 func (receiver *Type) String() string {
 	return string(*receiver)
 }
+
+type RentType string
+
+const (
+	RentTypeEntire = "entire" // 整租
+	RentTypeShared = "shared" // 合租
+)
