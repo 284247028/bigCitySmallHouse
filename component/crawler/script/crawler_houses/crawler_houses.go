@@ -28,7 +28,7 @@ func main() {
 }
 
 func fetchAll() {
-	log.Println("获取所有的房源数据...")
+	log.Printf("获取房源 %s 数据...\n", _source)
 
 	opts := &collection.Options{}
 	opts.DB = mongodb.DBCrawler
@@ -39,7 +39,6 @@ func fetchAll() {
 	count := 0
 	for {
 		page++
-		count++
 		tHouses, info, err := fetchPage(page)
 		if err != nil {
 			log.Printf("爬取第%d页出错，错误信息：%s\n", page, err.Error())
@@ -56,6 +55,7 @@ func fetchAll() {
 		}
 
 		log.Printf("保存成功\n")
+		count += len(tHouses)
 	}
 
 	log.Println("爬取完成，总数：", count)

@@ -4,7 +4,8 @@
     <option name="autoReloadType" value="ALL" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="927a93ea-b893-480a-bd46-e2ab44220172" name="Changes" comment="[crawler] 安居客爬取列表新增uid字段">
+    <list default="true" id="927a93ea-b893-480a-bd46-e2ab44220172" name="Changes" comment="[crawler] 优化爬取列表脚本逻辑">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/component/crawler/script/crawler_houses/crawler_houses.go" beforeDir="false" afterPath="$PROJECT_DIR$/component/crawler/script/crawler_houses/crawler_houses.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -61,11 +62,11 @@
       <recent name="D:\code\bigCitySmallHouse\mongodb\collection" />
     </key>
   </component>
-  <component name="RunManager" selected="Go Test.TestSingle in bigCitySmallHouse/component/crawler/factory (1)">
+  <component name="RunManager" selected="Go Build.go build bigCitySmallHouse/component/crawler/script/crawler_houses">
     <configuration name="go build bigCitySmallHouse/component/crawler/script/crawler_houses" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
       <module name="bigCitySmallHouse" />
       <working_directory value="$PROJECT_DIR$" />
-      <parameters value="-source=leyoujia" />
+      <parameters value="-source=anjuke" />
       <kind value="PACKAGE" />
       <package value="bigCitySmallHouse/component/crawler/script/crawler_houses" />
       <directory value="$PROJECT_DIR$" />
@@ -120,10 +121,10 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Go Build.go build bigCitySmallHouse/component/crawler/script/crawler_houses" />
         <item itemvalue="Go Test.TestSingle in bigCitySmallHouse/component/crawler/factory (1)" />
         <item itemvalue="Go Test.TestSingle in bigCitySmallHouse/component/crawler/factory" />
         <item itemvalue="Go Build.go build bigCitySmallHouse/component/crawler/script/fill_houses" />
-        <item itemvalue="Go Build.go build bigCitySmallHouse/component/crawler/script/crawler_houses" />
         <item itemvalue="Go Test.TestUpdateMany in bigCitySmallHouse/demo/mongodb" />
       </list>
     </recent_temporary>
@@ -156,7 +157,8 @@
     <MESSAGE value="[crawler] 乐有家爬虫完善" />
     <MESSAGE value="[crawler] 乐有家爬取单个房源完成" />
     <MESSAGE value="[crawler] 安居客爬取列表新增uid字段" />
-    <option name="LAST_COMMIT_MESSAGE" value="[crawler] 安居客爬取列表新增uid字段" />
+    <MESSAGE value="[crawler] 优化爬取列表脚本逻辑" />
+    <option name="LAST_COMMIT_MESSAGE" value="[crawler] 优化爬取列表脚本逻辑" />
   </component>
   <component name="VgoProject">
     <settings-migrated>true</settings-migrated>
