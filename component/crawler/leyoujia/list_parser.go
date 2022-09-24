@@ -37,6 +37,7 @@ func (receiver ListParser) Parse() ([]houseModel.House, *crawler.ListInfo, error
 		tHouse := houseModel.House{}
 		tHouse.SourceId = strconv.Itoa(item.HouseId)
 		tHouse.Source = houseModel.SourceLeyoujia
+		tHouse.UId = houseModel.SourceLeyoujia + "-" + strconv.Itoa(item.HouseId)
 		//switch item.PropertyType {
 		//case "公寓":
 		//	house.Type = houseModel.TypeApartment
