@@ -27,7 +27,7 @@ func init() {
 }
 
 func main() {
-	houses, err := fetch()
+	houses, err := load()
 	if err != nil {
 		log.Fatalln(err)
 	}
@@ -46,8 +46,8 @@ func main() {
 	log.Println(results)
 }
 
-func fetch() ([]house.House, error) {
-	log.Println("fetching...")
+func load() ([]house.House, error) {
+	log.Println("从数据库读取需要填充的房源...")
 	opts := collection.NewOptions()
 	opts.DB = mongodb.DBCrawler
 	opts.Collection = house.CollectionName
@@ -55,6 +55,7 @@ func fetch() ([]house.House, error) {
 	findOpts := options.Find().SetProjection(bson.D{
 		{"_id", 1},
 		{"source_id", 1},
+		{"uid", 1},
 	})
 	cursor, err := tCollection.MCollection().Find(context.TODO(), bson.D{}, findOpts)
 	if err != nil {
@@ -70,7 +71,7 @@ func fetch() ([]house.House, error) {
 }
 
 func fillHouses(houses []house.House) ([]house.House, error) {
-	log.Println("filling...")
+	log.Println("填充房源详情...")
 	houseFactory, err := factory.NewFactory(house.Source(_source))
 	if err != nil {
 		return nil, err

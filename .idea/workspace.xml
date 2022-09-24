@@ -4,9 +4,8 @@
     <option name="autoReloadType" value="ALL" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="927a93ea-b893-480a-bd46-e2ab44220172" name="Changes" comment="[crawler] 优化爬取列表脚本逻辑">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/component/crawler/script/crawler_houses/crawler_houses.go" beforeDir="false" afterPath="$PROJECT_DIR$/component/crawler/script/crawler_houses/crawler_houses.go" afterDir="false" />
+    <list default="true" id="927a93ea-b893-480a-bd46-e2ab44220172" name="Changes" comment="[crawler] 爬取列表脚本计数">
+      <change beforePath="$PROJECT_DIR$/component/crawler/script/fill_houses/fill_house.go" beforeDir="false" afterPath="$PROJECT_DIR$/component/crawler/script/fill_houses/fill_house.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -158,7 +157,8 @@
     <MESSAGE value="[crawler] 乐有家爬取单个房源完成" />
     <MESSAGE value="[crawler] 安居客爬取列表新增uid字段" />
     <MESSAGE value="[crawler] 优化爬取列表脚本逻辑" />
-    <option name="LAST_COMMIT_MESSAGE" value="[crawler] 优化爬取列表脚本逻辑" />
+    <MESSAGE value="[crawler] 爬取列表脚本计数" />
+    <option name="LAST_COMMIT_MESSAGE" value="[crawler] 爬取列表脚本计数" />
   </component>
   <component name="VgoProject">
     <settings-migrated>true</settings-migrated>
