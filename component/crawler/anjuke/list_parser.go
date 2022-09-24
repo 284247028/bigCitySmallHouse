@@ -34,6 +34,7 @@ func (receiver *ListParser) Parse() ([]house.House, *crawler.ListInfo, error) {
 	houses := make([]house.House, 0, len(houseIdList))
 	for _, houseId := range houseIdList {
 		tHouse := house.House{
+			UId:      house.SourceAnjuke + "-" + houseId,
 			SourceId: houseId,
 			Source:   house.SourceAnjuke,
 		}

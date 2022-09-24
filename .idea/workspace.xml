@@ -4,14 +4,8 @@
     <option name="autoReloadType" value="ALL" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="927a93ea-b893-480a-bd46-e2ab44220172" name="Changes" comment="[crawler] 乐有家爬虫完善">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/component/crawler/anjuke/single_parser.go" beforeDir="false" afterPath="$PROJECT_DIR$/component/crawler/anjuke/single_parser.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/component/crawler/leyoujia/single_parser.go" beforeDir="false" afterPath="$PROJECT_DIR$/component/crawler/leyoujia/single_parser.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/house/composition.go" beforeDir="false" afterPath="$PROJECT_DIR$/model/house/composition.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/house/house.go" beforeDir="false" afterPath="$PROJECT_DIR$/model/house/house.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/house/location.go" beforeDir="false" afterPath="$PROJECT_DIR$/model/house/location.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/house/traffic.go" beforeDir="false" afterPath="$PROJECT_DIR$/model/house/traffic.go" afterDir="false" />
+    <list default="true" id="927a93ea-b893-480a-bd46-e2ab44220172" name="Changes" comment="[crawler] 乐有家爬取单个房源完成">
+      <change beforePath="$PROJECT_DIR$/component/crawler/anjuke/list_parser.go" beforeDir="false" afterPath="$PROJECT_DIR$/component/crawler/anjuke/list_parser.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -160,7 +154,8 @@
     <MESSAGE value="[leyoujia] 爬取基本完成，除了有重复数据" />
     <MESSAGE value="[mongodb] crud" />
     <MESSAGE value="[crawler] 乐有家爬虫完善" />
-    <option name="LAST_COMMIT_MESSAGE" value="[crawler] 乐有家爬虫完善" />
+    <MESSAGE value="[crawler] 乐有家爬取单个房源完成" />
+    <option name="LAST_COMMIT_MESSAGE" value="[crawler] 乐有家爬取单个房源完成" />
   </component>
   <component name="VgoProject">
     <settings-migrated>true</settings-migrated>
@@ -206,7 +201,7 @@
         <line-breakpoint enabled="true" type="DlvLineBreakpoint">
           <url>file://$PROJECT_DIR$/component/crawler/factory/factory_test.go</url>
           <line>41</line>
-          <option name="timeStamp" value="48" />
+          <option name="timeStamp" value="57" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
