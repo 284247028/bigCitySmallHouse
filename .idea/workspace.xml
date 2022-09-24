@@ -4,8 +4,8 @@
     <option name="autoReloadType" value="ALL" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="927a93ea-b893-480a-bd46-e2ab44220172" name="Changes" comment="[crawler] 乐有家爬取单个房源完成">
-      <change beforePath="$PROJECT_DIR$/component/crawler/anjuke/list_parser.go" beforeDir="false" afterPath="$PROJECT_DIR$/component/crawler/anjuke/list_parser.go" afterDir="false" />
+    <list default="true" id="927a93ea-b893-480a-bd46-e2ab44220172" name="Changes" comment="[crawler] 安居客爬取列表新增uid字段">
+      <change beforePath="$PROJECT_DIR$/component/crawler/script/crawler_houses/crawler_houses.go" beforeDir="false" afterPath="$PROJECT_DIR$/component/crawler/script/crawler_houses/crawler_houses.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -155,7 +155,8 @@
     <MESSAGE value="[mongodb] crud" />
     <MESSAGE value="[crawler] 乐有家爬虫完善" />
     <MESSAGE value="[crawler] 乐有家爬取单个房源完成" />
-    <option name="LAST_COMMIT_MESSAGE" value="[crawler] 乐有家爬取单个房源完成" />
+    <MESSAGE value="[crawler] 安居客爬取列表新增uid字段" />
+    <option name="LAST_COMMIT_MESSAGE" value="[crawler] 安居客爬取列表新增uid字段" />
   </component>
   <component name="VgoProject">
     <settings-migrated>true</settings-migrated>

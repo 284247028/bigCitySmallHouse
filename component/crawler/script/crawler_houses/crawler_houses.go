@@ -24,65 +24,41 @@ func init() {
 }
 
 func main() {
-	houses, err := fetchAll()
-	if err != nil {
-		log.Fatalln(err)
-	}
+	fetchAll()
+}
+
+func fetchAll() {
+	log.Println("获取所有的房源数据...")
+
 	opts := &collection.Options{}
 	opts.DB = mongodb.DBCrawler
 	opts.Collection = house.CollectionName
 	houseCollection := collections.NewCollectionHouse(opts)
-	results, err := houseCollection.HouseUpsertMany(houses)
-	if err != nil {
-		log.Fatalln(err)
-	}
-	log.Println(results)
-}
-
-func fetchAll() ([]house.House, error) {
-	log.Println("获取所有的房源数据...")
-
-	houseMap := make(map[string]house.House) // 这里用map是为了去除重复数据，乐有家爬取到的数据有一小部分重复
-	var allHouses []house.House
 
 	page := 0
+	count := 0
 	for {
 		page++
+		count++
 		tHouses, info, err := fetchPage(page)
 		if err != nil {
-			return nil, err
+			log.Printf("爬取第%d页出错，错误信息：%s\n", page, err.Error())
+			continue
 		}
-		log.Printf("fetchPage %d/%d\n", page, info.TotalPage)
-		allHouses = append(allHouses, tHouses...)
-		houses2map(houseMap, tHouses)
+		log.Printf("爬取成功 %d/%d\n", page, info.TotalPage)
 		if page >= info.TotalPage || info.IsLastPage {
 			break
 		}
-	}
 
-	log.Println("总抓取数据长度（可能包含重复）", len(allHouses))
-	houses := houseMap2Arr(houseMap)
-
-	return houses, nil
-}
-
-func houses2map(houseMap map[string]house.House, houses []house.House) {
-	for _, h := range houses {
-		_, exist := houseMap[h.SourceId]
-		if exist {
-			log.Printf("存在重复source_id: %s\n", h.SourceId)
-			log.Printf("被覆盖的详细数据: %v\n", h)
+		_, err = houseCollection.HouseUpsertMany(tHouses)
+		if err != nil {
+			log.Printf("保存第%d页数据出错，错误信息：%s\n", page, err.Error())
 		}
-		houseMap[h.SourceId] = h
-	}
-}
 
-func houseMap2Arr(houseMap map[string]house.House) []house.House {
-	houses := make([]house.House, 0, len(houseMap))
-	for _, h := range houseMap {
-		houses = append(houses, h)
+		log.Printf("保存成功\n")
 	}
-	return houses
+
+	log.Println("爬取完成，总数：", count)
 }
 
 func fetchPage(page int) ([]house.House, *crawler.ListInfo, error) {
