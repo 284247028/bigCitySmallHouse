@@ -5,7 +5,7 @@ import (
 	"bigCitySmallHouse/component/crawler/anjuke"
 	"bigCitySmallHouse/component/crawler/leyoujia"
 	"bigCitySmallHouse/model/house"
-	"errors"
+	"fmt"
 )
 
 func NewFactory(source house.Source) (crawler.FactoryInterface, error) {
@@ -15,6 +15,6 @@ func NewFactory(source house.Source) (crawler.FactoryInterface, error) {
 	case house.SourceAnjuke:
 		return anjuke.NewFactory(), nil
 	default:
-		return nil, errors.New("source error")
+		return nil, fmt.Errorf("source error: %s", source)
 	}
 }

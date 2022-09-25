@@ -8,17 +8,16 @@ import (
 	"bigCitySmallHouse/mongodb/collection"
 	"bigCitySmallHouse/mongodb/collections"
 	"context"
-	"flag"
 	"go.mongodb.org/mongo-driver/bson"
 	"go.mongodb.org/mongo-driver/mongo/options"
 	"log"
 )
 
-var _source string
+//var _source string
 
 func init() {
-	flag.StringVar(&_source, "source", "", "数据来源")
-	flag.Parse()
+	//flag.StringVar(&_source, "source", "", "数据来源")
+	//flag.Parse()
 	opts := mongodb.NewOptions()
 	err := mongodb.NewDB().ConnectMongodb(opts)
 	if err != nil {
@@ -56,6 +55,7 @@ func load() ([]house.House, error) {
 		{"_id", 1},
 		{"source_id", 1},
 		{"uid", 1},
+		{"source", 1},
 	})
 	cursor, err := tCollection.MCollection().Find(context.TODO(), bson.D{}, findOpts)
 	if err != nil {
@@ -72,24 +72,24 @@ func load() ([]house.House, error) {
 
 func fillHouses(houses []house.House) ([]house.House, error) {
 	log.Println("填充房源详情...")
-	houseFactory, err := factory.NewFactory(house.Source(_source))
-	if err != nil {
-		return nil, err
-	}
 	param := crawler.NewSingleParam()
 	tHouses := make([]house.House, 0, len(houses))
 	count := 0
 	total := len(houses)
 	for _, h := range houses {
 		count++
-		log.Printf("filling %d/%d - %s\n", count, total, h.SourceId)
 		param.Id = h.SourceId
+		houseFactory, err := factory.NewFactory(h.Source)
+		if err != nil {
+			return nil, err
+		}
 		parser := houseFactory.CreateSingleParser(param)
 		tHouse, err := parser.Parse()
 		if err != nil {
-			log.Println(err)
+			log.Printf("抓取详情失败: %s %d/%d - %s\n", err.Error(), count, total, h.Id.Hex())
 			continue
 		}
+		log.Printf("抓取详情成功 %d/%d - %s\n", count, total, tHouse.UId)
 		tHouse.Id = h.Id
 		tHouses = append(tHouses, *tHouse)
 	}

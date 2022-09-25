@@ -183,6 +183,8 @@ func (receiver SingleParser) getRentType(single *Single) (house.RentType, error)
 	switch single.Data.CollectionInfo.DataInfo.RentType {
 	case "整租":
 		return house.RentTypeEntire, nil
+	case "合租":
+		return house.RentTypeShared, nil
 	default:
 		return "", fmt.Errorf("获取不到租住类型")
 	}

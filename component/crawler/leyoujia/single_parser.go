@@ -48,7 +48,7 @@ func (receiver *SingleParser) fetch() (*Single, error) {
 	}
 
 	if !single.Success {
-		return nil, crawler.InitErr
+		return nil, fmt.Errorf("获取乐有家数据失败")
 	}
 
 	return &single, nil
@@ -153,12 +153,18 @@ func (receiver *SingleParser) Parse() (*house.House, error) {
 
 func (receiver *SingleParser) getType(single *Single) (house.Type, error) {
 	switch single.Data.Zf.PropertyType {
-	case "公寓":
+	case "公寓", "酒店式公寓":
 		return house.TypeApartment, nil
-	case "普通住宅":
+	case "普通住宅", "住宅":
 		return house.TypeResidence, nil
-	case "别墅":
+	case "别墅", "花园式洋房":
 		return house.TypeVilla, nil
+	case "商铺":
+		return house.TypeShop, nil
+	case "车位":
+		return house.TypeParking, nil
+	case "写字楼":
+		return house.TypeOffice, nil
 	default:
 		return "", fmt.Errorf("乐有家 获取 房屋类型错误，原生数据：%s", single.Data.Zf.PropertyType)
 	}
@@ -254,11 +260,15 @@ func (receiver *SingleParser) getImgUrls(single *Single) ([]string, []string, er
 
 func (receiver *SingleParser) getPrice(single *Single) (*house.Price, error) {
 	mFeeText := single.Data.Community.ManagerFee
-	reg := regexp.MustCompile(`^([\d.]+)`)
-	mFeeText = reg.FindString(mFeeText)
-	mFee, err := strconv.ParseFloat(mFeeText, 64)
-	if err != nil {
-		return nil, err
+	var mFee float64
+	var err error
+	if mFeeText != "暂无" {
+		reg := regexp.MustCompile(`^([\d.]+)`)
+		mFeeText = reg.FindString(mFeeText)
+		mFee, err = strconv.ParseFloat(mFeeText, 64)
+		if err != nil {
+			return nil, err
+		}
 	}
 	return &house.Price{
 		Rent:               single.Data.Zf.RentPrice,

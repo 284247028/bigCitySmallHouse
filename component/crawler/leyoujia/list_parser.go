@@ -72,7 +72,7 @@ func (receiver *ListParser) init() error {
 	}
 
 	if !list.Success {
-		return crawler.InitErr
+		return fmt.Errorf("获取乐有家列表信息失败")
 	}
 
 	receiver.List = &list

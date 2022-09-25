@@ -35,6 +35,9 @@ const (
 	TypeApartment Type = "apartment" // 公寓
 	TypeResidence Type = "residence" // 住宅
 	TypeVilla     Type = "villa"     // 别墅
+	TypeShop      Type = "shop"      // 商铺
+	TypeParking   Type = "parking"   // 停车位
+	TypeOffice    Type = "office"    // 办公楼
 )
 
 type Type string
