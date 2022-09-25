@@ -339,3 +339,14 @@ func (receiver *SingleParser) getDescription(single *Single) string {
 	}
 	return description
 }
+
+func (receiver *SingleParser) getRentType(single *Single) (house.RentType, error) {
+	switch single.Data.Zf.JointRent {
+	case 1:
+		return house.RentTypeEntire, nil
+	case 2:
+		return house.RentTypeShared, nil
+	default:
+		return "", fmt.Errorf("乐有家 获取租住类型失败，原生数据为：%d", single.Data.Zf.JointRent)
+	}
+}

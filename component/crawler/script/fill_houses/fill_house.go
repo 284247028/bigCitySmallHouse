@@ -8,16 +8,17 @@ import (
 	"bigCitySmallHouse/mongodb/collection"
 	"bigCitySmallHouse/mongodb/collections"
 	"context"
+	"flag"
 	"go.mongodb.org/mongo-driver/bson"
 	"go.mongodb.org/mongo-driver/mongo/options"
 	"log"
 )
 
-//var _source string
+var _source string
 
 func init() {
-	//flag.StringVar(&_source, "source", "", "数据来源")
-	//flag.Parse()
+	flag.StringVar(&_source, "source", "", "数据来源")
+	flag.Parse()
 	opts := mongodb.NewOptions()
 	err := mongodb.NewDB().ConnectMongodb(opts)
 	if err != nil {
@@ -51,13 +52,18 @@ func load() ([]house.House, error) {
 	opts.DB = mongodb.DBCrawler
 	opts.Collection = house.CollectionName
 	tCollection := collection.NewCollection(opts)
+	filter := bson.D{}
+	if _source != "" {
+		filter = append(filter, bson.E{"source", _source})
+	}
+
 	findOpts := options.Find().SetProjection(bson.D{
 		{"_id", 1},
 		{"source_id", 1},
 		{"uid", 1},
 		{"source", 1},
 	})
-	cursor, err := tCollection.MCollection().Find(context.TODO(), bson.D{}, findOpts)
+	cursor, err := tCollection.MCollection().Find(context.TODO(), filter, findOpts)
 	if err != nil {
 		return nil, err
 	}
@@ -79,7 +85,11 @@ func fillHouses(houses []house.House) ([]house.House, error) {
 	for _, h := range houses {
 		count++
 		param.Id = h.SourceId
-		houseFactory, err := factory.NewFactory(h.Source)
+		source := h.Source
+		if _source != "" {
+			source = house.Source(_source)
+		}
+		houseFactory, err := factory.NewFactory(source)
 		if err != nil {
 			return nil, err
 		}
