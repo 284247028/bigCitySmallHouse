@@ -28,12 +28,12 @@ func TestList(t *testing.T) {
 // 10350749
 
 func TestSingle(t *testing.T) {
-	//fact, err := NewFactory(house.SourceLeyoujia)
-	fact, err := NewFactory(house.SourceAnjuke)
+	fact, err := NewFactory(house.SourceLeyoujia)
+	//fact, err := NewFactory(house.SourceAnjuke)
 	if err != nil {
 		t.Fatal(err)
 	}
-	param := &crawler.SingleParam{Id: "2671816932039689"}
+	param := &crawler.SingleParam{Id: "6896297"}
 	parser := fact.CreateSingleParser(param)
 	single, err := parser.Parse()
 	if err != nil {

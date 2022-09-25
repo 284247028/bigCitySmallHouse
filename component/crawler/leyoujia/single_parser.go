@@ -5,11 +5,12 @@ import (
 	"bigCitySmallHouse/model/house"
 	"bytes"
 	"encoding/json"
-	"errors"
+	"fmt"
 	"io"
 	"io/ioutil"
 	"net/http"
 	"net/url"
+	"regexp"
 	"strconv"
 	"strings"
 	"time"
@@ -22,40 +23,35 @@ const PathImage = "/stewardnew/house/queryHouseImage"
 
 type SingleParser struct {
 	*crawler.SingleParser
-	Single *Single
-	House  *house.House
 }
 
 func NewSingleParser(param *crawler.SingleParam) *SingleParser {
 	singleParser := crawler.NewSingleParser(param)
 	return &SingleParser{
 		SingleParser: singleParser,
-		House:        &house.House{},
 	}
 }
 
-func (receiver *SingleParser) init() error {
+func (receiver *SingleParser) fetch() (*Single, error) {
 	request, err := receiver.newRequest()
 	if err != nil {
-		return err
+		return nil, err
 	}
 	bs, err := receiver.Do(http.DefaultClient, request)
 	if err != nil {
-		return err
+		return nil, err
 	}
 	var single Single
 	err = json.Unmarshal(bs, &single)
 	if err != nil {
-		return err
+		return nil, err
 	}
 
 	if !single.Success {
-		return crawler.InitErr
+		return nil, crawler.InitErr
 	}
 
-	receiver.Single = &single
-
-	return nil
+	return &single, nil
 }
 
 func (receiver *SingleParser) newRequest() (*http.Request, error) {
@@ -116,62 +112,64 @@ func (receiver *SingleParser) buildBody() string {
 }
 
 func (receiver *SingleParser) Parse() (*house.House, error) {
-	err := receiver.init()
+	single, err := receiver.fetch()
 	if err != nil {
 		return nil, err
 	}
 
-	receiver.setId()
-	receiver.setSource()
-	receiver.setType()
-	receiver.setName()
-	err = receiver.setImgUrls()
+	tHouse := &house.House{}
+	tHouse.UId = house.SourceLeyoujia + "-" + strconv.Itoa(single.Data.Zf.HouseId)
+	tHouse.SourceId = strconv.Itoa(single.Data.Zf.HouseId)
+	tHouse.Source = house.SourceLeyoujia
+	tHouse.Type, err = receiver.getType(single)
 	if err != nil {
 		return nil, err
 	}
-	receiver.setArea()
-	receiver.setPrice()
-	receiver.setFloor()
-	receiver.setElevator()
-	receiver.setLocation()
-	receiver.setBuildDate()
-	receiver.setFurniture()
-	receiver.setFacility()
-	receiver.setTraffic()
-	receiver.setComposition()
+	tHouse.Name = single.Data.Zf.ComName
+	tHouse.Description = receiver.getDescription(single)
+	tHouse.ImgUrls, tHouse.VideoUrls, err = receiver.getImgUrls(single)
+	if err != nil {
+		return nil, err
+	}
+	tHouse.Area = single.Data.Zf.IndoorArea
+	price, err := receiver.getPrice(single)
+	if err != nil {
+		return nil, err
+	}
+	tHouse.Price = *price
+	tHouse.Floor = single.Data.Zf.Layer
+	tHouse.Location = *receiver.getLocation(single)
+	// rentType todo 需对比发现
+	tHouse.BuildTime = receiver.getBuildTime(single)
+	tHouse.Facilities = receiver.getFacilities(single)
+	tHouse.Traffic, err = receiver.getTraffic(single)
+	if err != nil {
+		return nil, err
+	}
+	tHouse.Composition = *receiver.getComposition(single)
 
-	return receiver.House, nil
+	return tHouse, nil
 }
 
-func (receiver *SingleParser) setId() {
-	receiver.House.SourceId = strconv.Itoa(receiver.Single.Data.Zf.HouseId)
-}
-
-func (receiver *SingleParser) setSource() {
-	receiver.House.Source = house.SourceLeyoujia
-}
-
-func (receiver *SingleParser) setType() {
-	switch receiver.Single.Data.Zf.PropertyType {
+func (receiver *SingleParser) getType(single *Single) (house.Type, error) {
+	switch single.Data.Zf.PropertyType {
 	case "公寓":
-		receiver.House.Type = house.TypeApartment
+		return house.TypeApartment, nil
 	case "普通住宅":
-		receiver.House.Type = house.TypeResidence
+		return house.TypeResidence, nil
 	case "别墅":
-		receiver.House.Type = house.TypeVilla
+		return house.TypeVilla, nil
+	default:
+		return "", fmt.Errorf("乐有家 获取 房屋类型错误，原生数据：%s", single.Data.Zf.PropertyType)
 	}
 }
 
-func (receiver *SingleParser) setName() {
-	receiver.House.Name = receiver.Single.Data.Zf.ComName
-}
-
-func (receiver *SingleParser) setImgUrls() error {
+func (receiver *SingleParser) getImgUrls(single *Single) ([]string, []string, error) {
 	uri := HostImage + PathImage
 	//houseType := receiver.Single.Data.Zf.HouseType // ""/平层/复式/开间 当是中文时出错
 	houseType := ""
-	houseId := receiver.Single.Data.Zf.HouseId
-	comId := receiver.Single.Data.Zf.ComId
+	houseId := single.Data.Zf.HouseId
+	comId := single.Data.Zf.ComId
 	values := make(url.Values)
 	values.Add("houseType", houseType)
 	values.Add("houseId", strconv.Itoa(houseId))
@@ -182,7 +180,7 @@ func (receiver *SingleParser) setImgUrls() error {
 	req, err := http.NewRequest(http.MethodPost, uri, reader)
 
 	if err != nil {
-		return err
+		return nil, nil, err
 	}
 
 	// aa2f03e4-798e-4b3d-8d8e-6d7d286c7f66/stewardnew/house/queryHouseImage1661610412251comid36072houseid7407559housetype1
@@ -220,7 +218,7 @@ func (receiver *SingleParser) setImgUrls() error {
 
 	res, err := http.DefaultClient.Do(req)
 	if err != nil {
-		return err
+		return nil, nil, err
 	}
 	defer func(Body io.ReadCloser) {
 		_ = Body.Close()
@@ -228,89 +226,106 @@ func (receiver *SingleParser) setImgUrls() error {
 
 	bs, err := ioutil.ReadAll(res.Body)
 	if err != nil {
-		return err
+		return nil, nil, err
 	}
 
 	var imgUrl ImgUrl
 	err = json.Unmarshal(bs, &imgUrl)
 	if err != nil {
-		return err
+		return nil, nil, err
 	}
 
 	if !imgUrl.Success {
-		return errors.New("get imgUrl")
+		return nil, nil, fmt.Errorf("乐有家 获取图片失败，原始信息: %+v", imgUrl)
 	}
 
+	var imgUrls []string
+	var videoUrls []string
 	for _, item := range imgUrl.Data.HouseImageList {
-		receiver.House.ImgUrls = append(receiver.House.ImgUrls, item.ImagePath)
+		imgUrls = append(imgUrls, item.ImagePath)
 	}
 
 	if imgUrl.Data.HouseVideo.VideoUrl != "" {
-		receiver.House.VideoUrls = append(receiver.House.VideoUrls, imgUrl.Data.HouseVideo.VideoUrl)
+		videoUrls = append(videoUrls, imgUrl.Data.HouseVideo.VideoUrl)
 	}
 
-	return nil
+	return imgUrls, videoUrls, nil
 }
 
-func (receiver *SingleParser) setArea() {
-	receiver.House.Area = receiver.Single.Data.Zf.IndoorArea
+func (receiver *SingleParser) getPrice(single *Single) (*house.Price, error) {
+	mFeeText := single.Data.Community.ManagerFee
+	reg := regexp.MustCompile(`^([\d.]+)`)
+	mFeeText = reg.FindString(mFeeText)
+	mFee, err := strconv.ParseFloat(mFeeText, 64)
+	if err != nil {
+		return nil, err
+	}
+	return &house.Price{
+		Rent:               single.Data.Zf.RentPrice,
+		ManagementPerMeter: mFee,
+	}, nil
 }
 
-func (receiver *SingleParser) setPrice() {
-	//receiver.House.Price = receiver.Single.Data.Zf.RentPrice
-}
-func (receiver *SingleParser) setFloor() {
-	receiver.House.Floor = receiver.Single.Data.Zf.Layer
-}
-
-func (receiver *SingleParser) setElevator() {
-	//zf := receiver.Single.Data.Zf
-	//receiver.House.Elevator = false
-	//if strings.Contains(zf.BasicPackage, "电梯") || strings.Contains(zf.Tags, "电梯") {
-	//	receiver.House.Elevator = true
-	//}
+func (receiver *SingleParser) getLocation(single *Single) *house.Location {
+	zf := single.Data.Zf
+	return &house.Location{
+		City:   zf.CityName,
+		Region: zf.AreaName,
+		Extra:  zf.ComAddress,
+	}
 }
 
-func (receiver *SingleParser) setLocation() {
-	zf := receiver.Single.Data.Zf
-	receiver.House.Location.City = zf.CityName
-	receiver.House.Location.Region = zf.AreaName
-	receiver.House.Location.Extra = zf.ComAddress
+func (receiver *SingleParser) getBuildTime(single *Single) time.Time {
+	zf := single.Data.Zf
+	return time.UnixMilli(zf.CompletionDate)
 }
 
-func (receiver *SingleParser) setBuildDate() {
-	zf := receiver.Single.Data.Zf
-	receiver.House.BuildTime = time.UnixMilli(zf.CompletionDate)
+func (receiver *SingleParser) getFacilities(single *Single) []string {
+	zf := single.Data.Zf
+	fur := strings.Split(zf.FurnitureAndPackage, "@")
+	var facilities []string
+	for _, v := range fur {
+		if v == "" || v == "无" {
+			continue
+		}
+		facilities = append(facilities, v)
+	}
+	return facilities
 }
 
-func (receiver *SingleParser) setFurniture() {
-	//zf := receiver.Single.Data.Zf
-	//receiver.House.Furniture = strings.Split(zf.Furniture, "@")
-}
-
-func (receiver *SingleParser) setFacility() {
-	//zf := receiver.Single.Data.Zf
-	//receiver.House.Facility = strings.Split(zf.BasicPackage, "@")
-}
-
-func (receiver *SingleParser) setTraffic() {
-	Metros := receiver.Single.Data.Community.MetrosNearby
+func (receiver *SingleParser) getTraffic(single *Single) ([]house.Traffic, error) {
+	var traffics []house.Traffic
+	Metros := single.Data.Community.MetrosNearby
 	for _, Metro := range Metros {
 		traffic := house.Traffic{}
 		switch Metro.Type {
 		case 1:
 			traffic.Type = house.TrafficTypeSubway
+		default:
+			return nil, fmt.Errorf("获取交通类型失败，原始数据：%d", Metro.Type)
 		}
 		//traffic.Line = Metro.LineName
 		traffic.Station = Metro.Name
 		traffic.Distance = int(Metro.Distance)
-		receiver.House.Traffic = append(receiver.House.Traffic, traffic)
+		traffics = append(traffics, traffic)
+	}
+	return traffics, nil
+}
+
+func (receiver *SingleParser) getComposition(single *Single) *house.Composition {
+	zf := single.Data.Zf
+	return &house.Composition{
+		Room:    zf.Room,
+		Parlor:  zf.Parlor,
+		Toilet:  zf.Toilet,
+		Kitchen: zf.Kitchen,
 	}
 }
 
-func (receiver *SingleParser) setComposition() {
-	zf := receiver.Single.Data.Zf
-	receiver.House.Composition.Room = zf.Room
-	receiver.House.Composition.Parlor = zf.Parlor
-	receiver.House.Composition.Toilet = zf.Toilet
+func (receiver *SingleParser) getDescription(single *Single) string {
+	description := ""
+	for _, highlight := range single.Data.HouseHighlights {
+		description += highlight.Content
+	}
+	return description
 }

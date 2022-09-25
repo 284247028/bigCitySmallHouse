@@ -4,8 +4,11 @@
     <option name="autoReloadType" value="ALL" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="927a93ea-b893-480a-bd46-e2ab44220172" name="Changes" comment="[crawler] 爬取详情脚本打印">
-      <change beforePath="$PROJECT_DIR$/component/crawler/leyoujia/list_parser.go" beforeDir="false" afterPath="$PROJECT_DIR$/component/crawler/leyoujia/list_parser.go" afterDir="false" />
+    <list default="true" id="927a93ea-b893-480a-bd46-e2ab44220172" name="Changes" comment="[crawler] leyoujia 爬取列表增加字段uid">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/component/crawler/factory/factory_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/component/crawler/factory/factory_test.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/component/crawler/leyoujia/single_parser.go" beforeDir="false" afterPath="$PROJECT_DIR$/component/crawler/leyoujia/single_parser.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/house/house.go" beforeDir="false" afterPath="$PROJECT_DIR$/model/house/house.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -61,7 +64,7 @@
       <recent name="D:\code\bigCitySmallHouse\mongodb\collection" />
     </key>
   </component>
-  <component name="RunManager" selected="Go Build.go build bigCitySmallHouse/component/crawler/script/crawler_houses">
+  <component name="RunManager" selected="Go Test.TestSingle in bigCitySmallHouse/component/crawler/factory (1)">
     <configuration name="go build bigCitySmallHouse/component/crawler/script/crawler_houses" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
       <module name="bigCitySmallHouse" />
       <working_directory value="$PROJECT_DIR$" />
@@ -120,8 +123,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Go Build.go build bigCitySmallHouse/component/crawler/script/crawler_houses" />
         <item itemvalue="Go Test.TestSingle in bigCitySmallHouse/component/crawler/factory (1)" />
+        <item itemvalue="Go Build.go build bigCitySmallHouse/component/crawler/script/crawler_houses" />
         <item itemvalue="Go Test.TestSingle in bigCitySmallHouse/component/crawler/factory" />
         <item itemvalue="Go Build.go build bigCitySmallHouse/component/crawler/script/fill_houses" />
         <item itemvalue="Go Test.TestUpdateMany in bigCitySmallHouse/demo/mongodb" />
@@ -159,7 +162,8 @@
     <MESSAGE value="[crawler] 优化爬取列表脚本逻辑" />
     <MESSAGE value="[crawler] 爬取列表脚本计数" />
     <MESSAGE value="[crawler] 爬取详情脚本打印" />
-    <option name="LAST_COMMIT_MESSAGE" value="[crawler] 爬取详情脚本打印" />
+    <MESSAGE value="[crawler] leyoujia 爬取列表增加字段uid" />
+    <option name="LAST_COMMIT_MESSAGE" value="[crawler] leyoujia 爬取列表增加字段uid" />
   </component>
   <component name="VgoProject">
     <settings-migrated>true</settings-migrated>
@@ -206,6 +210,11 @@
           <url>file://$PROJECT_DIR$/component/crawler/factory/factory_test.go</url>
           <line>41</line>
           <option name="timeStamp" value="57" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
+          <url>file://$PROJECT_DIR$/component/crawler/leyoujia/single_parser.go</url>
+          <line>262</line>
+          <option name="timeStamp" value="60" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
