@@ -1,7 +1,8 @@
 package collections
 
 import (
-	"bigCitySmallHouse/model/house"
+	"bigCitySmallHouse/component/crawler/model/house"
+	"bigCitySmallHouse/mongodb"
 	"bigCitySmallHouse/mongodb/collection"
 	"go.mongodb.org/mongo-driver/bson"
 	"go.mongodb.org/mongo-driver/mongo"
@@ -12,23 +13,28 @@ type CollectionHouse struct {
 	*collection.Collection
 }
 
-func NewCollectionHouse(opts *collection.Options) *CollectionHouse {
+func NewCollectionPack(opts *collection.Options) *CollectionHouse {
+	if opts == nil {
+		opts = &collection.Options{}
+	}
+	opts.DB = mongodb.DBCrawler
+	opts.Collection = house.CollectionPack
 	coll := collection.NewCollection(opts)
 	return &CollectionHouse{
 		Collection: coll,
 	}
 }
 
-func (receiver *CollectionHouse) HouseUpsertMany(houses []house.House) ([]*mongo.UpdateResult, error) {
+func (receiver *CollectionHouse) PackUpsertMany(packs []house.Pack) ([]*mongo.UpdateResult, error) {
 	var results []*mongo.UpdateResult
-	for _, tHouse := range houses {
-		uid := tHouse.Source.String() + "-" + tHouse.SourceId
-		tHouse.UId = uid
+	for _, pack := range packs {
+		uid := pack.House.Source.String() + "-" + pack.House.SourceId
+		pack.House.UId = uid
 		filter := bson.D{
 			{"uid", uid},
 		}
 		opts := &options.UpdateOptions{}
-		result, err := receiver.UpsertOne(filter, tHouse, opts)
+		result, err := receiver.UpsertOne(filter, pack, opts)
 		if err != nil {
 			return nil, err
 		}

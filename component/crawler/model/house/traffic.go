@@ -1,10 +1,10 @@
 package house
 
 type Traffic struct {
-	Type     TrafficType `bson:"type"`
-	Line     int         `bson:"line"`
-	Station  string      `bson:"station"`
-	Distance int         `bson:"distance"`
+	Type     TrafficType `bson:"type" json:"type"`
+	Line     int         `bson:"line" json:"line"`
+	Station  string      `bson:"station" json:"station"`
+	Distance int         `bson:"distance" json:"distance"`
 }
 
 const (

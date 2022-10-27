@@ -1,7 +1,7 @@
 package tests
 
 import (
-	"bigCitySmallHouse/model/house"
+	"bigCitySmallHouse/component/crawler/model/house"
 	"bigCitySmallHouse/mongodb"
 	"bigCitySmallHouse/mongodb/collection"
 	"context"

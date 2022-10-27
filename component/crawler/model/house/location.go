@@ -1,10 +1,10 @@
 package house
 
 type Location struct {
-	Province string `bson:"province"`
-	City     string `bson:"city"`
-	Region   string `bson:"region"`
-	Extra    string `bson:"extra"`
+	Province string `bson:"province" json:"province"`
+	City     string `bson:"city" json:"city"`
+	Region   string `bson:"region" json:"region"`
+	Extra    string `bson:"extra" json:"extra"`
 }
 
 const (

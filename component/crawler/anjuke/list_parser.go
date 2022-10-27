@@ -2,7 +2,7 @@ package anjuke
 
 import (
 	"bigCitySmallHouse/component/crawler"
-	"bigCitySmallHouse/model/house"
+	house2 "bigCitySmallHouse/component/crawler/model/house"
 	"encoding/json"
 	"io"
 	"io/ioutil"
@@ -24,19 +24,19 @@ func NewListParser(param *crawler.ListParam) *ListParser {
 	}
 }
 
-func (receiver *ListParser) Parse() ([]house.House, *crawler.ListInfo, error) {
+func (receiver *ListParser) Parse() ([]house2.House, *crawler.ListInfo, error) {
 	list, err := receiver.fetch()
 	if err != nil {
 		return nil, nil, err
 	}
 
 	houseIdList := list.Data.SidDict.HouseidList
-	houses := make([]house.House, 0, len(houseIdList))
+	houses := make([]house2.House, 0, len(houseIdList))
 	for _, houseId := range houseIdList {
-		tHouse := house.House{
-			UId:      house.SourceAnjuke + "-" + houseId,
+		tHouse := house2.House{
+			UId:      house2.SourceAnjuke + "-" + houseId,
 			SourceId: houseId,
-			Source:   house.SourceAnjuke,
+			Source:   house2.SourceAnjuke,
 		}
 		houses = append(houses, tHouse)
 	}

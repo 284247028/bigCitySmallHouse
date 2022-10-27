@@ -2,14 +2,14 @@ package factory
 
 import (
 	"bigCitySmallHouse/component/crawler"
-	"bigCitySmallHouse/model/house"
+	house2 "bigCitySmallHouse/component/crawler/model/house"
 	"log"
 	"testing"
 )
 
 func TestList(t *testing.T) {
 	//fact, err := NewFactory(house.SourceLeyoujia)
-	fact, err := NewFactory(house.SourceAnjuke)
+	fact, err := NewFactory(house2.SourceAnjuke)
 	if err != nil {
 		t.Fatal(err)
 	}
@@ -28,7 +28,7 @@ func TestList(t *testing.T) {
 // 10350749
 
 func TestSingle(t *testing.T) {
-	fact, err := NewFactory(house.SourceLeyoujia)
+	fact, err := NewFactory(house2.SourceLeyoujia)
 	//fact, err := NewFactory(house.SourceAnjuke)
 	if err != nil {
 		t.Fatal(err)
@@ -44,7 +44,7 @@ func TestSingle(t *testing.T) {
 
 func TestAll(t *testing.T) {
 	log.Println("开始===")
-	fact, err := NewFactory(house.SourceLeyoujia)
+	fact, err := NewFactory(house2.SourceLeyoujia)
 	if err != nil {
 		t.Fatal(err)
 	}
@@ -59,7 +59,7 @@ func TestAll(t *testing.T) {
 
 	count := 0
 	total := len(list)
-	houses := make([]house.House, 0, len(list))
+	houses := make([]house2.House, 0, len(list))
 	for _, item := range list {
 		count++
 		log.Printf("single parsing %d/%d\n", count, total)

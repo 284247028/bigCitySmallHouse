@@ -2,7 +2,7 @@ package anjuke
 
 import (
 	"bigCitySmallHouse/component/crawler"
-	"bigCitySmallHouse/model/house"
+	house2 "bigCitySmallHouse/component/crawler/model/house"
 	"encoding/json"
 	"fmt"
 	"io"
@@ -25,7 +25,7 @@ func NewSingleParser(param *crawler.SingleParam) *SingleParser {
 	}
 }
 
-func (receiver *SingleParser) Parse() (*house.House, error) {
+func (receiver *SingleParser) Parse() (*house2.House, error) {
 	single, err := receiver.fetch()
 	if err != nil {
 		return nil, err
@@ -35,10 +35,10 @@ func (receiver *SingleParser) Parse() (*house.House, error) {
 		return nil, fmt.Errorf("获取安居客单个房源数据失败，code： %s， message： %s", single.Code, single.Message)
 	}
 
-	tHouse := &house.House{}
-	tHouse.UId = house.SourceAnjuke + "-" + single.Data.HouseInfo.Id
+	tHouse := &house2.House{}
+	tHouse.UId = house2.SourceAnjuke + "-" + single.Data.HouseInfo.Id
 	tHouse.SourceId = single.Data.HouseInfo.Id
-	tHouse.Source = house.SourceAnjuke
+	tHouse.Source = house2.SourceAnjuke
 	tHouse.Type = receiver.getType(single)
 	tHouse.Name = single.Data.HouseInfo.XiaoquName
 	tHouse.Description = single.Data.HouseDetail
@@ -115,21 +115,21 @@ func (receiver *SingleParser) fetch() (*Single, error) {
 	return &single, nil
 }
 
-func (receiver *SingleParser) getType(single *Single) house.Type {
+func (receiver *SingleParser) getType(single *Single) house2.Type {
 	infos := single.Data.HouseInfo.ExtendInfo
 	for _, info := range infos {
 		for _, v := range info {
 			if v.Title == "类型" {
 				switch v.Content {
 				case "普通住宅":
-					return house.TypeResidence
+					return house2.TypeResidence
 				default:
-					return house.TypeUnknown
+					return house2.TypeUnknown
 				}
 			}
 		}
 	}
-	return house.TypeUnknown
+	return house2.TypeUnknown
 }
 
 func (receiver *SingleParser) getArea(single *Single) (float64, error) {
@@ -141,12 +141,12 @@ func (receiver *SingleParser) getArea(single *Single) (float64, error) {
 	return strconv.ParseFloat(areaText, 64)
 }
 
-func (receiver *SingleParser) getPrice(single *Single) (*house.Price, error) {
+func (receiver *SingleParser) getPrice(single *Single) (*house2.Price, error) {
 	rent, err := strconv.ParseFloat(single.Data.HouseInfo.Price, 64)
 	if err != nil {
 		return nil, fmt.Errorf("获取租金失败")
 	}
-	return &house.Price{
+	return &house2.Price{
 		Rent: rent,
 	}, err
 }
@@ -166,25 +166,25 @@ func (receiver *SingleParser) getFloor(single *Single) (int, error) {
 	return strconv.Atoi(matches[1])
 }
 
-func (receiver *SingleParser) getLocation(single *Single) *house.Location {
+func (receiver *SingleParser) getLocation(single *Single) *house2.Location {
 	region := single.Data.CollectionInfo.DataInfo.Region
 	extra := single.Data.HouseInfo.Address
-	location := &house.Location{
+	location := &house2.Location{
 		Region: region,
 		Extra:  extra,
 	}
 	if single.Data.ListName == "guangzhou" {
-		location.City = house.CityGuangZhou
+		location.City = house2.CityGuangZhou
 	}
 	return location
 }
 
-func (receiver SingleParser) getRentType(single *Single) (house.RentType, error) {
+func (receiver SingleParser) getRentType(single *Single) (house2.RentType, error) {
 	switch single.Data.CollectionInfo.DataInfo.RentType {
 	case "整租":
-		return house.RentTypeEntire, nil
+		return house2.RentTypeEntire, nil
 	case "合租":
-		return house.RentTypeShared, nil
+		return house2.RentTypeShared, nil
 	default:
 		return "", fmt.Errorf("获取不到租住类型")
 	}
@@ -202,8 +202,8 @@ func (receiver *SingleParser) getFacilities(single *Single) []string {
 	return facilities
 }
 
-func (receiver *SingleParser) getTraffic(single *Single) ([]house.Traffic, error) {
-	var traffics []house.Traffic
+func (receiver *SingleParser) getTraffic(single *Single) ([]house2.Traffic, error) {
+	var traffics []house2.Traffic
 	distances := single.Data.HouseInfo.Distance
 	for _, distance := range distances {
 		reg := regexp.MustCompile(`\d+`)
@@ -226,8 +226,8 @@ func (receiver *SingleParser) getTraffic(single *Single) ([]house.Traffic, error
 		if len(matches2) < 1 || len(matches2[0]) < 2 {
 			return nil, fmt.Errorf("获取地铁站点信息出错")
 		}
-		traffic := house.Traffic{
-			Type:     house.TrafficTypeSubway,
+		traffic := house2.Traffic{
+			Type:     house2.TrafficTypeSubway,
 			Line:     line,
 			Distance: tDistance,
 			Station:  matches2[0][1],
@@ -238,7 +238,7 @@ func (receiver *SingleParser) getTraffic(single *Single) ([]house.Traffic, error
 	return traffics, nil
 }
 
-func (receiver *SingleParser) getComposition(single *Single) (*house.Composition, error) {
+func (receiver *SingleParser) getComposition(single *Single) (*house2.Composition, error) {
 	roomDesc := single.Data.HouseInfo.RoomDesc
 	reg := regexp.MustCompile(`.*(\d+)室.*(\d+)厅.*(\d)卫.*`)
 	matches := reg.FindAllStringSubmatch(roomDesc, -1)
@@ -271,7 +271,7 @@ func (receiver *SingleParser) getComposition(single *Single) (*house.Composition
 		}
 	}
 
-	return &house.Composition{
+	return &house2.Composition{
 		Room:    room,
 		Parlor:  parlor,
 		Toilet:  toilet,

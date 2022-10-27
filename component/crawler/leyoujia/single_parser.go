@@ -2,7 +2,7 @@ package leyoujia
 
 import (
 	"bigCitySmallHouse/component/crawler"
-	"bigCitySmallHouse/model/house"
+	house2 "bigCitySmallHouse/component/crawler/model/house"
 	"bytes"
 	"encoding/json"
 	"fmt"
@@ -111,16 +111,16 @@ func (receiver *SingleParser) buildBody() string {
 	return values.Encode()
 }
 
-func (receiver *SingleParser) Parse() (*house.House, error) {
+func (receiver *SingleParser) Parse() (*house2.House, error) {
 	single, err := receiver.fetch()
 	if err != nil {
 		return nil, err
 	}
 
-	tHouse := &house.House{}
-	tHouse.UId = house.SourceLeyoujia + "-" + strconv.Itoa(single.Data.Zf.HouseId)
+	tHouse := &house2.House{}
+	tHouse.UId = house2.SourceLeyoujia + "-" + strconv.Itoa(single.Data.Zf.HouseId)
 	tHouse.SourceId = strconv.Itoa(single.Data.Zf.HouseId)
-	tHouse.Source = house.SourceLeyoujia
+	tHouse.Source = house2.SourceLeyoujia
 	tHouse.Type, err = receiver.getType(single)
 	if err != nil {
 		return nil, err
@@ -151,20 +151,20 @@ func (receiver *SingleParser) Parse() (*house.House, error) {
 	return tHouse, nil
 }
 
-func (receiver *SingleParser) getType(single *Single) (house.Type, error) {
+func (receiver *SingleParser) getType(single *Single) (house2.Type, error) {
 	switch single.Data.Zf.PropertyType {
 	case "公寓", "酒店式公寓":
-		return house.TypeApartment, nil
+		return house2.TypeApartment, nil
 	case "普通住宅", "住宅":
-		return house.TypeResidence, nil
+		return house2.TypeResidence, nil
 	case "别墅", "花园式洋房":
-		return house.TypeVilla, nil
+		return house2.TypeVilla, nil
 	case "商铺":
-		return house.TypeShop, nil
+		return house2.TypeShop, nil
 	case "车位":
-		return house.TypeParking, nil
+		return house2.TypeParking, nil
 	case "写字楼":
-		return house.TypeOffice, nil
+		return house2.TypeOffice, nil
 	default:
 		return "", fmt.Errorf("乐有家 获取 房屋类型错误，原生数据：%s", single.Data.Zf.PropertyType)
 	}
@@ -258,7 +258,7 @@ func (receiver *SingleParser) getImgUrls(single *Single) ([]string, []string, er
 	return imgUrls, videoUrls, nil
 }
 
-func (receiver *SingleParser) getPrice(single *Single) (*house.Price, error) {
+func (receiver *SingleParser) getPrice(single *Single) (*house2.Price, error) {
 	mFeeText := single.Data.Community.ManagerFee
 	var mFee float64
 	var err error
@@ -270,15 +270,15 @@ func (receiver *SingleParser) getPrice(single *Single) (*house.Price, error) {
 			return nil, err
 		}
 	}
-	return &house.Price{
+	return &house2.Price{
 		Rent:               single.Data.Zf.RentPrice,
 		ManagementPerMeter: mFee,
 	}, nil
 }
 
-func (receiver *SingleParser) getLocation(single *Single) *house.Location {
+func (receiver *SingleParser) getLocation(single *Single) *house2.Location {
 	zf := single.Data.Zf
-	return &house.Location{
+	return &house2.Location{
 		City:   zf.CityName,
 		Region: zf.AreaName,
 		Extra:  zf.ComAddress,
@@ -303,14 +303,14 @@ func (receiver *SingleParser) getFacilities(single *Single) []string {
 	return facilities
 }
 
-func (receiver *SingleParser) getTraffic(single *Single) ([]house.Traffic, error) {
-	var traffics []house.Traffic
+func (receiver *SingleParser) getTraffic(single *Single) ([]house2.Traffic, error) {
+	var traffics []house2.Traffic
 	Metros := single.Data.Community.MetrosNearby
 	for _, Metro := range Metros {
-		traffic := house.Traffic{}
+		traffic := house2.Traffic{}
 		switch Metro.Type {
 		case 1:
-			traffic.Type = house.TrafficTypeSubway
+			traffic.Type = house2.TrafficTypeSubway
 		default:
 			return nil, fmt.Errorf("获取交通类型失败，原始数据：%d", Metro.Type)
 		}
@@ -322,9 +322,9 @@ func (receiver *SingleParser) getTraffic(single *Single) ([]house.Traffic, error
 	return traffics, nil
 }
 
-func (receiver *SingleParser) getComposition(single *Single) *house.Composition {
+func (receiver *SingleParser) getComposition(single *Single) *house2.Composition {
 	zf := single.Data.Zf
-	return &house.Composition{
+	return &house2.Composition{
 		Room:    zf.Room,
 		Parlor:  zf.Parlor,
 		Toilet:  zf.Toilet,
@@ -340,12 +340,12 @@ func (receiver *SingleParser) getDescription(single *Single) string {
 	return description
 }
 
-func (receiver *SingleParser) getRentType(single *Single) (house.RentType, error) {
+func (receiver *SingleParser) getRentType(single *Single) (house2.RentType, error) {
 	switch single.Data.Zf.JointRent {
 	case 1:
-		return house.RentTypeEntire, nil
+		return house2.RentTypeEntire, nil
 	case 2:
-		return house.RentTypeShared, nil
+		return house2.RentTypeShared, nil
 	default:
 		return "", fmt.Errorf("乐有家 获取租住类型失败，原生数据为：%d", single.Data.Zf.JointRent)
 	}

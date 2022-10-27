@@ -3,9 +3,8 @@ package main
 import (
 	"bigCitySmallHouse/component/crawler"
 	"bigCitySmallHouse/component/crawler/factory"
-	"bigCitySmallHouse/model/house"
+	"bigCitySmallHouse/component/crawler/model/house"
 	"bigCitySmallHouse/mongodb"
-	"bigCitySmallHouse/mongodb/collection"
 	"bigCitySmallHouse/mongodb/collections"
 	"flag"
 	"log"
@@ -30,10 +29,7 @@ func main() {
 func fetchAll() {
 	log.Printf("获取房源 %s 数据...\n", _source)
 
-	opts := &collection.Options{}
-	opts.DB = mongodb.DBCrawler
-	opts.Collection = house.CollectionName
-	houseCollection := collections.NewCollectionHouse(opts)
+	houseCollection := collections.NewCollectionPack(nil)
 
 	page := 0
 	count := 0
@@ -49,7 +45,8 @@ func fetchAll() {
 			break
 		}
 
-		_, err = houseCollection.HouseUpsertMany(tHouses)
+		packs := Houses2Packs(tHouses)
+		_, err = houseCollection.PackUpsertMany(packs)
 		if err != nil {
 			log.Printf("保存第%d页数据出错，错误信息：%s\n", page, err.Error())
 		}
@@ -71,4 +68,16 @@ func fetchPage(page int) ([]house.House, *crawler.ListInfo, error) {
 	}
 	parser := houseFactory.CreateListParser(&param)
 	return parser.Parse()
+}
+
+func Houses2Packs(houses []house.House) []house.Pack {
+	packs := make([]house.Pack, 0, len(houses))
+	for _, tHouse := range houses {
+		pack := house.Pack{
+			Status: house.PackStatusList,
+			House:  tHouse,
+		}
+		packs = append(packs, pack)
+	}
+	return packs
 }

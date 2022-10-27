@@ -1,7 +1,7 @@
 package main
 
 import (
-	"bigCitySmallHouse/model/house"
+	house2 "bigCitySmallHouse/component/crawler/model/house"
 	"context"
 	"go.mongodb.org/mongo-driver/bson"
 	"go.mongodb.org/mongo-driver/bson/primitive"
@@ -121,11 +121,11 @@ func TestUpdateMany(t *testing.T) {
 		t.Fatal(err)
 	}
 	filter := bson.D{
-		{"source", house.SourceLeyoujia},
+		{"source", house2.SourceLeyoujia},
 	}
 	update := bson.D{
 		{"$set", bson.D{
-			{"type", house.TypeVilla},
+			{"type", house2.TypeVilla},
 		}},
 	}
 	result, err := MongoClient.Database("crawler").Collection("house").UpdateMany(context.TODO(), filter, update)

@@ -4,7 +4,7 @@ import (
 	"bigCitySmallHouse/component/crawler"
 	"bigCitySmallHouse/component/crawler/anjuke"
 	"bigCitySmallHouse/component/crawler/leyoujia"
-	"bigCitySmallHouse/model/house"
+	"bigCitySmallHouse/component/crawler/model/house"
 	"fmt"
 )
 

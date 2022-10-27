@@ -2,7 +2,7 @@ package leyoujia
 
 import (
 	"bigCitySmallHouse/component/crawler"
-	houseModel "bigCitySmallHouse/model/house"
+	"bigCitySmallHouse/component/crawler/model/house"
 	"bytes"
 	"crypto/md5"
 	"encoding/json"
@@ -25,19 +25,19 @@ func NewListParser(param *crawler.ListParam) *ListParser {
 	return &ListParser{ListParser: listParser}
 }
 
-func (receiver ListParser) Parse() ([]houseModel.House, *crawler.ListInfo, error) {
+func (receiver ListParser) Parse() ([]house.House, *crawler.ListInfo, error) {
 	err := receiver.init()
 	if err != nil {
 		return nil, nil, err
 	}
 
 	items := receiver.List.Data.ZfList.Data
-	houses := make([]houseModel.House, 0, len(items))
+	houses := make([]house.House, 0, len(items))
 	for _, item := range items {
-		tHouse := houseModel.House{}
+		tHouse := house.House{}
 		tHouse.SourceId = strconv.Itoa(item.HouseId)
-		tHouse.Source = houseModel.SourceLeyoujia
-		tHouse.UId = houseModel.SourceLeyoujia + "-" + strconv.Itoa(item.HouseId)
+		tHouse.Source = house.SourceLeyoujia
+		tHouse.UId = house.SourceLeyoujia + "-" + strconv.Itoa(item.HouseId)
 		//switch item.PropertyType {
 		//case "公寓":
 		//	house.Type = houseModel.TypeApartment

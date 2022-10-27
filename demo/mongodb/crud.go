@@ -1,7 +1,7 @@
 package main
 
 import (
-	"bigCitySmallHouse/model/house"
+	house2 "bigCitySmallHouse/component/crawler/model/house"
 	"context"
 	"go.mongodb.org/mongo-driver/mongo"
 	"go.mongodb.org/mongo-driver/mongo/options"
@@ -10,38 +10,38 @@ import (
 
 var MongoClient *mongo.Client
 
-var House1 = house.House{
+var House1 = house2.House{
 	SourceId: "111",
-	Source:   house.SourceAnjuke,
-	Type:     house.TypeApartment,
+	Source:   house2.SourceAnjuke,
+	Type:     house2.TypeApartment,
 	Name:     "house1",
 }
 
-var House2 = house.House{
+var House2 = house2.House{
 	SourceId: "222",
-	Source:   house.SourceLeyoujia,
-	Type:     house.TypeResidence,
+	Source:   house2.SourceLeyoujia,
+	Type:     house2.TypeResidence,
 	Name:     "house2",
 }
 
-var House3 = house.House{
+var House3 = house2.House{
 	SourceId: "333",
-	Source:   house.SourceAnjuke,
-	Type:     house.TypeVilla,
+	Source:   house2.SourceAnjuke,
+	Type:     house2.TypeVilla,
 	Name:     "house3",
 }
 
-var House4 = house.House{
+var House4 = house2.House{
 	SourceId: "444",
-	Source:   house.SourceLeyoujia,
-	Type:     house.TypeApartment,
+	Source:   house2.SourceLeyoujia,
+	Type:     house2.TypeApartment,
 	Name:     "house4",
 }
 
-var House5 = house.House{
+var House5 = house2.House{
 	SourceId: "555",
-	Source:   house.SourceLeyoujia,
-	Type:     house.TypeApartment,
+	Source:   house2.SourceLeyoujia,
+	Type:     house2.TypeApartment,
 	Name:     "house5",
 }
 
@@ -78,7 +78,7 @@ func Connect() error {
 }
 
 func insert() error {
-	qHouse := house.House{
+	qHouse := house2.House{
 		SourceId: "dddd",
 	}
 	one, err := MongoClient.Database("crawler").Collection("house").InsertOne(context.TODO(), qHouse)

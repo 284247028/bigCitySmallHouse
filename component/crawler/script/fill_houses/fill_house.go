@@ -3,7 +3,7 @@ package main
 import (
 	"bigCitySmallHouse/component/crawler"
 	"bigCitySmallHouse/component/crawler/factory"
-	"bigCitySmallHouse/model/house"
+	house2 "bigCitySmallHouse/component/crawler/model/house"
 	"bigCitySmallHouse/mongodb"
 	"bigCitySmallHouse/mongodb/collection"
 	"bigCitySmallHouse/mongodb/collections"
@@ -22,7 +22,7 @@ func init() {
 	opts := mongodb.NewOptions()
 	err := mongodb.NewDB().ConnectMongodb(opts)
 	if err != nil {
-		return
+		log.Fatalln(err)
 	}
 }
 
@@ -37,20 +37,20 @@ func main() {
 	}
 	opts := &collection.Options{}
 	opts.DB = mongodb.DBCrawler
-	opts.Collection = house.CollectionName
-	houseCollection := collections.NewCollectionHouse(opts)
-	results, err := houseCollection.HouseUpsertMany(houses)
+	opts.Collection = house2.CollectionName
+	houseCollection := collections.NewCollectionPack(opts)
+	results, err := houseCollection.PackUpsertMany(houses)
 	if err != nil {
 		log.Fatalln(err)
 	}
 	log.Println(results)
 }
 
-func load() ([]house.House, error) {
+func load() ([]house2.House, error) {
 	log.Println("从数据库读取需要填充的房源...")
 	opts := collection.NewOptions()
 	opts.DB = mongodb.DBCrawler
-	opts.Collection = house.CollectionName
+	opts.Collection = house2.CollectionName
 	tCollection := collection.NewCollection(opts)
 	filter := bson.D{}
 	if _source != "" {
@@ -68,7 +68,7 @@ func load() ([]house.House, error) {
 		return nil, err
 	}
 
-	var houses []house.House
+	var houses []house2.House
 	err = cursor.All(context.TODO(), &houses)
 	if err != nil {
 		return nil, err
@@ -76,10 +76,10 @@ func load() ([]house.House, error) {
 	return houses, nil
 }
 
-func fillHouses(houses []house.House) ([]house.House, error) {
+func fillHouses(houses []house2.House) ([]house2.House, error) {
 	log.Println("填充房源详情...")
 	param := crawler.NewSingleParam()
-	tHouses := make([]house.House, 0, len(houses))
+	tHouses := make([]house2.House, 0, len(houses))
 	count := 0
 	total := len(houses)
 	for _, h := range houses {
@@ -87,7 +87,7 @@ func fillHouses(houses []house.House) ([]house.House, error) {
 		param.Id = h.SourceId
 		source := h.Source
 		if _source != "" {
-			source = house.Source(_source)
+			source = house2.Source(_source)
 		}
 		houseFactory, err := factory.NewFactory(source)
 		if err != nil {
@@ -96,11 +96,11 @@ func fillHouses(houses []house.House) ([]house.House, error) {
 		parser := houseFactory.CreateSingleParser(param)
 		tHouse, err := parser.Parse()
 		if err != nil {
-			log.Printf("抓取详情失败: %s %d/%d - %s\n", err.Error(), count, total, h.Id.Hex())
+			log.Printf("抓取详情失败: %s %d/%d - %s\n", err.Error(), count, total, h.UId)
 			continue
 		}
 		log.Printf("抓取详情成功 %d/%d - %s\n", count, total, tHouse.UId)
-		tHouse.Id = h.Id
+		//tHouse.Id = h.Id
 		tHouses = append(tHouses, *tHouse)
 	}
 	return tHouses, nil

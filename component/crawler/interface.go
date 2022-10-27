@@ -1,7 +1,7 @@
 package crawler
 
 import (
-	"bigCitySmallHouse/model/house"
+	"bigCitySmallHouse/component/crawler/model/house"
 )
 
 type FactoryInterface interface {

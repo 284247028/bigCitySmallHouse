@@ -4,19 +4,36 @@
     <option name="autoReloadType" value="ALL" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="927a93ea-b893-480a-bd46-e2ab44220172" name="Changes" comment="[crawler] 爬虫">
-      <change afterPath="$PROJECT_DIR$/component/logger/logger.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/component/logger/logger_test.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/config/config.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/config/config_test.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/demo/t_zap/log.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/demo/t_zap/log_test.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/logs/house/2022-10-04/house-2022-10-04-error.log" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/logs/house/2022-10-04/house-2022-10-04-info.log" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/util/file/file.go" afterDir="false" />
+    <list default="true" id="927a93ea-b893-480a-bd46-e2ab44220172" name="Changes" comment="[logger]">
+      <change afterPath="$PROJECT_DIR$/component/crawler/model/house/composition.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/component/crawler/model/house/house.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/component/crawler/model/house/pack.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/component/crawler/model/house/price.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/component/crawler/anjuke/list_parser.go" beforeDir="false" afterPath="$PROJECT_DIR$/component/crawler/anjuke/list_parser.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/component/crawler/anjuke/single_parser.go" beforeDir="false" afterPath="$PROJECT_DIR$/component/crawler/anjuke/single_parser.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/component/crawler/factory/factory.go" beforeDir="false" afterPath="$PROJECT_DIR$/component/crawler/factory/factory.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/component/crawler/factory/factory_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/component/crawler/factory/factory_test.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/component/crawler/format.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/component/crawler/interface.go" beforeDir="false" afterPath="$PROJECT_DIR$/component/crawler/interface.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/component/crawler/leyoujia/list_parser.go" beforeDir="false" afterPath="$PROJECT_DIR$/component/crawler/leyoujia/list_parser.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/component/crawler/leyoujia/single_parser.go" beforeDir="false" afterPath="$PROJECT_DIR$/component/crawler/leyoujia/single_parser.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/component/crawler/script/crawler_houses/crawler_houses.go" beforeDir="false" afterPath="$PROJECT_DIR$/component/crawler/script/crawler_houses/crawler_houses.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/component/crawler/script/fill_houses/fill_house.go" beforeDir="false" afterPath="$PROJECT_DIR$/component/crawler/script/fill_houses/fill_house.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/component/crawler/script/houses_save.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo/mongodb/crud.go" beforeDir="false" afterPath="$PROJECT_DIR$/demo/mongodb/crud.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo/mongodb/crud_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/demo/mongodb/crud_test.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/go.mod" beforeDir="false" afterPath="$PROJECT_DIR$/go.mod" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/go.sum" beforeDir="false" afterPath="$PROJECT_DIR$/go.sum" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/house/collection.go" beforeDir="false" afterPath="$PROJECT_DIR$/component/crawler/model/house/collection.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/house/composition.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/house/house.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/house/location.go" beforeDir="false" afterPath="$PROJECT_DIR$/component/crawler/model/house/location.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/house/price.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/house/source.go" beforeDir="false" afterPath="$PROJECT_DIR$/component/crawler/model/house/source.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/house/traffic.go" beforeDir="false" afterPath="$PROJECT_DIR$/component/crawler/model/house/traffic.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mongodb/collections/house.go" beforeDir="false" afterPath="$PROJECT_DIR$/mongodb/collections/house.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mongodb/tests/mongodb_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/mongodb/tests/mongodb_test.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -69,14 +86,32 @@
       <recent name="D:\code\bigCitySmallHouse" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\code\bigCitySmallHouse\component\crawler" />
       <recent name="D:\code\bigCitySmallHouse" />
       <recent name="D:\code\bigCitySmallHouse\mongodb" />
       <recent name="D:\code\bigCitySmallHouse\mongodb\tests" />
-      <recent name="D:\code\bigCitySmallHouse\component\crawler" />
       <recent name="D:\code\bigCitySmallHouse\component\crawler\leyoujia" />
     </key>
   </component>
-  <component name="RunManager" selected="Go Test.TestExample in bigCitySmallHouse/component/logger">
+  <component name="RunManager" selected="Go Build.go build bigCitySmallHouse/demo/web">
+    <configuration name="go build bigCitySmallHouse/component/mini" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
+      <module name="bigCitySmallHouse" />
+      <working_directory value="$PROJECT_DIR$" />
+      <kind value="PACKAGE" />
+      <package value="bigCitySmallHouse/component/mini" />
+      <directory value="$PROJECT_DIR$" />
+      <filePath value="$PROJECT_DIR$/component/mini/main.go" />
+      <method v="2" />
+    </configuration>
+    <configuration name="go build bigCitySmallHouse/demo/web" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
+      <module name="bigCitySmallHouse" />
+      <working_directory value="$PROJECT_DIR$" />
+      <kind value="PACKAGE" />
+      <package value="bigCitySmallHouse/demo/web" />
+      <directory value="$PROJECT_DIR$" />
+      <filePath value="$PROJECT_DIR$/demo/web/web.go" />
+      <method v="2" />
+    </configuration>
     <configuration name="TestExample in bigCitySmallHouse/component/logger" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
       <module name="bigCitySmallHouse" />
       <working_directory value="$PROJECT_DIR$/component/logger" />
@@ -101,30 +136,6 @@
       <pattern value="^\QTestExample\E$" />
       <method v="2" />
     </configuration>
-    <configuration name="TestExample in bigCitySmallHouse/demo/zap" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
-      <module name="bigCitySmallHouse" />
-      <working_directory value="$PROJECT_DIR$/demo/zap" />
-      <root_directory value="$PROJECT_DIR$" />
-      <kind value="PACKAGE" />
-      <package value="bigCitySmallHouse/demo/zap" />
-      <directory value="$PROJECT_DIR$" />
-      <filePath value="$PROJECT_DIR$" />
-      <framework value="gotest" />
-      <pattern value="^\QTestExample\E$" />
-      <method v="2" />
-    </configuration>
-    <configuration name="TestPath in bigCitySmallHouse/component/config" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
-      <module name="bigCitySmallHouse" />
-      <working_directory value="$PROJECT_DIR$/component/config" />
-      <root_directory value="$PROJECT_DIR$" />
-      <kind value="PACKAGE" />
-      <package value="bigCitySmallHouse/component/config" />
-      <directory value="$PROJECT_DIR$" />
-      <filePath value="$PROJECT_DIR$" />
-      <framework value="gotest" />
-      <pattern value="^\QTestPath\E$" />
-      <method v="2" />
-    </configuration>
     <configuration name="TestPath in bigCitySmallHouse/config" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
       <module name="bigCitySmallHouse" />
       <working_directory value="$PROJECT_DIR$/config" />
@@ -139,11 +150,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Go Build.go build bigCitySmallHouse/demo/web" />
+        <item itemvalue="Go Build.go build bigCitySmallHouse/component/mini" />
         <item itemvalue="Go Test.TestExample in bigCitySmallHouse/component/logger" />
         <item itemvalue="Go Test.TestExample in bigCitySmallHouse/demo/t_zap" />
         <item itemvalue="Go Test.TestPath in bigCitySmallHouse/config" />
-        <item itemvalue="Go Test.TestPath in bigCitySmallHouse/component/config" />
-        <item itemvalue="Go Test.TestExample in bigCitySmallHouse/demo/zap" />
       </list>
     </recent_temporary>
   </component>
@@ -181,7 +192,8 @@
     <MESSAGE value="[crawler] leyoujia 爬取列表增加字段uid" />
     <MESSAGE value="[crawler] leyoujia 爬取详情修改" />
     <MESSAGE value="[crawler] 爬虫" />
-    <option name="LAST_COMMIT_MESSAGE" value="[crawler] 爬虫" />
+    <MESSAGE value="[logger]" />
+    <option name="LAST_COMMIT_MESSAGE" value="[logger]" />
   </component>
   <component name="VgoProject">
     <settings-migrated>true</settings-migrated>
