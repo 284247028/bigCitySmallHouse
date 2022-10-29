@@ -16,9 +16,10 @@ func init() {
 	flag.StringVar(&_source, "source", "", "数据来源")
 	flag.Parse()
 	opts := mongodb.NewOptions()
+	opts.Uri = "mongodb://admin:admin@43.138.174.42:27017/"
 	err := mongodb.NewDB().ConnectMongodb(opts)
 	if err != nil {
-		return
+		log.Fatalln(err)
 	}
 }
 
@@ -45,7 +46,7 @@ func fetchAll() {
 			break
 		}
 
-		packs := Houses2Packs(tHouses)
+		packs := houseCollection.Houses2Packs(tHouses)
 		_, err = houseCollection.PackUpsertMany(packs)
 		if err != nil {
 			log.Printf("保存第%d页数据出错，错误信息：%s\n", page, err.Error())
@@ -68,16 +69,4 @@ func fetchPage(page int) ([]house.House, *crawler.ListInfo, error) {
 	}
 	parser := houseFactory.CreateListParser(&param)
 	return parser.Parse()
-}
-
-func Houses2Packs(houses []house.House) []house.Pack {
-	packs := make([]house.Pack, 0, len(houses))
-	for _, tHouse := range houses {
-		pack := house.Pack{
-			Status: house.PackStatusList,
-			House:  tHouse,
-		}
-		packs = append(packs, pack)
-	}
-	return packs
 }

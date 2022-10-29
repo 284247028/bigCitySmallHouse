@@ -25,6 +25,18 @@ func NewCollectionPack(opts *collection.Options) *CollectionHouse {
 	}
 }
 
+func (receiver *CollectionHouse) Houses2Packs(houses []house.House) []house.Pack {
+	packs := make([]house.Pack, 0, len(houses))
+	for _, tHouse := range houses {
+		pack := house.Pack{
+			Status: house.PackStatusList,
+			House:  tHouse,
+		}
+		packs = append(packs, pack)
+	}
+	return packs
+}
+
 func (receiver *CollectionHouse) PackUpsertMany(packs []house.Pack) ([]*mongo.UpdateResult, error) {
 	var results []*mongo.UpdateResult
 	for _, pack := range packs {
