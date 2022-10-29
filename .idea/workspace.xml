@@ -4,11 +4,10 @@
     <option name="autoReloadType" value="ALL" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="927a93ea-b893-480a-bd46-e2ab44220172" name="Changes" comment="[logger]">
+    <list default="true" id="927a93ea-b893-480a-bd46-e2ab44220172" name="Changes" comment="[crawler] 爬虫脚本适应结构变更">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/component/crawler/script/crawler_houses/crawler_houses.go" beforeDir="false" afterPath="$PROJECT_DIR$/component/crawler/script/crawler_houses/crawler_houses.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/component/crawler/script/fill_houses/fill_house.go" beforeDir="false" afterPath="$PROJECT_DIR$/component/crawler/script/fill_houses/fill_house.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mongodb/collections/house.go" beforeDir="false" afterPath="$PROJECT_DIR$/mongodb/collections/house.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -68,11 +67,11 @@
       <recent name="D:\code\bigCitySmallHouse\component\crawler\leyoujia" />
     </key>
   </component>
-  <component name="RunManager" selected="Go Build.go build bigCitySmallHouse/component/crawler/script/fill_houses">
+  <component name="RunManager" selected="Go Build.go build bigCitySmallHouse/component/crawler/script/crawler_houses">
     <configuration name="go build bigCitySmallHouse/component/crawler/script/crawler_houses" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
       <module name="bigCitySmallHouse" />
       <working_directory value="$PROJECT_DIR$" />
-      <parameters value="-source=leyoujia" />
+      <parameters value="-source=anjuke" />
       <kind value="PACKAGE" />
       <package value="bigCitySmallHouse/component/crawler/script/crawler_houses" />
       <directory value="$PROJECT_DIR$" />
@@ -121,8 +120,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Go Build.go build bigCitySmallHouse/component/crawler/script/fill_houses" />
         <item itemvalue="Go Build.go build bigCitySmallHouse/component/crawler/script/crawler_houses" />
+        <item itemvalue="Go Build.go build bigCitySmallHouse/component/crawler/script/fill_houses" />
         <item itemvalue="Go Build.go build bigCitySmallHouse/demo/web" />
         <item itemvalue="Go Build.go build bigCitySmallHouse/component/mini" />
         <item itemvalue="Go Test.TestExample in bigCitySmallHouse/component/logger" />
@@ -164,7 +163,8 @@
     <MESSAGE value="[crawler] leyoujia 爬取详情修改" />
     <MESSAGE value="[crawler] 爬虫" />
     <MESSAGE value="[logger]" />
-    <option name="LAST_COMMIT_MESSAGE" value="[logger]" />
+    <MESSAGE value="[crawler] 爬虫脚本适应结构变更" />
+    <option name="LAST_COMMIT_MESSAGE" value="[crawler] 爬虫脚本适应结构变更" />
   </component>
   <component name="VgoProject">
     <settings-migrated>true</settings-migrated>

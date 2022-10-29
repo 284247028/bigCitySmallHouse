@@ -55,7 +55,7 @@ func fetchAll() {
 		log.Printf("保存成功\n")
 		count += len(tHouses)
 	}
-
+	// 实际数量低于总数，因为第三方房源有id重复，被覆盖，正常
 	log.Println("爬取完成，总数：", count)
 }
 

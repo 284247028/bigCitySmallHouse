@@ -43,7 +43,7 @@ func (receiver *CollectionHouse) PackUpsertMany(packs []house.Pack) ([]*mongo.Up
 		uid := pack.House.Source.String() + "-" + pack.House.SourceId
 		pack.House.UId = uid
 		filter := bson.D{
-			{"uid", uid},
+			{"house.uid", uid},
 		}
 		opts := &options.UpdateOptions{}
 		result, err := receiver.UpsertOne(filter, pack, opts)

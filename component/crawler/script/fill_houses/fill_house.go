@@ -95,6 +95,7 @@ func fillHouses(packs []house.Pack) ([]house.Pack, error) {
 		log.Printf("抓取详情成功 %d/%d - %s\n", count, total, tHouse.UId)
 		//tHouse.Id = h.Id
 		p.House = *tHouse
+		p.Status = house.PackStatusSingle
 		tPacks = append(tPacks, p)
 	}
 	return tPacks, nil
