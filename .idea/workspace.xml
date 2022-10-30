@@ -4,10 +4,11 @@
     <option name="autoReloadType" value="ALL" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="927a93ea-b893-480a-bd46-e2ab44220172" name="Changes" comment="[crawler] 爬虫脚本适应结构变更">
+    <list default="true" id="927a93ea-b893-480a-bd46-e2ab44220172" name="Changes" comment="[crawler] pack中有多余的uid问题、抓详情时补充状态">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/component/crawler/script/crawler_houses/crawler_houses.go" beforeDir="false" afterPath="$PROJECT_DIR$/component/crawler/script/crawler_houses/crawler_houses.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/component/crawler/script/fill_houses/fill_house.go" beforeDir="false" afterPath="$PROJECT_DIR$/component/crawler/script/fill_houses/fill_house.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/component/crawler/model/house/pack.go" beforeDir="false" afterPath="$PROJECT_DIR$/component/crawler/model/house/pack.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/go.mod" beforeDir="false" afterPath="$PROJECT_DIR$/go.mod" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/go.sum" beforeDir="false" afterPath="$PROJECT_DIR$/go.sum" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -67,11 +68,11 @@
       <recent name="D:\code\bigCitySmallHouse\component\crawler\leyoujia" />
     </key>
   </component>
-  <component name="RunManager" selected="Go Build.go build bigCitySmallHouse/component/crawler/script/crawler_houses">
+  <component name="RunManager" selected="Go Build.go build bigCitySmallHouse/component/crawler/script/push">
     <configuration name="go build bigCitySmallHouse/component/crawler/script/crawler_houses" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
       <module name="bigCitySmallHouse" />
       <working_directory value="$PROJECT_DIR$" />
-      <parameters value="-source=anjuke" />
+      <parameters value="-source=leyoujia" />
       <kind value="PACKAGE" />
       <package value="bigCitySmallHouse/component/crawler/script/crawler_houses" />
       <directory value="$PROJECT_DIR$" />
@@ -88,43 +89,40 @@
       <filePath value="$PROJECT_DIR$/component/crawler/script/fill_houses/fill_house.go" />
       <method v="2" />
     </configuration>
-    <configuration name="go build bigCitySmallHouse/component/mini" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
+    <configuration name="go build bigCitySmallHouse/component/crawler/script/push" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
       <module name="bigCitySmallHouse" />
       <working_directory value="$PROJECT_DIR$" />
       <kind value="PACKAGE" />
-      <package value="bigCitySmallHouse/component/mini" />
+      <package value="bigCitySmallHouse/component/crawler/script/push" />
       <directory value="$PROJECT_DIR$" />
-      <filePath value="$PROJECT_DIR$/component/mini/main.go" />
+      <filePath value="$PROJECT_DIR$/component/crawler/script/push/push.go" />
       <method v="2" />
     </configuration>
-    <configuration name="go build bigCitySmallHouse/demo/web" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
+    <configuration name="go build bigCitySmallHouse/demo/rabbitmq/test-01/receive" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
       <module name="bigCitySmallHouse" />
       <working_directory value="$PROJECT_DIR$" />
       <kind value="PACKAGE" />
-      <package value="bigCitySmallHouse/demo/web" />
+      <package value="bigCitySmallHouse/demo/rabbitmq/test-01/receive" />
       <directory value="$PROJECT_DIR$" />
-      <filePath value="$PROJECT_DIR$/demo/web/web.go" />
+      <filePath value="$PROJECT_DIR$/demo/rabbitmq/test-01/receive/receive.go" />
       <method v="2" />
     </configuration>
-    <configuration name="TestExample in bigCitySmallHouse/component/logger" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
+    <configuration name="go build bigCitySmallHouse/demo/rabbitmq/test-01/send" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
       <module name="bigCitySmallHouse" />
-      <working_directory value="$PROJECT_DIR$/component/logger" />
-      <root_directory value="$PROJECT_DIR$" />
+      <working_directory value="$PROJECT_DIR$" />
       <kind value="PACKAGE" />
-      <package value="bigCitySmallHouse/component/logger" />
+      <package value="bigCitySmallHouse/demo/rabbitmq/test-01/send" />
       <directory value="$PROJECT_DIR$" />
-      <filePath value="$PROJECT_DIR$" />
-      <framework value="gotest" />
-      <pattern value="^\QTestExample\E$" />
+      <filePath value="$PROJECT_DIR$/demo/rabbitmq/test-01/send/send.go" />
       <method v="2" />
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Go Build.go build bigCitySmallHouse/component/crawler/script/crawler_houses" />
+        <item itemvalue="Go Build.go build bigCitySmallHouse/component/crawler/script/push" />
+        <item itemvalue="Go Build.go build bigCitySmallHouse/demo/rabbitmq/test-01/receive" />
+        <item itemvalue="Go Build.go build bigCitySmallHouse/demo/rabbitmq/test-01/send" />
         <item itemvalue="Go Build.go build bigCitySmallHouse/component/crawler/script/fill_houses" />
-        <item itemvalue="Go Build.go build bigCitySmallHouse/demo/web" />
-        <item itemvalue="Go Build.go build bigCitySmallHouse/component/mini" />
-        <item itemvalue="Go Test.TestExample in bigCitySmallHouse/component/logger" />
+        <item itemvalue="Go Build.go build bigCitySmallHouse/component/crawler/script/crawler_houses" />
       </list>
     </recent_temporary>
   </component>
@@ -164,7 +162,8 @@
     <MESSAGE value="[crawler] 爬虫" />
     <MESSAGE value="[logger]" />
     <MESSAGE value="[crawler] 爬虫脚本适应结构变更" />
-    <option name="LAST_COMMIT_MESSAGE" value="[crawler] 爬虫脚本适应结构变更" />
+    <MESSAGE value="[crawler] pack中有多余的uid问题、抓详情时补充状态" />
+    <option name="LAST_COMMIT_MESSAGE" value="[crawler] pack中有多余的uid问题、抓详情时补充状态" />
   </component>
   <component name="VgoProject">
     <settings-migrated>true</settings-migrated>
