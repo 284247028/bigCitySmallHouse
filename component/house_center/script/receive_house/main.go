@@ -5,9 +5,10 @@ import (
 	"bigCitySmallHouse/component/house_center/model/house"
 	"bigCitySmallHouse/mongodb"
 	"bigCitySmallHouse/mongodb/collections"
-	"context"
 	"encoding/json"
 	amqp "github.com/rabbitmq/amqp091-go"
+	"go.mongodb.org/mongo-driver/bson"
+	"go.mongodb.org/mongo-driver/mongo/options"
 	"log"
 	"time"
 )
@@ -59,10 +60,15 @@ func main() {
 		tHouse.UpdateAt = time.Now()
 		tHouse.Shelve = tPush.Status == push.StatusPushValid
 
-		result, err := coll.MCollection().InsertOne(context.TODO(), tHouse)
+		filter := bson.D{
+			{"house.uid", tHouse.House.UId},
+		}
+
+		result, err := coll.UpsertOne(filter, tHouse, options.Update())
 		if err != nil {
 			log.Fatalln(err)
 		}
+
 		log.Println(result)
 	}
 	log.Println("正常结束")

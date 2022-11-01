@@ -4,11 +4,10 @@
     <option name="autoReloadType" value="ALL" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="927a93ea-b893-480a-bd46-e2ab44220172" name="Changes" comment="[crawler] pack中有多余的uid问题、抓详情时补充状态">
+    <list default="true" id="927a93ea-b893-480a-bd46-e2ab44220172" name="Changes" comment="[crawler house_center] 房源入库脚本">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/component/crawler/script/push/push.go" beforeDir="false" afterPath="$PROJECT_DIR$/component/crawler/script/push/push.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mongodb/collections/house.go" beforeDir="false" afterPath="$PROJECT_DIR$/mongodb/collections/pack.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mongodb/mongodb.go" beforeDir="false" afterPath="$PROJECT_DIR$/mongodb/mongodb.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/component/house_center/model/house/house.go" beforeDir="false" afterPath="$PROJECT_DIR$/component/house_center/model/house/house.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/component/house_center/script/receive_house/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/component/house_center/script/receive_house/main.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -68,7 +67,7 @@
       <recent name="D:\code\bigCitySmallHouse\mongodb\tests" />
     </key>
   </component>
-  <component name="RunManager" selected="Go Build.go build bigCitySmallHouse/component/house_center/script/receive_house">
+  <component name="RunManager" selected="Go Build.go build bigCitySmallHouse/component/crawler/script/push">
     <configuration name="go build bigCitySmallHouse/component/crawler/script/fill_houses" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
       <module name="bigCitySmallHouse" />
       <working_directory value="$PROJECT_DIR$" />
@@ -117,8 +116,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Go Build.go build bigCitySmallHouse/component/house_center/script/receive_house" />
         <item itemvalue="Go Build.go build bigCitySmallHouse/component/crawler/script/push" />
+        <item itemvalue="Go Build.go build bigCitySmallHouse/component/house_center/script/receive_house" />
         <item itemvalue="Go Build.go build bigCitySmallHouse/demo/rabbitmq/test-01/receive" />
         <item itemvalue="Go Build.go build bigCitySmallHouse/demo/rabbitmq/test-01/send" />
         <item itemvalue="Go Build.go build bigCitySmallHouse/component/crawler/script/fill_houses" />
@@ -162,7 +161,8 @@
     <MESSAGE value="[logger]" />
     <MESSAGE value="[crawler] 爬虫脚本适应结构变更" />
     <MESSAGE value="[crawler] pack中有多余的uid问题、抓详情时补充状态" />
-    <option name="LAST_COMMIT_MESSAGE" value="[crawler] pack中有多余的uid问题、抓详情时补充状态" />
+    <MESSAGE value="[crawler house_center] 房源入库脚本" />
+    <option name="LAST_COMMIT_MESSAGE" value="[crawler house_center] 房源入库脚本" />
   </component>
   <component name="VgoProject">
     <settings-migrated>true</settings-migrated>
