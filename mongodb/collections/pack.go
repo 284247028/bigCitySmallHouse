@@ -9,23 +9,23 @@ import (
 	"go.mongodb.org/mongo-driver/mongo/options"
 )
 
-type CollectionHouse struct {
+type CollectionPack struct {
 	*collection.Collection
 }
 
-func NewCollectionPack(opts *collection.Options) *CollectionHouse {
+func NewCollectionPack(opts *collection.Options) *CollectionPack {
 	if opts == nil {
 		opts = &collection.Options{}
 	}
 	opts.DB = mongodb.DBCrawler
 	opts.Collection = house.CollectionPack
 	coll := collection.NewCollection(opts)
-	return &CollectionHouse{
+	return &CollectionPack{
 		Collection: coll,
 	}
 }
 
-func (receiver *CollectionHouse) Houses2Packs(houses []house.House) []house.Pack {
+func (receiver *CollectionPack) Houses2Packs(houses []house.House) []house.Pack {
 	packs := make([]house.Pack, 0, len(houses))
 	for _, tHouse := range houses {
 		pack := house.Pack{
@@ -37,7 +37,7 @@ func (receiver *CollectionHouse) Houses2Packs(houses []house.House) []house.Pack
 	return packs
 }
 
-func (receiver *CollectionHouse) PackUpsertMany(packs []house.Pack) ([]*mongo.UpdateResult, error) {
+func (receiver *CollectionPack) PackUpsertMany(packs []house.Pack) ([]*mongo.UpdateResult, error) {
 	var results []*mongo.UpdateResult
 	for _, pack := range packs {
 		uid := pack.House.Source.String() + "-" + pack.House.SourceId

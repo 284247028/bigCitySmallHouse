@@ -92,11 +92,10 @@ func pushPacks(packs []house.Pack) error {
 			return err
 		}
 		err = ch.PublishWithContext(ctx,
-			"", // exchange
-			//q.Name, // routing key
-			"crawler_house",
-			false, // mandatory
-			false, // immediate
+			"",              // exchange
+			"crawler_house", // queue name
+			false,           // mandatory
+			false,           // immediate
 			amqp.Publishing{
 				ContentType: "text/plain",
 				Body:        pushJson,

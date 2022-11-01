@@ -12,7 +12,10 @@ var _mongoClient *mongo.Client
 
 const LocalUri = "mongodb://localhost:27017"
 
-const DBCrawler = "crawler"
+const (
+	DBCrawler     = "crawler"
+	DBHouseCenter = "house_center"
+)
 
 type DB struct {
 }
