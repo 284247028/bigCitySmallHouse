@@ -5,9 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="927a93ea-b893-480a-bd46-e2ab44220172" name="Changes" comment="[crawler house_center] 房源入库脚本">
+      <change afterPath="$PROJECT_DIR$/component/house_center/base_response.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/component/house_center/model/house/house.go" beforeDir="false" afterPath="$PROJECT_DIR$/component/house_center/model/house/house.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/component/house_center/script/receive_house/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/component/house_center/script/receive_house/main.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/component/house_center/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/component/house_center/main.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mongodb/collection/collection.go" beforeDir="false" afterPath="$PROJECT_DIR$/mongodb/collection/collection.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -34,50 +35,40 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "DefaultGoTemplateProperty": "Go File",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.go.format.on.save.advertiser.fired": "true",
-    "RunOnceActivity.go.formatter.settings.were.checked": "true",
-    "RunOnceActivity.go.migrated.go.modules.settings": "true",
-    "RunOnceActivity.go.modules.go.list.on.any.changes.was.set": "true",
-    "RunOnceActivity.go.watchers.conflict.with.on.save.actions.check.performed": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "go.import.settings.migrated": "true",
-    "last_opened_file_path": "D:/code/bigCitySmallHouse/component/logger",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "settings.editor.selected.configurable": "com.maddyhome.idea.vim.ui.VimEmulationConfigurable"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;DefaultGoTemplateProperty&quot;: &quot;Go File&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.go.format.on.save.advertiser.fired&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.go.formatter.settings.were.checked&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.go.migrated.go.modules.settings&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.go.modules.go.list.on.any.changes.was.set&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.go.watchers.conflict.with.on.save.actions.check.performed&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;go.import.settings.migrated&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/code/bigCitySmallHouse/component/logger&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;com.maddyhome.idea.vim.ui.VimEmulationConfigurable&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\code\bigCitySmallHouse\component\logger" />
       <recent name="D:\code\bigCitySmallHouse" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\code\bigCitySmallHouse\component\house_center" />
       <recent name="D:\code\bigCitySmallHouse\component\house_center\script" />
       <recent name="D:\code\bigCitySmallHouse\component\crawler" />
       <recent name="D:\code\bigCitySmallHouse" />
       <recent name="D:\code\bigCitySmallHouse\mongodb" />
-      <recent name="D:\code\bigCitySmallHouse\mongodb\tests" />
     </key>
   </component>
-  <component name="RunManager" selected="Go Build.go build bigCitySmallHouse/component/crawler/script/push">
-    <configuration name="go build bigCitySmallHouse/component/crawler/script/fill_houses" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
-      <module name="bigCitySmallHouse" />
-      <working_directory value="$PROJECT_DIR$" />
-      <parameters value="-source=leyoujia" />
-      <kind value="PACKAGE" />
-      <package value="bigCitySmallHouse/component/crawler/script/fill_houses" />
-      <directory value="$PROJECT_DIR$" />
-      <filePath value="$PROJECT_DIR$/component/crawler/script/fill_houses/fill_house.go" />
-      <method v="2" />
-    </configuration>
+  <component name="RunManager" selected="Go Build.go build bigCitySmallHouse/component/house_center">
     <configuration name="go build bigCitySmallHouse/component/crawler/script/push" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
       <module name="bigCitySmallHouse" />
       <working_directory value="$PROJECT_DIR$" />
@@ -85,6 +76,15 @@
       <package value="bigCitySmallHouse/component/crawler/script/push" />
       <directory value="$PROJECT_DIR$" />
       <filePath value="$PROJECT_DIR$/component/crawler/script/push/push.go" />
+      <method v="2" />
+    </configuration>
+    <configuration name="go build bigCitySmallHouse/component/house_center" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
+      <module name="bigCitySmallHouse" />
+      <working_directory value="$PROJECT_DIR$" />
+      <kind value="PACKAGE" />
+      <package value="bigCitySmallHouse/component/house_center" />
+      <directory value="$PROJECT_DIR$" />
+      <filePath value="$PROJECT_DIR$/component/house_center/main.go" />
       <method v="2" />
     </configuration>
     <configuration name="go build bigCitySmallHouse/component/house_center/script/receive_house" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
@@ -116,11 +116,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Go Build.go build bigCitySmallHouse/component/house_center" />
         <item itemvalue="Go Build.go build bigCitySmallHouse/component/crawler/script/push" />
         <item itemvalue="Go Build.go build bigCitySmallHouse/component/house_center/script/receive_house" />
         <item itemvalue="Go Build.go build bigCitySmallHouse/demo/rabbitmq/test-01/receive" />
         <item itemvalue="Go Build.go build bigCitySmallHouse/demo/rabbitmq/test-01/send" />
-        <item itemvalue="Go Build.go build bigCitySmallHouse/component/crawler/script/fill_houses" />
       </list>
     </recent_temporary>
   </component>
