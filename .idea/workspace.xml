@@ -4,10 +4,11 @@
     <option name="autoReloadType" value="ALL" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="927a93ea-b893-480a-bd46-e2ab44220172" name="Changes" comment="[crawler house_center] 房源入库脚本">
-      <change afterPath="$PROJECT_DIR$/component/house_center/base_response.go" afterDir="false" />
+    <list default="true" id="927a93ea-b893-480a-bd46-e2ab44220172" name="Changes" comment="[crawler house_center] 获取房源列表">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/component/house_center/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/component/house_center/main.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/component/crawler/model/house/house.go" beforeDir="false" afterPath="$PROJECT_DIR$/component/crawler/model/house/house.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/component/house_center/model/house/house.go" beforeDir="false" afterPath="$PROJECT_DIR$/component/house_center/model/house/house.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/component/house_center/read_house.go" beforeDir="false" afterPath="$PROJECT_DIR$/component/house_center/read_house.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/mongodb/collection/collection.go" beforeDir="false" afterPath="$PROJECT_DIR$/mongodb/collection/collection.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -162,7 +163,8 @@
     <MESSAGE value="[crawler] 爬虫脚本适应结构变更" />
     <MESSAGE value="[crawler] pack中有多余的uid问题、抓详情时补充状态" />
     <MESSAGE value="[crawler house_center] 房源入库脚本" />
-    <option name="LAST_COMMIT_MESSAGE" value="[crawler house_center] 房源入库脚本" />
+    <MESSAGE value="[crawler house_center] 获取房源列表" />
+    <option name="LAST_COMMIT_MESSAGE" value="[crawler house_center] 获取房源列表" />
   </component>
   <component name="VgoProject">
     <settings-migrated>true</settings-migrated>

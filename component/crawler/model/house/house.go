@@ -51,3 +51,13 @@ const (
 	RentTypeEntire = "entire" // 整租
 	RentTypeShared = "shared" // 合租
 )
+
+func (receiver *RentType) ToCn() string {
+	switch *receiver {
+	case RentTypeEntire:
+		return "整租"
+	case RentTypeShared:
+		return "合租"
+	}
+	return ""
+}

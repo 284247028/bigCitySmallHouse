@@ -50,9 +50,8 @@ func (receiver *Collection) Pagination(page, size int, ctx context.Context, filt
 		return nil, fmt.Errorf("分页的size小于等于0：%d", size)
 	}
 	skipNum := (page - 1) * size
-	limitNum := page * size
 
-	opts.SetLimit(int64(limitNum))
+	opts.SetLimit(int64(size))
 	opts.SetSkip(int64(skipNum))
 	return receiver.MCollection().Find(ctx, filter, opts)
 }
