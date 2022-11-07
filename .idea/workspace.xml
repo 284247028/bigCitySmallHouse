@@ -5,9 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="927a93ea-b893-480a-bd46-e2ab44220172" name="Changes" comment="[crawler house_center] 获取房源列表">
+      <change afterPath="$PROJECT_DIR$/component/house_center/house_info.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/component/house_center/model/house/house.go" beforeDir="false" afterPath="$PROJECT_DIR$/component/house_center/model/house/house.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/component/house_center/read_house.go" beforeDir="false" afterPath="$PROJECT_DIR$/component/house_center/read_house.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/component/house_center/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/component/house_center/main.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

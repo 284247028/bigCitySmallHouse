@@ -21,6 +21,7 @@ func main() {
 	apiGroup := engine.Group("/api")
 	{
 		apiGroup.GET("/houses", ReadHouse)
+		apiGroup.GET("/house_info", GetHouseInfo)
 	}
 	err := engine.Run(":10000")
 	if err != nil {
