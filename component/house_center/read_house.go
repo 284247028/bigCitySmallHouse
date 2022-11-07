@@ -29,6 +29,7 @@ type RHouse struct {
 	Location    house2.Location    `json:"location"`
 	Name        string             `json:"name"`
 	CoverUrl    string             `json:"cover_url"`
+	IdHex       string             `json:"id_hex"`
 }
 
 func ReadHouse(ctx *gin.Context) {
@@ -92,6 +93,7 @@ func houses2rHouse(tHouses []house.House) []RHouse {
 		rHouse.Location = tHouse.House.Location
 		rHouse.Name = tHouse.House.Name
 		rHouse.RentType = tHouse.House.RentType.ToCn()
+		rHouse.IdHex = tHouse.Id.Hex()
 		if len(tHouse.House.ImgUrls) > 0 {
 			rHouse.CoverUrl = tHouse.House.ImgUrls[0]
 		}
