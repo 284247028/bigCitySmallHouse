@@ -17,6 +17,7 @@ type ParamHouseInfo struct {
 
 type HouseInfo struct {
 	ImgUrls []string `json:"img_urls"`
+	Name    string   `json:"name"`
 }
 
 func GetHouseInfo(ctx *gin.Context) {
@@ -43,6 +44,7 @@ func GetHouseInfo(ctx *gin.Context) {
 	opts := options.FindOne()
 	opts.SetProjection(bson.D{
 		{"house.img_urls", 1},
+		{"house.name", 1},
 	})
 	var tHouse house.House
 	singleResult := coll.MCollection().FindOne(context.TODO(), filter, opts)
@@ -54,6 +56,7 @@ func GetHouseInfo(ctx *gin.Context) {
 
 	houseIngo := HouseInfo{
 		ImgUrls: tHouse.House.ImgUrls,
+		Name:    tHouse.House.Name,
 	}
 
 	ctx.JSON(http.StatusOK, houseIngo)

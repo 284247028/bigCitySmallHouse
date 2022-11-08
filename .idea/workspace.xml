@@ -5,9 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="927a93ea-b893-480a-bd46-e2ab44220172" name="Changes" comment="[crawler house_center] 获取房源列表">
-      <change afterPath="$PROJECT_DIR$/component/house_center/house_info.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/component/house_center/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/component/house_center/main.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/component/house_center/house_info.go" beforeDir="false" afterPath="$PROJECT_DIR$/component/house_center/house_info.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -68,6 +67,14 @@
     </key>
   </component>
   <component name="RunManager" selected="Go Build.go build bigCitySmallHouse/component/house_center">
+    <configuration default="true" type="GoApplicationRunConfiguration" factoryName="Go Application">
+      <module name="bigCitySmallHouse" />
+      <working_directory value="$PROJECT_DIR$" />
+      <kind value="FILE" />
+      <directory value="$PROJECT_DIR$" />
+      <filePath value="$PROJECT_DIR$" />
+      <method v="2" />
+    </configuration>
     <configuration name="go build bigCitySmallHouse/component/crawler/script/push" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
       <module name="bigCitySmallHouse" />
       <working_directory value="$PROJECT_DIR$" />
@@ -111,6 +118,15 @@
       <package value="bigCitySmallHouse/demo/rabbitmq/test-01/send" />
       <directory value="$PROJECT_DIR$" />
       <filePath value="$PROJECT_DIR$/demo/rabbitmq/test-01/send/send.go" />
+      <method v="2" />
+    </configuration>
+    <configuration default="true" type="GoTestRunConfiguration" factoryName="Go Test">
+      <module name="bigCitySmallHouse" />
+      <working_directory value="$PROJECT_DIR$" />
+      <kind value="DIRECTORY" />
+      <directory value="$PROJECT_DIR$" />
+      <filePath value="$PROJECT_DIR$" />
+      <framework value="gotest" />
       <method v="2" />
     </configuration>
     <recent_temporary>
