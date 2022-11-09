@@ -62,7 +62,10 @@ func ReadHouse(ctx *gin.Context) {
 }
 
 func getFilter(param *ParamReadHouse) bson.D {
-	filter := bson.D{}
+	filter := bson.D{
+		{"shelve", true},
+		{"house.source", "anjuke"}, // todo delete
+	}
 	switch param.HouseType {
 	case house2.RentTypeEntire:
 		filter = append(filter, bson.E{Key: "house.rentType", Value: house2.RentTypeEntire})

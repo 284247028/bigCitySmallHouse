@@ -1,6 +1,7 @@
 package main
 
 import (
+	house2 "bigCitySmallHouse/component/crawler/model/house"
 	"bigCitySmallHouse/component/house_center/model/house"
 	"bigCitySmallHouse/mongodb/collections"
 	"context"
@@ -16,8 +17,18 @@ type ParamHouseInfo struct {
 }
 
 type HouseInfo struct {
-	ImgUrls []string `json:"img_urls"`
-	Name    string   `json:"name"`
+	ImgUrls     []string           `json:"img_urls"`
+	Name        string             `json:"name"`
+	PriceRent   float64            `json:"price_rent"`
+	Composition house2.Composition `json:"composition"`
+	Location    house2.Location    `json:"location"`
+	Traffic     []Traffic          `json:"traffic"`
+	Facilities  []string           `json:"facilities"`
+}
+
+type Traffic struct {
+	Station  string `json:"station"`
+	Distance int    `json:"distance"`
 }
 
 func GetHouseInfo(ctx *gin.Context) {
@@ -45,6 +56,11 @@ func GetHouseInfo(ctx *gin.Context) {
 	opts.SetProjection(bson.D{
 		{"house.img_urls", 1},
 		{"house.name", 1},
+		{"house.price", 1},
+		{"house.composition", 1},
+		{"house.location", 1},
+		{"house.traffic", 1},
+		{"house.facility", 1},
 	})
 	var tHouse house.House
 	singleResult := coll.MCollection().FindOne(context.TODO(), filter, opts)
@@ -54,9 +70,27 @@ func GetHouseInfo(ctx *gin.Context) {
 		return
 	}
 
+	var traffic []Traffic
+	for _, t := range tHouse.House.Traffic {
+		tTraffic := Traffic{}
+		if t.Type == house2.TrafficTypeBus {
+			tTraffic.Station = "公交" + t.Line + "路" + t.Station + "站"
+		}
+		if t.Type == house2.TrafficTypeSubway {
+			tTraffic.Station = "地铁" + t.Line + "号线" + t.Station
+		}
+		tTraffic.Distance = t.Distance
+		traffic = append(traffic, tTraffic)
+	}
+
 	houseIngo := HouseInfo{
-		ImgUrls: tHouse.House.ImgUrls,
-		Name:    tHouse.House.Name,
+		ImgUrls:     tHouse.House.ImgUrls,
+		Name:        tHouse.House.Name,
+		PriceRent:   tHouse.House.Price.Rent,
+		Composition: tHouse.House.Composition,
+		Location:    tHouse.House.Location,
+		Traffic:     traffic,
+		Facilities:  tHouse.House.Facilities,
 	}
 
 	ctx.JSON(http.StatusOK, houseIngo)

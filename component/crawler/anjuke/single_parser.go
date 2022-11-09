@@ -228,7 +228,7 @@ func (receiver *SingleParser) getTraffic(single *Single) ([]house2.Traffic, erro
 		}
 		traffic := house2.Traffic{
 			Type:     house2.TrafficTypeSubway,
-			Line:     line,
+			Line:     strconv.Itoa(line),
 			Distance: tDistance,
 			Station:  matches2[0][1],
 		}

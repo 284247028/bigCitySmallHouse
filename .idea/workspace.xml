@@ -6,7 +6,10 @@
   <component name="ChangeListManager">
     <list default="true" id="927a93ea-b893-480a-bd46-e2ab44220172" name="Changes" comment="[crawler house_center] 获取房源列表">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/component/crawler/anjuke/single_parser.go" beforeDir="false" afterPath="$PROJECT_DIR$/component/crawler/anjuke/single_parser.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/component/crawler/model/house/traffic.go" beforeDir="false" afterPath="$PROJECT_DIR$/component/crawler/model/house/traffic.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/component/house_center/house_info.go" beforeDir="false" afterPath="$PROJECT_DIR$/component/house_center/house_info.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/component/house_center/read_house.go" beforeDir="false" afterPath="$PROJECT_DIR$/component/house_center/read_house.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -66,13 +69,25 @@
       <recent name="D:\code\bigCitySmallHouse\mongodb" />
     </key>
   </component>
-  <component name="RunManager" selected="Go Build.go build bigCitySmallHouse/component/house_center">
-    <configuration default="true" type="GoApplicationRunConfiguration" factoryName="Go Application">
+  <component name="RunManager" selected="Go Build.go build bigCitySmallHouse/component/house_center/script/receive_house">
+    <configuration name="go build bigCitySmallHouse/component/crawler/script/crawler_houses" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
       <module name="bigCitySmallHouse" />
       <working_directory value="$PROJECT_DIR$" />
-      <kind value="FILE" />
+      <parameters value="-source=anjuke" />
+      <kind value="PACKAGE" />
+      <package value="bigCitySmallHouse/component/crawler/script/crawler_houses" />
       <directory value="$PROJECT_DIR$" />
-      <filePath value="$PROJECT_DIR$" />
+      <filePath value="$PROJECT_DIR$/component/crawler/script/crawler_houses/crawler_houses.go" />
+      <method v="2" />
+    </configuration>
+    <configuration name="go build bigCitySmallHouse/component/crawler/script/fill_houses" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
+      <module name="bigCitySmallHouse" />
+      <working_directory value="$PROJECT_DIR$" />
+      <parameters value="-source=anjuke" />
+      <kind value="PACKAGE" />
+      <package value="bigCitySmallHouse/component/crawler/script/fill_houses" />
+      <directory value="$PROJECT_DIR$" />
+      <filePath value="$PROJECT_DIR$/component/crawler/script/fill_houses/fill_house.go" />
       <method v="2" />
     </configuration>
     <configuration name="go build bigCitySmallHouse/component/crawler/script/push" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
@@ -120,22 +135,13 @@
       <filePath value="$PROJECT_DIR$/demo/rabbitmq/test-01/send/send.go" />
       <method v="2" />
     </configuration>
-    <configuration default="true" type="GoTestRunConfiguration" factoryName="Go Test">
-      <module name="bigCitySmallHouse" />
-      <working_directory value="$PROJECT_DIR$" />
-      <kind value="DIRECTORY" />
-      <directory value="$PROJECT_DIR$" />
-      <filePath value="$PROJECT_DIR$" />
-      <framework value="gotest" />
-      <method v="2" />
-    </configuration>
     <recent_temporary>
       <list>
         <item itemvalue="Go Build.go build bigCitySmallHouse/component/house_center" />
-        <item itemvalue="Go Build.go build bigCitySmallHouse/component/crawler/script/push" />
         <item itemvalue="Go Build.go build bigCitySmallHouse/component/house_center/script/receive_house" />
-        <item itemvalue="Go Build.go build bigCitySmallHouse/demo/rabbitmq/test-01/receive" />
-        <item itemvalue="Go Build.go build bigCitySmallHouse/demo/rabbitmq/test-01/send" />
+        <item itemvalue="Go Build.go build bigCitySmallHouse/component/crawler/script/push" />
+        <item itemvalue="Go Build.go build bigCitySmallHouse/component/crawler/script/crawler_houses" />
+        <item itemvalue="Go Build.go build bigCitySmallHouse/component/crawler/script/fill_houses" />
       </list>
     </recent_temporary>
   </component>
