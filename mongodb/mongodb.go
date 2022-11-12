@@ -15,6 +15,7 @@ const LocalUri = "mongodb://localhost:27017"
 const (
 	DBCrawler     = "crawler"
 	DBHouseCenter = "house_center"
+	DBUser        = "user"
 )
 
 type DB struct {

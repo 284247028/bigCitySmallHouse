@@ -4,12 +4,20 @@
     <option name="autoReloadType" value="ALL" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="927a93ea-b893-480a-bd46-e2ab44220172" name="Changes" comment="[crawler house_center] 获取房源列表">
+    <list default="true" id="927a93ea-b893-480a-bd46-e2ab44220172" name="Changes" comment="[crawler house_center] 获取房源信息">
+      <change afterPath="$PROJECT_DIR$/component/base/base_action/base_action.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/component/my_redis/key.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/component/my_redis/redis.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/component/user_center/login.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/component/user_center/main.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/component/user_center/model/user/user.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/constant/wx/wx.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/demo/redis/redis.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mongodb/collections/user.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/component/crawler/anjuke/single_parser.go" beforeDir="false" afterPath="$PROJECT_DIR$/component/crawler/anjuke/single_parser.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/component/crawler/model/house/traffic.go" beforeDir="false" afterPath="$PROJECT_DIR$/component/crawler/model/house/traffic.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/component/house_center/house_info.go" beforeDir="false" afterPath="$PROJECT_DIR$/component/house_center/house_info.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/component/house_center/read_house.go" beforeDir="false" afterPath="$PROJECT_DIR$/component/house_center/read_house.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/go.mod" beforeDir="false" afterPath="$PROJECT_DIR$/go.mod" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/go.sum" beforeDir="false" afterPath="$PROJECT_DIR$/go.sum" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mongodb/mongodb.go" beforeDir="false" afterPath="$PROJECT_DIR$/mongodb/mongodb.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -62,34 +70,14 @@
       <recent name="D:\code\bigCitySmallHouse" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\code\bigCitySmallHouse\component\base" />
       <recent name="D:\code\bigCitySmallHouse\component\house_center" />
       <recent name="D:\code\bigCitySmallHouse\component\house_center\script" />
       <recent name="D:\code\bigCitySmallHouse\component\crawler" />
       <recent name="D:\code\bigCitySmallHouse" />
-      <recent name="D:\code\bigCitySmallHouse\mongodb" />
     </key>
   </component>
-  <component name="RunManager" selected="Go Build.go build bigCitySmallHouse/component/house_center/script/receive_house">
-    <configuration name="go build bigCitySmallHouse/component/crawler/script/crawler_houses" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
-      <module name="bigCitySmallHouse" />
-      <working_directory value="$PROJECT_DIR$" />
-      <parameters value="-source=anjuke" />
-      <kind value="PACKAGE" />
-      <package value="bigCitySmallHouse/component/crawler/script/crawler_houses" />
-      <directory value="$PROJECT_DIR$" />
-      <filePath value="$PROJECT_DIR$/component/crawler/script/crawler_houses/crawler_houses.go" />
-      <method v="2" />
-    </configuration>
-    <configuration name="go build bigCitySmallHouse/component/crawler/script/fill_houses" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
-      <module name="bigCitySmallHouse" />
-      <working_directory value="$PROJECT_DIR$" />
-      <parameters value="-source=anjuke" />
-      <kind value="PACKAGE" />
-      <package value="bigCitySmallHouse/component/crawler/script/fill_houses" />
-      <directory value="$PROJECT_DIR$" />
-      <filePath value="$PROJECT_DIR$/component/crawler/script/fill_houses/fill_house.go" />
-      <method v="2" />
-    </configuration>
+  <component name="RunManager" selected="Go Build.go build bigCitySmallHouse/component/user_center">
     <configuration name="go build bigCitySmallHouse/component/crawler/script/push" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
       <module name="bigCitySmallHouse" />
       <working_directory value="$PROJECT_DIR$" />
@@ -117,31 +105,31 @@
       <filePath value="$PROJECT_DIR$/component/house_center/script/receive_house/main.go" />
       <method v="2" />
     </configuration>
-    <configuration name="go build bigCitySmallHouse/demo/rabbitmq/test-01/receive" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
+    <configuration name="go build bigCitySmallHouse/component/user_center" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
       <module name="bigCitySmallHouse" />
       <working_directory value="$PROJECT_DIR$" />
       <kind value="PACKAGE" />
-      <package value="bigCitySmallHouse/demo/rabbitmq/test-01/receive" />
+      <package value="bigCitySmallHouse/component/user_center" />
       <directory value="$PROJECT_DIR$" />
-      <filePath value="$PROJECT_DIR$/demo/rabbitmq/test-01/receive/receive.go" />
+      <filePath value="$PROJECT_DIR$/component/user_center/main.go" />
       <method v="2" />
     </configuration>
-    <configuration name="go build bigCitySmallHouse/demo/rabbitmq/test-01/send" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
+    <configuration name="go build bigCitySmallHouse/demo/redis" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
       <module name="bigCitySmallHouse" />
       <working_directory value="$PROJECT_DIR$" />
       <kind value="PACKAGE" />
-      <package value="bigCitySmallHouse/demo/rabbitmq/test-01/send" />
+      <package value="bigCitySmallHouse/demo/redis" />
       <directory value="$PROJECT_DIR$" />
-      <filePath value="$PROJECT_DIR$/demo/rabbitmq/test-01/send/send.go" />
+      <filePath value="$PROJECT_DIR$/demo/redis/redis.go" />
       <method v="2" />
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Go Build.go build bigCitySmallHouse/component/user_center" />
+        <item itemvalue="Go Build.go build bigCitySmallHouse/demo/redis" />
         <item itemvalue="Go Build.go build bigCitySmallHouse/component/house_center" />
         <item itemvalue="Go Build.go build bigCitySmallHouse/component/house_center/script/receive_house" />
         <item itemvalue="Go Build.go build bigCitySmallHouse/component/crawler/script/push" />
-        <item itemvalue="Go Build.go build bigCitySmallHouse/component/crawler/script/crawler_houses" />
-        <item itemvalue="Go Build.go build bigCitySmallHouse/component/crawler/script/fill_houses" />
       </list>
     </recent_temporary>
   </component>
@@ -184,7 +172,8 @@
     <MESSAGE value="[crawler] pack中有多余的uid问题、抓详情时补充状态" />
     <MESSAGE value="[crawler house_center] 房源入库脚本" />
     <MESSAGE value="[crawler house_center] 获取房源列表" />
-    <option name="LAST_COMMIT_MESSAGE" value="[crawler house_center] 获取房源列表" />
+    <MESSAGE value="[crawler house_center] 获取房源信息" />
+    <option name="LAST_COMMIT_MESSAGE" value="[crawler house_center] 获取房源信息" />
   </component>
   <component name="VgoProject">
     <settings-migrated>true</settings-migrated>
@@ -236,6 +225,11 @@
           <url>file://$PROJECT_DIR$/demo/t_zap/log_test.go</url>
           <line>14</line>
           <option name="timeStamp" value="88" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
+          <url>file://$PROJECT_DIR$/demo/redis/redis.go</url>
+          <line>19</line>
+          <option name="timeStamp" value="92" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
