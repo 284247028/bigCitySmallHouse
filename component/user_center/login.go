@@ -13,6 +13,7 @@ import (
 	"io"
 	"io/ioutil"
 	"net/http"
+	"time"
 )
 
 type ParamLogin struct {
@@ -91,6 +92,7 @@ func Login(ctx *gin.Context) {
 	tUser := user.User{
 		OpenId:     respData.Openid,
 		SessionKey: respData.SessionKey,
+		LoginTime:  time.Now(),
 	}
 	tUser.UId = tUser.GetUid()
 	_, err = coll.UpsertOne(filter, tUser, options.Update())

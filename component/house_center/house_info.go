@@ -13,7 +13,8 @@ import (
 )
 
 type ParamHouseInfo struct {
-	IdHex string `form:"id_hex"`
+	IdHex   string `form:"id_hex"`
+	UserUId string `form:"user_uid"`
 }
 
 type HouseInfo struct {
@@ -24,6 +25,8 @@ type HouseInfo struct {
 	Location    house2.Location    `json:"location"`
 	Traffic     []Traffic          `json:"traffic"`
 	Facilities  []string           `json:"facilities"`
+	HouseUId    string             `json:"house_uid"`
+	Total       int64              `json:"total"`
 }
 
 type Traffic struct {
@@ -61,6 +64,7 @@ func GetHouseInfo(ctx *gin.Context) {
 		{"house.location", 1},
 		{"house.traffic", 1},
 		{"house.facility", 1},
+		{"house.uid", 1},
 	})
 	var tHouse house.House
 	singleResult := coll.MCollection().FindOne(context.TODO(), filter, opts)
@@ -83,6 +87,17 @@ func GetHouseInfo(ctx *gin.Context) {
 		traffic = append(traffic, tTraffic)
 	}
 
+	filter = bson.D{
+		{"user_uid", param.UserUId},
+		{"house_uid", tHouse.House.UId},
+	}
+	coll = collections.NewCollectionCollect(nil)
+	total, err := coll.MCollection().CountDocuments(context.TODO(), filter)
+	if err != nil {
+		baseResponse.ErrorResponse(http.StatusInternalServerError, err)
+		return
+	}
+
 	houseIngo := HouseInfo{
 		ImgUrls:     tHouse.House.ImgUrls,
 		Name:        tHouse.House.Name,
@@ -91,6 +106,8 @@ func GetHouseInfo(ctx *gin.Context) {
 		Location:    tHouse.House.Location,
 		Traffic:     traffic,
 		Facilities:  tHouse.House.Facilities,
+		HouseUId:    tHouse.House.UId,
+		Total:       total,
 	}
 
 	ctx.JSON(http.StatusOK, houseIngo)

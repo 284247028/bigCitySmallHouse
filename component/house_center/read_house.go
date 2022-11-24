@@ -3,6 +3,7 @@ package main
 import (
 	house2 "bigCitySmallHouse/component/crawler/model/house"
 	"bigCitySmallHouse/component/house_center/model/house"
+	"bigCitySmallHouse/component/user_center/model/collect"
 	"bigCitySmallHouse/mongodb/collections"
 	"context"
 	"github.com/gin-gonic/gin"
@@ -20,6 +21,7 @@ type ParamReadHouse struct {
 	Page      int    `form:"page"`
 	HouseType string `form:"house_type"`
 	Sort      string `form:"sort"`
+	UserUId   string `form:"user_uid"`
 }
 
 type RHouse struct {
@@ -42,7 +44,11 @@ func ReadHouse(ctx *gin.Context) {
 	}
 	coll := collections.NewCollectionHouseCenter(nil)
 	size := 20
-	filter := getFilter(&param)
+	filter, err := getFilter(&param)
+	if err != nil {
+		baseResponse.ErrorResponse(http.StatusInternalServerError, err)
+		return
+	}
 	sort := getSort(&param)
 	opts := options.Find()
 	opts.SetSort(sort)
@@ -61,7 +67,7 @@ func ReadHouse(ctx *gin.Context) {
 	ctx.JSON(http.StatusOK, houses2rHouse(tHouses))
 }
 
-func getFilter(param *ParamReadHouse) bson.D {
+func getFilter(param *ParamReadHouse) (bson.D, error) {
 	filter := bson.D{
 		{"shelve", true},
 		{"house.source", "anjuke"}, // todo delete
@@ -73,7 +79,26 @@ func getFilter(param *ParamReadHouse) bson.D {
 		filter = append(filter, bson.E{Key: "house.rentType", Value: house2.RentTypeShared})
 	}
 
-	return filter
+	if param.UserUId != "" {
+		opts := options.Find()
+		opts.SetProjection(bson.D{{"house_uid", 1}})
+		cursor, err := collections.NewCollectionCollect(nil).MCollection().Find(context.TODO(), bson.D{{"user_uid", param.UserUId}})
+		if err != nil {
+			return nil, err
+		}
+		var collects []collect.Collect
+		err = cursor.All(context.TODO(), &collects)
+		if err != nil {
+			return nil, err
+		}
+		var houseIds []string
+		for _, tCollect := range collects {
+			houseIds = append(houseIds, tCollect.HouseUId)
+		}
+		filter = append(filter, bson.E{Key: "house.uid", Value: bson.D{{"$in", houseIds}}})
+	}
+
+	return filter, nil
 }
 
 func getSort(param *ParamReadHouse) bson.D {

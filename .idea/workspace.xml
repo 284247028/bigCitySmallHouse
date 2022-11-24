@@ -4,20 +4,17 @@
     <option name="autoReloadType" value="ALL" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="927a93ea-b893-480a-bd46-e2ab44220172" name="Changes" comment="[crawler house_center] 获取房源信息">
-      <change afterPath="$PROJECT_DIR$/component/base/base_action/base_action.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/component/my_redis/key.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/component/my_redis/redis.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/component/user_center/login.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/component/user_center/main.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/component/user_center/model/user/user.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/constant/wx/wx.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/demo/redis/redis.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mongodb/collections/user.go" afterDir="false" />
+    <list default="true" id="927a93ea-b893-480a-bd46-e2ab44220172" name="Changes" comment="[user center]">
+      <change afterPath="$PROJECT_DIR$/component/user_center/collect.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/component/user_center/model/collect/collect.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mongodb/collections/collect.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/go.mod" beforeDir="false" afterPath="$PROJECT_DIR$/go.mod" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/go.sum" beforeDir="false" afterPath="$PROJECT_DIR$/go.sum" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mongodb/mongodb.go" beforeDir="false" afterPath="$PROJECT_DIR$/mongodb/mongodb.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/component/house_center/house_info.go" beforeDir="false" afterPath="$PROJECT_DIR$/component/house_center/house_info.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/component/house_center/read_house.go" beforeDir="false" afterPath="$PROJECT_DIR$/component/house_center/read_house.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/component/user_center/login.go" beforeDir="false" afterPath="$PROJECT_DIR$/component/user_center/login.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/component/user_center/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/component/user_center/main.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/component/user_center/model/user/user.go" beforeDir="false" afterPath="$PROJECT_DIR$/component/user_center/model/user/user.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/constant/wx/wx.go" beforeDir="false" afterPath="$PROJECT_DIR$/constant/wx/wx.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -70,11 +67,11 @@
       <recent name="D:\code\bigCitySmallHouse" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\code\bigCitySmallHouse\component\user_center" />
+      <recent name="D:\code\bigCitySmallHouse\component\user_center\model" />
       <recent name="D:\code\bigCitySmallHouse\component\base" />
       <recent name="D:\code\bigCitySmallHouse\component\house_center" />
       <recent name="D:\code\bigCitySmallHouse\component\house_center\script" />
-      <recent name="D:\code\bigCitySmallHouse\component\crawler" />
-      <recent name="D:\code\bigCitySmallHouse" />
     </key>
   </component>
   <component name="RunManager" selected="Go Build.go build bigCitySmallHouse/component/user_center">
@@ -126,8 +123,8 @@
     <recent_temporary>
       <list>
         <item itemvalue="Go Build.go build bigCitySmallHouse/component/user_center" />
-        <item itemvalue="Go Build.go build bigCitySmallHouse/demo/redis" />
         <item itemvalue="Go Build.go build bigCitySmallHouse/component/house_center" />
+        <item itemvalue="Go Build.go build bigCitySmallHouse/demo/redis" />
         <item itemvalue="Go Build.go build bigCitySmallHouse/component/house_center/script/receive_house" />
         <item itemvalue="Go Build.go build bigCitySmallHouse/component/crawler/script/push" />
       </list>
@@ -173,7 +170,8 @@
     <MESSAGE value="[crawler house_center] 房源入库脚本" />
     <MESSAGE value="[crawler house_center] 获取房源列表" />
     <MESSAGE value="[crawler house_center] 获取房源信息" />
-    <option name="LAST_COMMIT_MESSAGE" value="[crawler house_center] 获取房源信息" />
+    <MESSAGE value="[user center]" />
+    <option name="LAST_COMMIT_MESSAGE" value="[user center]" />
   </component>
   <component name="VgoProject">
     <settings-migrated>true</settings-migrated>
