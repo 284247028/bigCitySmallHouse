@@ -20,7 +20,7 @@ func main() {
 	apiGroup := engine.Group("/api")
 	{
 		apiGroup.POST("/upload_images", UploadImages)
-		apiGroup.GET("/image/:filename", ReadImage)
+		apiGroup.GET("/image/:filename", DisplayImage)
 	}
 	err := engine.Run(":10003")
 	if err != nil {

@@ -11,7 +11,7 @@ import (
 	"net/http"
 )
 
-func ReadImage(ctx *gin.Context) {
+func DisplayImage(ctx *gin.Context) {
 	filename := ctx.Param("filename")
 	if filename == "" {
 		base_action.ErrorResponse(ctx, http.StatusBadRequest, fmt.Errorf("空文件名"))
