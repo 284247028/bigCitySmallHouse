@@ -16,6 +16,8 @@ const (
 	DBCrawler     = "crawler"
 	DBHouseCenter = "house_center"
 	DBUser        = "user"
+	DBPublish     = "publish"
+	DBCdn         = "cdn"
 )
 
 type DB struct {

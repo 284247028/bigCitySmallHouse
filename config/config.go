@@ -57,3 +57,12 @@ func CurrencyPath() (string, error) {
 	tPath = path.Dir(tPath)
 	return tPath, nil
 }
+
+func RootPath() (string, error) {
+	currencyPath, err := CurrencyPath()
+	if err != nil {
+		return "", err
+	}
+	currencyPath += "/../"
+	return currencyPath, nil
+}

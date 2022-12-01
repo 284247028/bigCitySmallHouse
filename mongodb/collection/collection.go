@@ -5,6 +5,7 @@ import (
 	"context"
 	"fmt"
 	"go.mongodb.org/mongo-driver/bson"
+	"go.mongodb.org/mongo-driver/bson/primitive"
 	"go.mongodb.org/mongo-driver/mongo"
 	"go.mongodb.org/mongo-driver/mongo/options"
 )
@@ -33,8 +34,14 @@ func (receiver *Collection) MCollection() *mongo.Collection {
 	return receiver.mCollection
 }
 
-func (receiver *Collection) UpsertOne(filter, object interface{}, opts *options.UpdateOptions) (*mongo.UpdateResult, error) {
+func (receiver *Collection) UpsertOne(filter bson.D, object interface{}, opts *options.UpdateOptions) (*mongo.UpdateResult, error) {
+	if opts == nil {
+		opts = options.Update()
+	}
 	opts.SetUpsert(true)
+	if len(filter) == 0 {
+		filter = append(filter, bson.E{Key: "_id", Value: primitive.NewObjectID()})
+	}
 	update := bson.D{
 		{"$set", object},
 	}

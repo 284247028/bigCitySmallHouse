@@ -41,5 +41,6 @@ func UploadImages(ctx *gin.Context) {
 		base_action.ErrorResponse(ctx, http.StatusInternalServerError, err)
 		return
 	}
-	ctx.JSON(http.StatusOK, nil)
+	url := "http://localhost:10003/api/image/" + cdnImage.Filename
+	ctx.JSON(http.StatusOK, url)
 }

@@ -4,17 +4,14 @@
     <option name="autoReloadType" value="ALL" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="927a93ea-b893-480a-bd46-e2ab44220172" name="Changes" comment="[user center]">
-      <change afterPath="$PROJECT_DIR$/component/user_center/collect.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/component/user_center/model/collect/collect.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mongodb/collections/collect.go" afterDir="false" />
+    <list default="true" id="927a93ea-b893-480a-bd46-e2ab44220172" name="Changes" comment="[cdn] 图片服务器">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/component/house_center/house_info.go" beforeDir="false" afterPath="$PROJECT_DIR$/component/house_center/house_info.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/component/house_center/read_house.go" beforeDir="false" afterPath="$PROJECT_DIR$/component/house_center/read_house.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/component/user_center/login.go" beforeDir="false" afterPath="$PROJECT_DIR$/component/user_center/login.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/component/user_center/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/component/user_center/main.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/component/user_center/model/user/user.go" beforeDir="false" afterPath="$PROJECT_DIR$/component/user_center/model/user/user.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/component/cdn/upload_images.go" beforeDir="false" afterPath="$PROJECT_DIR$/component/cdn/upload_images.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/component/mini/main.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/config.go" beforeDir="false" afterPath="$PROJECT_DIR$/config/config.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/constant/wx/wx.go" beforeDir="false" afterPath="$PROJECT_DIR$/constant/wx/wx.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mongodb/collection/collection.go" beforeDir="false" afterPath="$PROJECT_DIR$/mongodb/collection/collection.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mongodb/mongodb.go" beforeDir="false" afterPath="$PROJECT_DIR$/mongodb/mongodb.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -74,14 +71,14 @@
       <recent name="D:\code\bigCitySmallHouse\component\house_center\script" />
     </key>
   </component>
-  <component name="RunManager" selected="Go Build.go build bigCitySmallHouse/component/user_center">
-    <configuration name="go build bigCitySmallHouse/component/crawler/script/push" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="Go Build.go build bigCitySmallHouse/component/cdn">
+    <configuration name="go build bigCitySmallHouse/component/cdn" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
       <module name="bigCitySmallHouse" />
       <working_directory value="$PROJECT_DIR$" />
       <kind value="PACKAGE" />
-      <package value="bigCitySmallHouse/component/crawler/script/push" />
+      <package value="bigCitySmallHouse/component/cdn" />
       <directory value="$PROJECT_DIR$" />
-      <filePath value="$PROJECT_DIR$/component/crawler/script/push/push.go" />
+      <filePath value="$PROJECT_DIR$/component/cdn/main.go" />
       <method v="2" />
     </configuration>
     <configuration name="go build bigCitySmallHouse/component/house_center" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
@@ -93,13 +90,13 @@
       <filePath value="$PROJECT_DIR$/component/house_center/main.go" />
       <method v="2" />
     </configuration>
-    <configuration name="go build bigCitySmallHouse/component/house_center/script/receive_house" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
+    <configuration name="go build bigCitySmallHouse/component/publish" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
       <module name="bigCitySmallHouse" />
       <working_directory value="$PROJECT_DIR$" />
       <kind value="PACKAGE" />
-      <package value="bigCitySmallHouse/component/house_center/script/receive_house" />
+      <package value="bigCitySmallHouse/component/publish" />
       <directory value="$PROJECT_DIR$" />
-      <filePath value="$PROJECT_DIR$/component/house_center/script/receive_house/main.go" />
+      <filePath value="$PROJECT_DIR$/component/publish/main.go" />
       <method v="2" />
     </configuration>
     <configuration name="go build bigCitySmallHouse/component/user_center" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
@@ -122,11 +119,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Go Build.go build bigCitySmallHouse/component/cdn" />
         <item itemvalue="Go Build.go build bigCitySmallHouse/component/user_center" />
+        <item itemvalue="Go Build.go build bigCitySmallHouse/component/publish" />
         <item itemvalue="Go Build.go build bigCitySmallHouse/component/house_center" />
         <item itemvalue="Go Build.go build bigCitySmallHouse/demo/redis" />
-        <item itemvalue="Go Build.go build bigCitySmallHouse/component/house_center/script/receive_house" />
-        <item itemvalue="Go Build.go build bigCitySmallHouse/component/crawler/script/push" />
       </list>
     </recent_temporary>
   </component>
@@ -146,8 +143,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="I hope this is the beginning and not the end" />
-    <MESSAGE value="[model] house.go&#10;[constant] house.go" />
     <MESSAGE value="[house] rich filed&#10;[leyoujia] info" />
     <MESSAGE value="[leyoujia] list parser" />
     <MESSAGE value="[leyoujia] single parser" />
@@ -171,7 +166,9 @@
     <MESSAGE value="[crawler house_center] 获取房源列表" />
     <MESSAGE value="[crawler house_center] 获取房源信息" />
     <MESSAGE value="[user center]" />
-    <option name="LAST_COMMIT_MESSAGE" value="[user center]" />
+    <MESSAGE value="[user center] 收藏功能" />
+    <MESSAGE value="[cdn] 图片服务器" />
+    <option name="LAST_COMMIT_MESSAGE" value="[cdn] 图片服务器" />
   </component>
   <component name="VgoProject">
     <settings-migrated>true</settings-migrated>
