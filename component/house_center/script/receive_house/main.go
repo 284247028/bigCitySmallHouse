@@ -56,12 +56,11 @@ func main() {
 		}
 
 		tHouse := house.House{}
-		tHouse.House = tPush.House
+		//tHouse.House = tPush.House
 		tHouse.UpdateAt = time.Now()
-		tHouse.Shelve = tPush.Status == push.StatusPushValid
 
 		filter := bson.D{
-			{"house.uid", tHouse.House.UId},
+			//{"house.uid", tHouse.House.UId},
 		}
 
 		result, err := coll.UpsertOne(filter, tHouse, options.Update())

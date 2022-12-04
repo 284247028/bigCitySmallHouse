@@ -8,22 +8,22 @@ type Location struct {
 }
 
 const (
-	CityGuangZhou = "广州"
+	CityGuangZhou = "广州市"
 )
 
 const (
-	ProvinceGuangDong = "广东"
+	ProvinceGuangDong = "广东省"
 )
 
 const (
-	RegionYueXiu    = "越秀"
-	RegionHuangPu   = "黄埔"
-	RegionHaiZhu    = "海珠"
-	RegionTianHe    = "天河"
-	RegionLiWan     = "荔湾"
-	RegionPanYu     = "番禺"
-	RegionZengCheng = "增城"
-	RegionCongHua   = "从化"
-	RegionHuaDu     = "花都"
-	RegionNanSha    = "南沙"
+	RegionYueXiu    = "越秀区"
+	RegionHuangPu   = "黄埔区"
+	RegionHaiZhu    = "海珠区"
+	RegionTianHe    = "天河区"
+	RegionLiWan     = "荔湾区"
+	RegionPanYu     = "番禺区"
+	RegionZengCheng = "增城区"
+	RegionCongHua   = "从化区"
+	RegionHuaDu     = "花都区"
+	RegionNanSha    = "南沙区"
 )

@@ -21,6 +21,7 @@ func main() {
 	apiGroup := engine.Group("/api")
 	{
 		apiGroup.POST("/publish", Publish)
+		apiGroup.GET("/publish/list", PublishList)
 	}
 	err := engine.Run(":10002")
 	if err != nil {

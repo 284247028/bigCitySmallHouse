@@ -20,7 +20,7 @@ func main() {
 	engine := gin.Default()
 	apiGroup := engine.Group("/api")
 	{
-		apiGroup.GET("/houses", ReadHouse)
+		apiGroup.GET("/houses", HouseList)
 		apiGroup.GET("/house_info", GetHouseInfo)
 	}
 	err := engine.Run(":10000")

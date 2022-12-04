@@ -25,6 +25,9 @@ func Publish(ctx *gin.Context) {
 		imgUrl := "http://localhost:10003/api/image/" + imageName
 		param.ImgUrls = append(param.ImgUrls, imgUrl)
 	}
+	param.Status = model.StatusNotReview
+	param.RentType.FormatRentType()
+	param.HouseType.FormatType()
 	coll := collections.NewCollectionPublish(nil)
 	filter := bson.D{}
 	_, err = coll.UpsertOnePublish(filter, param.Publish, nil)

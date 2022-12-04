@@ -48,8 +48,8 @@ func (receiver *Type) String() string {
 type RentType string
 
 const (
-	RentTypeEntire = "entire" // 整租
-	RentTypeShared = "shared" // 合租
+	RentTypeEntire RentType = "entire" // 整租
+	RentTypeShared RentType = "shared" // 合租
 )
 
 func (receiver *RentType) ToCn() string {
