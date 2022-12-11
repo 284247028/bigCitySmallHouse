@@ -5,28 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="927a93ea-b893-480a-bd46-e2ab44220172" name="Changes" comment="房源上架">
-      <change afterPath="$PROJECT_DIR$/component/house_center/model/house/composition.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/component/house_center/model/house/facility.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/component/house_center/model/house/location.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/component/house_center/model/house/price.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/component/house_center/model/house/rent_type.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/component/house_center/model/house/source.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/component/house_center/model/house/traffic.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/component/house_center/model/house/type.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/component/publish/publish_list.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/model/house_detail.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/model/house_list.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/component/crawler/model/house/house.go" beforeDir="false" afterPath="$PROJECT_DIR$/component/crawler/model/house/house.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/component/crawler/model/house/location.go" beforeDir="false" afterPath="$PROJECT_DIR$/component/crawler/model/house/location.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/component/house_center/house_info.go" beforeDir="false" afterPath="$PROJECT_DIR$/component/house_center/house_info.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/component/house_center/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/component/house_center/main.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/component/house_center/model/house/house.go" beforeDir="false" afterPath="$PROJECT_DIR$/component/house_center/model/house/house.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/component/house_center/read_house.go" beforeDir="false" afterPath="$PROJECT_DIR$/component/house_center/read_house.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/component/house_center/script/receive_house/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/component/house_center/script/receive_house/main.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/component/publish/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/component/publish/main.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/component/publish/model/publish.go" beforeDir="false" afterPath="$PROJECT_DIR$/component/publish/model/publish.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/component/publish/publish.go" beforeDir="false" afterPath="$PROJECT_DIR$/component/publish/publish.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/go.mod" beforeDir="false" afterPath="$PROJECT_DIR$/go.mod" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/go.sum" beforeDir="false" afterPath="$PROJECT_DIR$/go.sum" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -36,8 +17,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Go Application" />
         <option value="Go File" />
+        <option value="Go Application" />
       </list>
     </option>
   </component>
@@ -55,7 +36,7 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
-    "DefaultGoTemplateProperty": "Go File",
+    "DefaultGoTemplateProperty": "Go Application",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.go.format.on.save.advertiser.fired": "true",
@@ -87,15 +68,7 @@
       <recent name="D:\code\bigCitySmallHouse\component\house_center\script" />
     </key>
   </component>
-  <component name="RunManager" selected="Go Build.go build bigCitySmallHouse/component/publish">
-    <configuration default="true" type="GoApplicationRunConfiguration" factoryName="Go Application">
-      <module name="bigCitySmallHouse" />
-      <working_directory value="$PROJECT_DIR$" />
-      <kind value="FILE" />
-      <directory value="$PROJECT_DIR$" />
-      <filePath value="$PROJECT_DIR$" />
-      <method v="2" />
-    </configuration>
+  <component name="RunManager" selected="Go Build.go build bigCitySmallHouse/demo/etcd">
     <configuration name="go build bigCitySmallHouse/component/cdn" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
       <module name="bigCitySmallHouse" />
       <working_directory value="$PROJECT_DIR$" />
@@ -132,31 +105,22 @@
       <filePath value="$PROJECT_DIR$/component/user_center/main.go" />
       <method v="2" />
     </configuration>
-    <configuration name="go build bigCitySmallHouse/demo/redis" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
+    <configuration name="go build bigCitySmallHouse/demo/etcd" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
       <module name="bigCitySmallHouse" />
       <working_directory value="$PROJECT_DIR$" />
       <kind value="PACKAGE" />
-      <package value="bigCitySmallHouse/demo/redis" />
+      <package value="bigCitySmallHouse/demo/etcd" />
       <directory value="$PROJECT_DIR$" />
-      <filePath value="$PROJECT_DIR$/demo/redis/redis.go" />
-      <method v="2" />
-    </configuration>
-    <configuration default="true" type="GoTestRunConfiguration" factoryName="Go Test">
-      <module name="bigCitySmallHouse" />
-      <working_directory value="$PROJECT_DIR$" />
-      <kind value="DIRECTORY" />
-      <directory value="$PROJECT_DIR$" />
-      <filePath value="$PROJECT_DIR$" />
-      <framework value="gotest" />
+      <filePath value="$PROJECT_DIR$/demo/etcd/etcd.go" />
       <method v="2" />
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Go Build.go build bigCitySmallHouse/demo/etcd" />
         <item itemvalue="Go Build.go build bigCitySmallHouse/component/publish" />
         <item itemvalue="Go Build.go build bigCitySmallHouse/component/house_center" />
         <item itemvalue="Go Build.go build bigCitySmallHouse/component/cdn" />
         <item itemvalue="Go Build.go build bigCitySmallHouse/component/user_center" />
-        <item itemvalue="Go Build.go build bigCitySmallHouse/demo/redis" />
       </list>
     </recent_temporary>
   </component>
