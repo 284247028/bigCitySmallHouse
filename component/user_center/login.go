@@ -2,8 +2,8 @@ package main
 
 import (
 	"bigCitySmallHouse/component/base/base_action"
-	"bigCitySmallHouse/component/my_redis"
 	"bigCitySmallHouse/component/user_center/model/user"
+	"bigCitySmallHouse/constant/wx"
 	"bigCitySmallHouse/mongodb/collections"
 	"encoding/json"
 	"fmt"
@@ -40,17 +40,8 @@ func Login(ctx *gin.Context) {
 		return
 	}
 
-	client := my_redis.NewMyRedis().Connect()
-	appId, err := client.Get(my_redis.RedisKeyAppId).Result()
-	if err != nil {
-		base_action.ErrorResponse(ctx, http.StatusInternalServerError, err)
-		return
-	}
-	secret, err := client.Get(my_redis.RedisKeySecret).Result()
-	if err != nil {
-		base_action.ErrorResponse(ctx, http.StatusInternalServerError, err)
-		return
-	}
+	appId := wx.AppId
+	secret := wx.Secret
 	url := "https://api.weixin.qq.com/sns/jscode2session?appid=" + appId + "&secret=" + secret + "&js_code=" + param.LoginCode + "&grant_type=authorization_code"
 	resp, err := http.DefaultClient.Get(url)
 	if err != nil {

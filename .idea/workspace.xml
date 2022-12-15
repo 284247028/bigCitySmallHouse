@@ -4,8 +4,11 @@
     <option name="autoReloadType" value="ALL" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="927a93ea-b893-480a-bd46-e2ab44220172" name="Changes" comment="房源上架">
+    <list default="true" id="927a93ea-b893-480a-bd46-e2ab44220172" name="Changes" comment="etcd demo">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/component/user_center/login.go" beforeDir="false" afterPath="$PROJECT_DIR$/component/user_center/login.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/component/user_center/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/component/user_center/main.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo/etcd/etcd.go" beforeDir="false" afterPath="$PROJECT_DIR$/demo/etcd/etcd.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/go.mod" beforeDir="false" afterPath="$PROJECT_DIR$/go.mod" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/go.sum" beforeDir="false" afterPath="$PROJECT_DIR$/go.sum" afterDir="false" />
     </list>
@@ -17,8 +20,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Go File" />
         <option value="Go Application" />
+        <option value="Go File" />
       </list>
     </option>
   </component>
@@ -34,26 +37,26 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "DefaultGoTemplateProperty": "Go Application",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.go.format.on.save.advertiser.fired": "true",
-    "RunOnceActivity.go.formatter.settings.were.checked": "true",
-    "RunOnceActivity.go.migrated.go.modules.settings": "true",
-    "RunOnceActivity.go.modules.go.list.on.any.changes.was.set": "true",
-    "RunOnceActivity.go.watchers.conflict.with.on.save.actions.check.performed": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "go.import.settings.migrated": "true",
-    "last_opened_file_path": "D:/code/bigCitySmallHouse/component/house_center/model/house",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "settings.editor.selected.configurable": "com.maddyhome.idea.vim.ui.VimEmulationConfigurable"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;DefaultGoTemplateProperty&quot;: &quot;Go File&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.go.format.on.save.advertiser.fired&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.go.formatter.settings.were.checked&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.go.migrated.go.modules.settings&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.go.modules.go.list.on.any.changes.was.set&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.go.watchers.conflict.with.on.save.actions.check.performed&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;go.import.settings.migrated&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/code/bigCitySmallHouse/component/house_center/model/house&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;com.maddyhome.idea.vim.ui.VimEmulationConfigurable&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\code\bigCitySmallHouse\component\house_center\model\house" />
@@ -61,39 +64,31 @@
       <recent name="D:\code\bigCitySmallHouse" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\code\bigCitySmallHouse\demo\etcd\tmp" />
+      <recent name="D:\code\bigCitySmallHouse\demo\etcd\constant" />
       <recent name="D:\code\bigCitySmallHouse\component\user_center" />
       <recent name="D:\code\bigCitySmallHouse\component\user_center\model" />
       <recent name="D:\code\bigCitySmallHouse\component\base" />
-      <recent name="D:\code\bigCitySmallHouse\component\house_center" />
-      <recent name="D:\code\bigCitySmallHouse\component\house_center\script" />
     </key>
   </component>
-  <component name="RunManager" selected="Go Build.go build bigCitySmallHouse/demo/etcd">
-    <configuration name="go build bigCitySmallHouse/component/cdn" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="Go Build.go build bigCitySmallHouse/component/gateway">
+    <configuration name="go build bigCitySmallHouse/component/etcd/tmp" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
       <module name="bigCitySmallHouse" />
       <working_directory value="$PROJECT_DIR$" />
+      <parameters value="-environment=test" />
       <kind value="PACKAGE" />
-      <package value="bigCitySmallHouse/component/cdn" />
+      <package value="bigCitySmallHouse/component/etcd/tmp" />
       <directory value="$PROJECT_DIR$" />
-      <filePath value="$PROJECT_DIR$/component/cdn/main.go" />
+      <filePath value="$PROJECT_DIR$/component/etcd/tmp/main.go" />
       <method v="2" />
     </configuration>
-    <configuration name="go build bigCitySmallHouse/component/house_center" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
+    <configuration name="go build bigCitySmallHouse/component/gateway" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
       <module name="bigCitySmallHouse" />
       <working_directory value="$PROJECT_DIR$" />
       <kind value="PACKAGE" />
-      <package value="bigCitySmallHouse/component/house_center" />
+      <package value="bigCitySmallHouse/component/gateway" />
       <directory value="$PROJECT_DIR$" />
-      <filePath value="$PROJECT_DIR$/component/house_center/main.go" />
-      <method v="2" />
-    </configuration>
-    <configuration name="go build bigCitySmallHouse/component/publish" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
-      <module name="bigCitySmallHouse" />
-      <working_directory value="$PROJECT_DIR$" />
-      <kind value="PACKAGE" />
-      <package value="bigCitySmallHouse/component/publish" />
-      <directory value="$PROJECT_DIR$" />
-      <filePath value="$PROJECT_DIR$/component/publish/main.go" />
+      <filePath value="$PROJECT_DIR$/component/gateway/main.go" />
       <method v="2" />
     </configuration>
     <configuration name="go build bigCitySmallHouse/component/user_center" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
@@ -114,13 +109,26 @@
       <filePath value="$PROJECT_DIR$/demo/etcd/etcd.go" />
       <method v="2" />
     </configuration>
+    <configuration name="TestRegister in bigCitySmallHouse/component/etcd (1)" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
+      <module name="bigCitySmallHouse" />
+      <working_directory value="$PROJECT_DIR$/component/etcd" />
+      <parameters value="-environment=test" />
+      <root_directory value="$PROJECT_DIR$" />
+      <kind value="PACKAGE" />
+      <package value="bigCitySmallHouse/component/etcd" />
+      <directory value="$PROJECT_DIR$" />
+      <filePath value="$PROJECT_DIR$" />
+      <framework value="gotest" />
+      <pattern value="^\QTestRegister\E$" />
+      <method v="2" />
+    </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Go Build.go build bigCitySmallHouse/demo/etcd" />
-        <item itemvalue="Go Build.go build bigCitySmallHouse/component/publish" />
-        <item itemvalue="Go Build.go build bigCitySmallHouse/component/house_center" />
-        <item itemvalue="Go Build.go build bigCitySmallHouse/component/cdn" />
+        <item itemvalue="Go Build.go build bigCitySmallHouse/component/gateway" />
         <item itemvalue="Go Build.go build bigCitySmallHouse/component/user_center" />
+        <item itemvalue="Go Build.go build bigCitySmallHouse/demo/etcd" />
+        <item itemvalue="Go Test.TestRegister in bigCitySmallHouse/component/etcd (1)" />
+        <item itemvalue="Go Build.go build bigCitySmallHouse/component/etcd/tmp" />
       </list>
     </recent_temporary>
   </component>
@@ -140,7 +148,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="[leyoujia] list parser" />
     <MESSAGE value="[leyoujia] single parser" />
     <MESSAGE value="[删除无用目录]" />
     <MESSAGE value="[leyoujia] 优化空视频url" />
@@ -165,7 +172,8 @@
     <MESSAGE value="[user center] 收藏功能" />
     <MESSAGE value="[cdn] 图片服务器" />
     <MESSAGE value="房源上架" />
-    <option name="LAST_COMMIT_MESSAGE" value="房源上架" />
+    <MESSAGE value="etcd demo" />
+    <option name="LAST_COMMIT_MESSAGE" value="etcd demo" />
   </component>
   <component name="VgoProject">
     <settings-migrated>true</settings-migrated>
