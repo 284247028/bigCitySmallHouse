@@ -1,0 +1,11 @@
+version: "3"
+
+services:
+  webapp:
+    image: golang:1.18
+    ports:
+      - "11000:11000"
+    volumes:
+      - ./:/gateway
+    working_dir: /gateway
+    command: /bin/bash -c -x "go build main.go && ./main"
