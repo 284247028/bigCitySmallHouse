@@ -17,7 +17,7 @@ func init() {
 }
 
 func main() {
-	etcd.GetEtcd().RegisterService("user", "127.0.0.1:10001")
+	etcd.GetEtcd().RegisterService("user_center", "127.0.0.1:10001")
 	gin.SetMode(gin.DebugMode)
 	engine := gin.Default()
 	apiGroup := engine.Group("/api")

@@ -2,7 +2,7 @@ package main
 
 import (
 	"bigCitySmallHouse/component/base/base_action"
-	"bigCitySmallHouse/component/user_center/model/user"
+	"bigCitySmallHouse/component/user/model/user"
 	"bigCitySmallHouse/constant/wx"
 	"bigCitySmallHouse/mongodb/collections"
 	"encoding/json"
@@ -29,7 +29,7 @@ type WxLoginData struct {
 }
 
 type Resp struct {
-	UId string `json:"uid"`
+	UserId string `json:"user_id"`
 }
 
 func Login(ctx *gin.Context) {
@@ -93,6 +93,6 @@ func Login(ctx *gin.Context) {
 	}
 
 	ctx.JSON(http.StatusOK, Resp{
-		UId: tUser.UId,
+		UserId: tUser.UId,
 	})
 }

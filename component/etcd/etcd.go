@@ -73,6 +73,7 @@ func (receiver *Etcd) registerService(serviceName, Host string) {
 		count++
 		log.Printf("服务: %s, 地址: %s 运行正常 key: %s leaseId: %d\n", serviceName, Host, receiver.GetServiceKey(serviceName), leaseKeepResp.ID)
 	}
+	go receiver.registerService(serviceName, Host)
 	log.Printf("服务: %s, 地址: %s 关闭", serviceName, Host)
 }
 

@@ -2,7 +2,7 @@ package main
 
 import (
 	"bigCitySmallHouse/component/base/base_action"
-	"bigCitySmallHouse/component/user_center/model/collect"
+	"bigCitySmallHouse/component/user/model/collect"
 	"bigCitySmallHouse/mongodb/collections"
 	"context"
 	"github.com/gin-gonic/gin"

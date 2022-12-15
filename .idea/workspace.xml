@@ -4,13 +4,16 @@
     <option name="autoReloadType" value="ALL" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="927a93ea-b893-480a-bd46-e2ab44220172" name="Changes" comment="etcd demo">
+    <list default="true" id="927a93ea-b893-480a-bd46-e2ab44220172" name="Changes" comment="etcd and gateway">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/component/user_center/login.go" beforeDir="false" afterPath="$PROJECT_DIR$/component/user_center/login.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/component/user_center/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/component/user_center/main.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/demo/etcd/etcd.go" beforeDir="false" afterPath="$PROJECT_DIR$/demo/etcd/etcd.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/go.mod" beforeDir="false" afterPath="$PROJECT_DIR$/go.mod" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/go.sum" beforeDir="false" afterPath="$PROJECT_DIR$/go.sum" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/component/base/base_action/base_action.go" beforeDir="false" afterPath="$PROJECT_DIR$/component/base/base_action/base_action.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/component/etcd/etcd.go" beforeDir="false" afterPath="$PROJECT_DIR$/component/etcd/etcd.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/component/house_center/script/receive_house/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/component/house_center/script/receive_house/main.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/component/user_center/collect.go" beforeDir="false" afterPath="$PROJECT_DIR$/component/user/collect.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/component/user_center/login.go" beforeDir="false" afterPath="$PROJECT_DIR$/component/user/login.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/component/user_center/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/component/user/main.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/component/user_center/model/collect/collect.go" beforeDir="false" afterPath="$PROJECT_DIR$/component/user/model/collect/collect.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/component/user_center/model/user/user.go" beforeDir="false" afterPath="$PROJECT_DIR$/component/user/model/user/user.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -124,8 +127,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Go Build.go build bigCitySmallHouse/component/gateway" />
         <item itemvalue="Go Build.go build bigCitySmallHouse/component/user_center" />
+        <item itemvalue="Go Build.go build bigCitySmallHouse/component/gateway" />
         <item itemvalue="Go Build.go build bigCitySmallHouse/demo/etcd" />
         <item itemvalue="Go Test.TestRegister in bigCitySmallHouse/component/etcd (1)" />
         <item itemvalue="Go Build.go build bigCitySmallHouse/component/etcd/tmp" />
@@ -148,7 +151,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="[leyoujia] single parser" />
     <MESSAGE value="[删除无用目录]" />
     <MESSAGE value="[leyoujia] 优化空视频url" />
     <MESSAGE value="[leyoujia] 爬取基本完成，除了有重复数据" />
@@ -173,7 +175,8 @@
     <MESSAGE value="[cdn] 图片服务器" />
     <MESSAGE value="房源上架" />
     <MESSAGE value="etcd demo" />
-    <option name="LAST_COMMIT_MESSAGE" value="etcd demo" />
+    <MESSAGE value="etcd and gateway" />
+    <option name="LAST_COMMIT_MESSAGE" value="etcd and gateway" />
   </component>
   <component name="VgoProject">
     <settings-migrated>true</settings-migrated>

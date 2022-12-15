@@ -60,7 +60,7 @@ func main() {
 		tHouse.UpdateAt = time.Now()
 
 		filter := bson.D{
-			//{"house.uid", tHouse.House.UId},
+			//{"house.uid", tHouse.House.UserId},
 		}
 
 		result, err := coll.UpsertOne(filter, tHouse, options.Update())
